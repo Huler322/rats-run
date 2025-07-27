@@ -6,10 +6,12 @@ import { Text } from 'react-native';
 export const HeaderComponent = () => {
   const { currentUser } = useAppSelector(({ game }) => game);
 
+  console.log('currentUser', currentUser);
+
   return (
     <RowComponent styles="mb-2 p-2 rounded-md bg-gray-200">
       <Text style={tw`text-lg font-medium`}>Total Balance:</Text>
-      <Text style={tw`text-lg text-orange-500 font-bold`}>$ {currentUser.startingCapital}</Text>
+      <Text style={tw`text-lg text-orange-500 font-bold`}>$ {currentUser.currentCapital}</Text>
     </RowComponent>
   );
 };

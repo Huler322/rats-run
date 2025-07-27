@@ -56,9 +56,9 @@ export default function TabLayout() {
 
       <TouchableOpacity
         onPress={getSalary}
-        style={tw`absolute bottom-4 -translate-x-8 left-1/2 h-16 w-16 items-center justify-center rounded-full bg-orange-500 z-50`}
+        style={tw`absolute bottom-12 -translate-x-8 left-1/2 h-20 w-20 p-1 items-center justify-center rounded-full bg-orange-500 z-50`}
       >
-        <Text style={tw`text-center text-gray-900 font-bold`}>Get Salary</Text>
+        <Text style={tw`text-center text-base text-gray-900 font-bold`}>Get Salary</Text>
       </TouchableOpacity>
     </>
   );

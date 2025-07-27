@@ -26,7 +26,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/anatoliy/Desktop/work/self/rats-run",
+    "last_opened_file_path": "/Users/anatoliy/Desktop/work/self/rats-run/components/templates",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -43,6 +43,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/components/templates" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/slices" />
     </key>
@@ -83,7 +84,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1753619969633</updated>
-      <workItem from="1753619970917" duration="2572000" />
+      <workItem from="1753619970917" duration="3406000" />
     </task>
     <servers />
   </component>

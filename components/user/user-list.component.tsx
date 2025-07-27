@@ -1,14 +1,15 @@
 import { FC } from 'react';
-import { View } from 'react-native';
-import { IUser } from '@/store/types';
+
 import { UserItemComponent } from '@/components/user/user-item.component';
+import { IUser } from '@/store/types';
+import { View } from 'react-native';
 
 export const UserListComponent: FC<IProps> = ({ list }) => {
   return (
     <View>
-      {list.map((item) => (
-        <UserItemComponent item={item} />
-      ))}
+      {/*{list.map((item) => (*/}
+      {/*  <UserItemComponent item={item} />*/}
+      {/*))}*/}
     </View>
   );
 };

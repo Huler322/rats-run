@@ -1,19 +1,48 @@
 import React, { FC } from 'react';
 
+import { useInputStyles } from '@/hooks/use-input-styles';
 import tw from '@/lib/tailwind';
-import { TextInput } from 'react-native';
+import { FieldError } from 'react-hook-form';
+import { TextInput, Text, View } from 'react-native';
 
-export const InputComponent: FC<IProps> = ({ placeholder, style }) => {
+export const InputComponent: FC<IProps> = ({
+  value,
+  placeholder,
+  onChange,
+  label,
+  error,
+  styles,
+}) => {
+  const { focusStyle, onBlur, onFocus } = useInputStyles(error);
+
   return (
-    <TextInput
-      placeholder={placeholder}
-      placeholderTextColor="#9CA3AF"
-      style={tw`border-b-2 border-gray-300 pb-1 w-[240px] text-base text-stone-800 ${style ?? ''}`}
-    />
+    <View style={tw`pb-6 relative`}>
+      {label ? <Text style={tw`text-gray-900 ml-2 mb-2 font-medium`}>{label}</Text> : null}
+      <TextInput
+        autoCapitalize="none"
+        style={tw`placeholder:text-red-400 rounded-md px-4 py-3 border ${focusStyle} ${
+          styles ?? ''
+        } text-base leading-5`}
+        onChangeText={onChange}
+        value={value}
+        placeholder={placeholder ?? ''}
+        placeholderTextColor={'#6B7280'}
+        keyboardType="default"
+        onFocus={onFocus}
+        onBlur={onBlur}
+      />
+      {!!error ? (
+        <Text style={tw`absolute bottom-0 left-2 text-red-700 text-sm`}>{error.message}</Text>
+      ) : null}
+    </View>
   );
 };
 
 interface IProps {
+  value: string;
+  label?: string;
+  onChange: (v: string) => void;
+  error?: FieldError;
   placeholder?: string;
-  style?: string;
+  styles?: string;
 }

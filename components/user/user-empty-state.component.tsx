@@ -3,6 +3,8 @@ import React from 'react';
 import { ButtonComponent } from '@/components/buttons/button.component';
 import { isAndroidPlatform } from '@/constants';
 import tw from '@/lib/tailwind';
+import { TypeNavigation } from '@/types';
+import { useRouter } from 'expo-router';
 import {
   View,
   Text,
@@ -13,6 +15,13 @@ import {
 } from 'react-native';
 
 export const UserEmptyStateComponent = () => {
+  const navigation = useRouter();
+
+  const createUser = () => {
+    // @ts-ignore
+    navigation.push(TypeNavigation.CREATE_OR_EDIT_USER);
+  };
+
   return (
     <SafeAreaView style={tw`w-full h-full py-10 ${isAndroidPlatform ? 'pt-15' : ''} `}>
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -24,7 +33,7 @@ export const UserEmptyStateComponent = () => {
         >
           <View style={tw`flex-1 h-full items-center justify-around`}>
             <Text style={tw`text-xl mb-4 text-center font-bold`}>No active users yet</Text>
-            <ButtonComponent title={'Add New User'} />
+            <ButtonComponent title={'Add New User'} onPress={createUser} />
           </View>
         </ImageBackground>
       </TouchableWithoutFeedback>

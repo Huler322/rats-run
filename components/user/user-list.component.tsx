@@ -1,5 +1,6 @@
 import { FC } from 'react';
 
+import { CreateUserItem } from '@/components/user/create-user-item.component';
 import { UserItemComponent } from '@/components/user/user-item.component';
 import tw from '@/lib/tailwind';
 import { IUser } from '@/store/types';
@@ -11,6 +12,7 @@ export const UserListComponent: FC<IProps> = ({ list }) => {
       {list.map((item, key) => (
         <UserItemComponent item={item} key={key} />
       ))}
+      <CreateUserItem />
     </View>
   );
 };

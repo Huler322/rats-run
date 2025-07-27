@@ -1,0 +1,9 @@
+vite.config.ts
+src/vite-env.d.ts
+dist
+android/
+.idea/
+.expo/
+ios/
+node_modules/
+src/modules/

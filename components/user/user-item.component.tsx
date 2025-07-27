@@ -1,20 +1,28 @@
 import { FC } from 'react';
 
 import tw from '@/lib/tailwind';
-import { setCurrentUser } from '@/slices/game.slice';
+import { deleteUserInList, setCurrentUser } from '@/slices/game.slice';
 import { useAppDispatch } from '@/store';
 import { IUser } from '@/store/types';
 import { TypeNavigation } from '@/types';
 import { AntDesign } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Alert } from 'react-native';
 
 export const UserItemComponent: FC<IProps> = ({ item }) => {
   const navigation = useRouter();
 
   const dispatch = useAppDispatch();
 
-  const openDeleteUserModal = () => {};
+  const openDeleteUserModal = () => {
+    Alert.alert('Alert Title', 'My Alert Msg', [
+      {
+        style: 'cancel',
+        text: 'Keep',
+      },
+      { onPress: () => dispatch(deleteUserInList(item)), text: 'Delete' },
+    ]);
+  };
 
   const openGame = () => {
     dispatch(setCurrentUser(item));
@@ -24,7 +32,7 @@ export const UserItemComponent: FC<IProps> = ({ item }) => {
   return (
     <TouchableOpacity onPress={openGame}>
       <View
-        style={tw`mt-5 bg-gray-900 rounded-2xl px-4 py-5 flex justify-between items-center flex-row border border-gray-200 `}
+        style={tw`mb-5 bg-gray-900 rounded-2xl px-4 py-5 flex justify-between items-center flex-row border border-gray-200 `}
       >
         <View style={tw`flex flex-row items-start`}>
           <AntDesign name="user" size={24} color="white" />

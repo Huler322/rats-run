@@ -5,7 +5,7 @@ import { useAppSelector } from '@/store';
 
 const RootScreen = () => {
   const { user } = useAppSelector(({ game }) => game);
-
+  console.log('user?.list', user?.list);
   if (!user?.list?.length) return <UserEmptyStateComponent />;
 
   return (

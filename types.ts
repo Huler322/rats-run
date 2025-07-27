@@ -5,6 +5,8 @@ export enum TypeNavigation {
 
   TABS = '(tabs)',
 
+  CREATE_OR_EDIT_USER = 'create-or-edit-user/form',
+
   NOT_FOUND = '+not-found',
 }
 

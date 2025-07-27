@@ -1,8 +1,8 @@
+import { gameSlice } from '@/slices/game.slice';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector as rawUseSelector } from 'react-redux';
 import { persistReducer, persistStore } from 'redux-persist';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { gameSlice } from '@/slices/game.slice';
 
 const persistVersion = 3;
 
@@ -14,7 +14,7 @@ const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
   version: persistVersion,
-  whitelist: [],
+  whitelist: ['game'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

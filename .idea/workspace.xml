@@ -5,11 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df448400-5184-4a49-988c-f3205425981c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/create-or-edit-user/form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/user/create-user-item.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/helpers/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hooks/use-input-styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.expo/types/router.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.expo/types/router.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/create-user/user-info.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/buttons/button.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/buttons/button.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/inputs/input.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/inputs/input.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/user/user-empty-state.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/user/user-empty-state.component.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/user/user-item.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/user/user-item.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/user/user-list.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/user/user-list.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/form/user-info.hook.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/form/user-info.hook.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/slices/game.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/slices/game.slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +39,9 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="30STRnF3CvW9qkpFlvzXvqQUCrh" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -33,7 +52,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/anatoliy/Desktop/work/self/rats-run/components/templates",
+    "last_opened_file_path": "/Users/anatoliy/Desktop/work/self/rats-run/hooks",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -50,6 +69,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/hooks" />
       <recent name="$PROJECT_DIR$/components/templates" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/slices" />
@@ -92,7 +112,8 @@
       <option name="presentableId" value="Default" />
       <updated>1753619969633</updated>
       <workItem from="1753619970917" duration="10392000" />
-      <workItem from="1753630832209" duration="846000" />
+      <workItem from="1753630832209" duration="2475000" />
+      <workItem from="1753633656007" duration="6485000" />
     </task>
     <servers />
   </component>

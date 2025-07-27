@@ -1,10 +1,10 @@
-import { View } from 'react-native';
 import { ButtonComponent } from '@/components/buttons/button.component';
-import { useBuyStocks } from '@/hooks/useBuyStocks';
+import { InputComponent } from '@/components/inputs/input.component';
 import { RowComponent } from '@/components/UI/row.component';
+import { useBuyStocks } from '@/hooks/use-buy-stocks';
 import tw from '@/lib/tailwind';
 import { Controller } from 'react-hook-form';
-import { InputComponent } from '@/components/inputs/input.component';
+import { View } from 'react-native';
 
 export const BuyBigBusinessFormComponent = () => {
   const {

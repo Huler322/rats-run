@@ -1,7 +1,7 @@
-import { View, Text } from 'react-native';
 import { RowComponent } from '@/components/UI/row.component';
 import tw from '@/lib/tailwind';
 import { AntDesign } from '@expo/vector-icons';
+import { View, Text } from 'react-native';
 
 const bigBusinessList = [
   { id: 1, income: 2000, price: 25000 },

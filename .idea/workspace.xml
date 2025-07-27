@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df448400-5184-4a49-988c-f3205425981c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/header/header.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/useBuyStocks.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/stocks/buy-stocks-form.components.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/stocks/sell-stocks-form.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/stocks/stock-item.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/stocks/stock-items-header.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hooks/useSellStocks.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/poorCircle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/poorCircle.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/richCircle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/richCircle.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(tabs)/stocks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/stocks.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/buttons/button.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/buttons/button.component.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +41,7 @@
     &quot;git-widget-placeholder&quot;: &quot;development&quot;,
     &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/margosha/Desktop/WORK/rats-run/app/(tabs)&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/margosha/Desktop/WORK/rats-run/hooks&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -57,6 +58,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/hooks" />
       <recent name="$PROJECT_DIR$/app/(tabs)" />
       <recent name="$PROJECT_DIR$/components/templates" />
       <recent name="$PROJECT_DIR$" />

@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df448400-5184-4a49-988c-f3205425981c" name="Changes" comment="Merge remote-tracking branch 'origin/development'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;components/buttons/button.component.tsx">
-      <change afterPath="$PROJECT_DIR$/components/poor-circle/big-business-list.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/poor-circle/buy-big-business-form.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/poor-circle/buy-small-business-form.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/poor-circle/small-business-list.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/rich-circle/rich-business-list.component.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/poorCircle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/poorCircle.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header/header.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/header.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/richCircle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/richCircle.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +103,7 @@
       <workItem from="1753619970917" duration="10392000" />
       <workItem from="1753630832209" duration="2475000" />
       <workItem from="1753633656007" duration="6485000" />
-      <workItem from="1753647411261" duration="2005000" />
+      <workItem from="1753647411261" duration="2947000" />
     </task>
     <servers />
   </component>

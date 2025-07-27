@@ -1,13 +1,16 @@
-import { View, Text } from 'react-native';
-import { ContainerComponent } from '@/components/templates/container.component';
+import { UserListComponent } from '@/components/user/user-list.component';
+import { ContainerScrollComponent } from '@/components/templates/container-scroll.component';
+import { useAppSelector } from '@/store';
 
 const RootScreen = () => {
+  const { user } = useAppSelector(({ game }) => game);
+
+  if (!user?.list?.length) return null;
+
   return (
-    <ContainerComponent>
-      <View>
-        <Text>adasdas</Text>
-      </View>
-    </ContainerComponent>
+    <ContainerScrollComponent>
+      <UserListComponent list={user?.list} />
+    </ContainerScrollComponent>
   );
 };
 

@@ -1,4 +1,4 @@
-import { ContainerComponent } from '@/components/templates/container.component';
+import { ContainerComponent } from '@/components/templates/container-scroll.component';
 import { FC } from 'react';
 
 const UserInfo: FC = () => {

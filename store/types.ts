@@ -12,6 +12,7 @@ export interface IGameState {
 }
 
 export interface IUser {
+  id: string;
   name: string;
   status: UserStatus;
   profession: string;

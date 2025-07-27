@@ -1,65 +1,158 @@
+import { getTotalSpending } from '@/helpers/balance-helper';
 import { IStore, IUser } from '@/store/types';
-import { UserStatus } from '@/types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import Decimal from 'decimal.js';
 
 const initialState = {
   currentUser: null,
   user: {
-    list: [
-      // {
-      //   dream: {
-      //     name: 'But Lambo',
-      //     price: '1000000',
-      //   },
-      //   id: '1',
-      //   name: 'Test',
-      //   profession: 'profession',
-      //   salary: { salary: '100' },
-      //   spending: {
-      //     apartments: '200',
-      //     child: '70',
-      //     clothes: '50',
-      //     creditApartments: {
-      //       full: '20000',
-      //       month: '200',
-      //     },
-      //     creditCar: {
-      //       full: '20000',
-      //       month: '200',
-      //     },
-      //     education: '100',
-      //
-      //     food: '300',
-      //     internet: '0',
-      //     travel: '10',
-      //   },
-      //   startingCapital: '550',
-      //   status: UserStatus.created,
-      // },
-    ],
+    list: [],
     total: 1,
   },
 } as IStore['game'];
 
 export const gameSlice = createSlice({
-  extraReducers: (builder) => {
-    // builder.addCase(getMyUser.fulfilled, (state, action) => {
-    //   state.currentUser = new User(action.payload);
-    // });
-  },
   initialState,
   name: 'game',
   reducers: {
     clearCurrentUser: (state) => {
       state.currentUser = initialState.currentUser;
     },
+    closeCreditApartment: (state, action: PayloadAction<IUser>) => {
+      if (!state.currentUser) return;
+      const totalCapital = new Decimal(state.currentUser.currentCapital)
+        .minus(new Decimal(action.payload.spending.creditApartments.full))
+        .toString();
+      const updatedUser = {
+        ...state.currentUser,
+        currentCapital: totalCapital,
+        spending: {
+          ...state.currentUser.spending,
+          creditApartments: {
+            full: '0',
+            month: '0',
+          },
+        },
+      };
+      state.currentUser = updatedUser;
+      state.user.list = state.user.list.map((item) => {
+        if (item.id === action.payload.id) {
+          return updatedUser;
+        }
+        return item;
+      });
+    },
+    closeCreditCar: (state, action: PayloadAction<IUser>) => {
+      if (!state.currentUser) return;
+      const totalCapital = new Decimal(state.currentUser.currentCapital)
+        .minus(new Decimal(action.payload.spending.creditCar.full))
+        .toString();
+      const updatedUser = {
+        ...state.currentUser,
+        currentCapital: totalCapital,
+        spending: {
+          ...state.currentUser.spending,
+          creditCar: {
+            full: '0',
+            month: '0',
+          },
+        },
+      };
+      state.currentUser = updatedUser;
+      state.user.list = state.user.list.map((item) => {
+        if (item.id === action.payload.id) {
+          return updatedUser;
+        }
+        return item;
+      });
+    },
     deleteUserInList: (state, action: PayloadAction<IUser>) => {
       const list = state.user.list.filter((item) => item.id !== action.payload.id);
       state.user.list = list;
       state.user.total = list.length;
     },
+    minusChild: (state, action: PayloadAction<IUser>) => {
+      if (!state.currentUser) return;
+      const countChild = parseInt(state.currentUser.spending.child.count) - 1;
+      const totalSpending = getTotalSpending(action.payload);
+      const updatedUser = {
+        ...state.currentUser,
+        currentCapital: totalSpending.toString(),
+        spending: {
+          ...state.currentUser.spending,
+          child: {
+            ...state.currentUser.spending.child,
+            count: countChild.toString(),
+          },
+        },
+      };
+      state.currentUser = updatedUser;
+      state.user.list = state.user.list.map((item) => {
+        if (item.id === action.payload.id) {
+          return updatedUser;
+        }
+        return item;
+      });
+    },
+    plusChild: (state, action: PayloadAction<IUser>) => {
+      if (!state.currentUser) return;
+      const countChild = parseInt(state.currentUser.spending.child.count) + 1;
+      const totalSpending = getTotalSpending(action.payload);
+      const updatedUser = {
+        ...state.currentUser,
+        currentCapital: totalSpending.toString(),
+        spending: {
+          ...state.currentUser.spending,
+          child: {
+            ...state.currentUser.spending.child,
+            count: countChild.toString(),
+          },
+        },
+      };
+      state.currentUser = updatedUser;
+      state.user.list = state.user.list.map((item) => {
+        if (item.id === action.payload.id) {
+          return updatedUser;
+        }
+        return item;
+      });
+    },
     setCurrentUser: (state, action: PayloadAction<IUser>) => {
       state.currentUser = action.payload;
+    },
+    setGrandfatherValue: (state, action: PayloadAction<{ value: string; id: string }>) => {
+      if (!state.currentUser) return;
+      const updatedUser = {
+        ...state.currentUser,
+        spending: {
+          ...state.currentUser.spending,
+          caringGrandfather: action.payload.value,
+        },
+      };
+      state.currentUser = updatedUser;
+      state.user.list = state.user.list.map((item) => {
+        if (item.id === action.payload.id) {
+          return updatedUser;
+        }
+        return item;
+      });
+    },
+    setGrandmotherValue: (state, action: PayloadAction<{ value: string; id: string }>) => {
+      if (!state.currentUser) return;
+      const updatedUser = {
+        ...state.currentUser,
+        spending: {
+          ...state.currentUser.spending,
+          caringGrandmother: action.payload.value,
+        },
+      };
+      state.currentUser = updatedUser;
+      state.user.list = state.user.list.map((item) => {
+        if (item.id === action.payload.id) {
+          return updatedUser;
+        }
+        return item;
+      });
     },
     setUserInList: (state, action: PayloadAction<IUser>) => {
       const list = [...state.user.list, action.payload];
@@ -70,5 +163,15 @@ export const gameSlice = createSlice({
   },
 });
 
-export const { setCurrentUser, setUserInList, clearCurrentUser, deleteUserInList } =
-  gameSlice.actions;
+export const {
+  setCurrentUser,
+  setUserInList,
+  clearCurrentUser,
+  deleteUserInList,
+  closeCreditApartment,
+  minusChild,
+  closeCreditCar,
+  plusChild,
+  setGrandfatherValue,
+  setGrandmotherValue,
+} = gameSlice.actions;

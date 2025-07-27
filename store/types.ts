@@ -20,8 +20,7 @@ export interface IUser {
   salary: ISalary;
   dream: IDream;
   spending: ISpending;
-  startingCapital: string;
-  countOfChildren?: string;
+  currentCapital: string;
 }
 
 export interface IDream {
@@ -36,11 +35,16 @@ export interface ISpending {
   clothes: string;
   internet: string;
   travel: string;
-  child: string;
+  child: IChild;
   creditApartments: ICredit;
   creditCar: ICredit;
   caringGrandfather?: string;
   caringGrandmother?: string;
+}
+
+export interface IChild {
+  count: string;
+  cost: string;
 }
 
 export interface ICredit {

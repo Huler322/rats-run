@@ -17,7 +17,7 @@ export const UserDreamInfoComponent: FC<IProps> = ({ currentUser }) => {
         <AntDesign name="delete" size={24} color="red" onPress={openDeleteUserModal} />
       </RowComponent>
 
-      <RowComponent styles="px-4 py-3 border-b border-gray-600">
+      <RowComponent styles="px-4 py-5 border-b border-gray-600">
         <RowComponent>
           <FontAwesome5 name="flag" size={18} style={tw`text-gray-300 mr-2`} />
           <Text style={tw`text-base text-gray-300`}>Dream price</Text>
@@ -27,7 +27,7 @@ export const UserDreamInfoComponent: FC<IProps> = ({ currentUser }) => {
         </RowComponent>
       </RowComponent>
 
-      <RowComponent styles="px-4 py-3 border-b border-gray-600">
+      <RowComponent styles="px-4 py-5 border-b border-gray-600">
         <RowComponent>
           <FontAwesome5 name="dollar-sign" size={16} style={tw`text-gray-300 mr-2`} />
           <Text style={tw`text-base text-gray-300`}>Dream price</Text>
@@ -37,7 +37,7 @@ export const UserDreamInfoComponent: FC<IProps> = ({ currentUser }) => {
         </RowComponent>
       </RowComponent>
 
-      <RowComponent styles="px-4 py-3">
+      <RowComponent styles="px-4 py-5">
         <View style={tw`flex-row items-center`}>
           <FontAwesome5 name="briefcase" size={16} style={tw`text-gray-300 mr-2`} />
           <Text style={tw`text-base text-gray-300`}>Profession</Text>

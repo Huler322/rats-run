@@ -16,7 +16,10 @@ export interface IUserFormInput {
     clothes: string;
     internet: string;
     travel: string;
-    child: string;
+    child: {
+      count: string;
+      cost: string;
+    };
     creditApartments: {
       full: string;
       month: string;
@@ -26,7 +29,7 @@ export interface IUserFormInput {
       month: string;
     };
   };
-  startingCapital: string;
+  currentCapital: string;
 }
 
 export const useFormUserInfo = (): UseFormReturn<IUserFormInput> => {
@@ -67,15 +70,19 @@ export const useFormUserInfo = (): UseFormReturn<IUserFormInput> => {
     requireInt('dream.price', values.dream.price);
     require('dream.name', values.dream.name);
     requireInt('salary.salary', values.salary.salary);
-    requireInt('startingCapital', values.startingCapital);
+    requireInt('currentCapital', values.currentCapital);
 
     requireInt('spending.apartments', values.spending.apartments);
     requireInt('spending.food', values.spending.food);
-    requireInt('spending.education', values.spending.education);
+
+    if (values.spending.education) {
+      requireInt('spending.education', values.spending.education);
+    }
+
     requireInt('spending.clothes', values.spending.clothes);
     requireInt('spending.internet', values.spending.internet);
     requireInt('spending.travel', values.spending.travel);
-    requireInt('spending.child', values.spending.child);
+    requireInt('spending.child', values.spending.child.cost);
 
     if (values.spending.creditApartments.full) {
       requireInt('spending.creditApartments.full', values.spending.creditApartments.full);

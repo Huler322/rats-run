@@ -11,13 +11,17 @@ export const InputComponent: FC<IProps> = ({
   onChange,
   label,
   error,
+  keyboardType,
   styles,
+  stylesLabel,
 }) => {
   const { focusStyle, onBlur, onFocus } = useInputStyles(error);
 
   return (
     <View style={tw`pb-6 relative`}>
-      {label ? <Text style={tw`text-gray-900 ml-2 mb-2 font-medium`}>{label}</Text> : null}
+      {label ? (
+        <Text style={tw`text-gray-900 ml-2 mb-2 font-medium ${stylesLabel ?? ''}`}>{label}</Text>
+      ) : null}
       <TextInput
         autoCapitalize="none"
         style={tw`placeholder:text-red-400 rounded-md px-4 py-3 border ${focusStyle} ${
@@ -27,7 +31,7 @@ export const InputComponent: FC<IProps> = ({
         value={value}
         placeholder={placeholder ?? ''}
         placeholderTextColor={'#6B7280'}
-        keyboardType="default"
+        keyboardType={keyboardType ?? 'default'}
         onFocus={onFocus}
         onBlur={onBlur}
       />
@@ -44,5 +48,13 @@ interface IProps {
   onChange: (v: string) => void;
   error?: FieldError;
   placeholder?: string;
+  keyboardType?:
+    | 'default'
+    | 'number-pad'
+    | 'email-address'
+    | 'phone-pad'
+    | 'numeric'
+    | 'ascii-capable';
   styles?: string;
+  stylesLabel?: string;
 }

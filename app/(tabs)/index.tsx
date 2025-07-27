@@ -6,6 +6,8 @@ import { useAppSelector } from '@/store';
 export default function HomeScreen() {
   const { currentUser } = useAppSelector(({ game }) => game);
 
+  if (!currentUser) return null;
+
   return (
     <ContainerScrollComponent styles={'bg-white'}>
       <UserDreamInfoComponent currentUser={currentUser} />

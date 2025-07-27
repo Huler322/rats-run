@@ -27,12 +27,17 @@ const Form = () => {
 
   const onSave = () => {
     const values = getValues();
-    console.log('onSave values', values);
     const id = generateNonce();
-    console.log('id', id);
     const createdUser: IUser = {
       ...values,
       id,
+      spending: {
+        ...values.spending,
+        child: {
+          cost: values.spending.child.cost,
+          count: '0',
+        },
+      },
       status: UserStatus.created,
     };
     dispatch(setUserInList(createdUser));
@@ -155,11 +160,11 @@ const Form = () => {
                 value={value}
                 onChange={onChange}
                 placeholder={'Enter your start capital'}
-                error={errors.startingCapital}
-                label={'Capital'}
+                error={errors.currentCapital}
+                label={'Starting Capital'}
               />
             )}
-            name="startingCapital"
+            name="currentCapital"
             defaultValue=""
           />
         </View>
@@ -258,11 +263,11 @@ const Form = () => {
                 value={value}
                 onChange={onChange}
                 placeholder={'Enter your child costs'}
-                error={errors?.spending?.child}
+                error={errors?.spending?.child?.cost}
                 label={'Child costs'}
               />
             )}
-            name="spending.child"
+            name="spending.child.cost"
             defaultValue=""
           />
         </View>

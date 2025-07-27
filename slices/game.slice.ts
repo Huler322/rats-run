@@ -1,29 +1,24 @@
-import { createSlice } from '@reduxjs/toolkit';
-
-import { IStore } from '@/store/types';
+import { IStore, IUser } from '@/store/types';
 import { UserStatus } from '@/types';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState = {
+  currentUser: null,
   user: {
     list: [
       {
-        id: '1',
-        name: 'Test',
-        status: UserStatus.created,
-        profession: 'profession',
-        salary: { salary: '100' },
         dream: {
           name: 'But Lambo',
           price: '1000000',
         },
+        id: '1',
+        name: 'Test',
+        profession: 'profession',
+        salary: { salary: '100' },
         spending: {
           apartments: '200',
-          food: '300',
-          education: '100',
-          clothes: '50',
-          internet: '0',
-          travel: '10',
           child: '70',
+          clothes: '50',
           creditApartments: {
             full: '20000',
             month: '200',
@@ -32,8 +27,14 @@ const initialState = {
             full: '20000',
             month: '200',
           },
+          education: '100',
+
+          food: '300',
+          internet: '0',
+          travel: '10',
         },
         startingCapital: '550',
+        status: UserStatus.created,
       },
     ],
     total: 1,
@@ -48,7 +49,14 @@ export const gameSlice = createSlice({
   },
   initialState,
   name: 'game',
-  reducers: {},
+  reducers: {
+    clearCurrentUser: (state) => {
+      state.currentUser = initialState.currentUser;
+    },
+    setCurrentUser: (state, action: PayloadAction<IUser>) => {
+      state.currentUser = action.payload;
+    },
+  },
 });
 
-export const {} = gameSlice.actions;
+export const { setCurrentUser, clearCurrentUser } = gameSlice.actions;

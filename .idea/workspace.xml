@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df448400-5184-4a49-988c-f3205425981c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/user/user-item.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/user/user-item.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slices/game.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/slices/game.slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,20 +17,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="30STRnF3CvW9qkpFlvzXvqQUCrh" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -37,20 +31,20 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "development",
-    "js.linters.configure.manually.selectedeslint": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "/Users/anatoliy/Desktop/work/self/rats-run/components/templates",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "/Users/margosha/Desktop/WORK/rats-run/node_modules/eslint",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "npm.start.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "/Users/margosha/Desktop/WORK/rats-run/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.typescriptcompiler",
-    "ts.external.directory.path": "/Users/margosha/Desktop/WORK/rats-run/node_modules/typescript/lib",
+    "prettierjs.PrettierConfiguration.Package": "/Users/anatoliy/Desktop/work/self/rats-run/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Users/anatoliy/Desktop/work/self/rats-run/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -75,15 +69,13 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
-        <item itemvalue="npm.start" />
-        <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-WS-241.14494.235" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-WS-251.27812.50" />
       </set>
     </attachedChunks>
   </component>
@@ -100,6 +92,7 @@
       <option name="presentableId" value="Default" />
       <updated>1753619969633</updated>
       <workItem from="1753619970917" duration="10392000" />
+      <workItem from="1753630832209" duration="846000" />
     </task>
     <servers />
   </component>

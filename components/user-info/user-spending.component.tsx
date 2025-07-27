@@ -1,5 +1,6 @@
 import { FC } from 'react';
 
+import { ButtonComponent } from '@/components/buttons/button.component';
 import { InputComponent } from '@/components/inputs/input.component';
 import { RowComponent } from '@/components/UI/row.component';
 import { getTotalSpending } from '@/helpers/balance-helper';
@@ -85,28 +86,27 @@ export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
               Credit Apts ($ {currentUser.spending.creditApartments.full})
             </Text>
           </View>
-          <RowComponent styles="items-end">
-            <Text style={tw`text-base text-orange-400 font-semibold mr-2`}>
-              $ {currentUser.spending.creditApartments.month}
-            </Text>
-            <AntDesign name="checkcircle" size={24} style={tw`text-red-400`} />
-          </RowComponent>
+          <Text style={tw`text-base text-orange-400 font-semibold`}>
+            $ {currentUser.spending.creditApartments.month}
+          </Text>
         </RowComponent>
 
-        <RowComponent styles="px-4 py-3 border-b border-gray-600 ">
-          <View style={tw`flex-row items-center`}>
-            <AntDesign name="car" size={16} style={tw`text-orange-400`} />
-            <Text style={tw`text-base text-gray-300 ml-2`}>
-              Credit car ($ {currentUser.spending.creditCar.full})
-            </Text>
-          </View>
-          <RowComponent styles="items-end">
+        <View style={tw`border-b border-gray-600 px-4 py-3`}>
+          <RowComponent>
+            <View style={tw`flex-row items-center`}>
+              <AntDesign name="car" size={16} style={tw`text-orange-400`} />
+              <Text style={tw`text-base text-gray-300 ml-2`}>
+                Credit car ($ {currentUser.spending.creditCar.full})
+              </Text>
+            </View>
             <Text style={tw`text-base text-orange-400 font-semibold mr-2`}>
               $ {currentUser.spending.creditCar.month}
             </Text>
-            <AntDesign name="checkcircle" size={24} style={tw`text-red-400`} />
           </RowComponent>
-        </RowComponent>
+          <RowComponent styles="justify-end mt-2">
+            <ButtonComponent title="Close credit" onPress={() => {}} />
+          </RowComponent>
+        </View>
 
         <RowComponent styles="px-4 py-3 border-b border-gray-600 ">
           <View style={tw`flex-row items-center`}>
@@ -115,7 +115,7 @@ export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
           </View>
           <View style={tw`flex-row items-center`}>
             <InputComponent
-              style="w-16 text-center text-gray-100 mr-4"
+              style="w-16 text-center text-gray-100 mr-4 mb-0"
               placeholder="0"
               keyboardType="numeric"
             />
@@ -133,7 +133,7 @@ export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
           <View style={tw`flex-row items-center`}>
             <Text style={tw`text-base text-orange-400 font-semibold mr-1`}>$</Text>
             <InputComponent
-              style="w-16 text-center text-gray-100"
+              style="w-16 text-center text-gray-100  mb-0"
               placeholder="0"
               keyboardType="numeric"
             />
@@ -148,7 +148,7 @@ export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
           <View style={tw`flex-row items-center`}>
             <Text style={tw`text-base text-orange-400 font-semibold mr-1`}>$</Text>
             <InputComponent
-              style="w-16 text-center text-gray-100"
+              style="w-16 text-center text-gray-100 mb-0"
               placeholder="0"
               keyboardType="numeric"
             />

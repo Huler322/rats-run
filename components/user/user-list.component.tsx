@@ -8,8 +8,8 @@ import { View } from 'react-native';
 export const UserListComponent: FC<IProps> = ({ list }) => {
   return (
     <View style={tw`flex flex-col`}>
-      {list.map((item) => (
-        <UserItemComponent item={item} />
+      {list.map((item, key) => (
+        <UserItemComponent item={item} key={key} />
       ))}
     </View>
   );

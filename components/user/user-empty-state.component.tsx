@@ -14,7 +14,7 @@ import {
 
 export const UserEmptyStateComponent = () => {
   return (
-    <SafeAreaView style={tw`w-full h-full bg-base py-10 ${isAndroidPlatform ? 'pt-15' : ''} `}>
+    <SafeAreaView style={tw`w-full h-full py-10 ${isAndroidPlatform ? 'pt-15' : ''} `}>
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
         <ImageBackground
           source={require('../../assets/images/empty-state.png')}

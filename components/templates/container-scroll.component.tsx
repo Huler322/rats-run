@@ -7,7 +7,7 @@ import { SafeAreaView, ScrollView, View } from 'react-native';
 export const ContainerScrollComponent: FC<IProps> = ({ children, styles, header }) => {
   return (
     <SafeAreaView
-      style={tw`w-full h-full bg-base py-10 ${isAndroidPlatform ? 'pt-15' : ''} ${
+      style={tw`w-full h-full bg-base py-10 bg-gray-200 ${isAndroidPlatform ? 'pt-15' : ''} ${
         styles ?? ''
       } relative `}
     >

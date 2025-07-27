@@ -1,0 +1,61 @@
+import { View } from 'react-native';
+import { ButtonComponent } from '@/components/buttons/button.component';
+import { useBuyStocks } from '@/hooks/useBuyStocks';
+import { RowComponent } from '@/components/UI/row.component';
+import tw from '@/lib/tailwind';
+import { Controller } from 'react-hook-form';
+import { InputComponent } from '@/components/inputs/input.component';
+
+export const BuyBigBusinessFormComponent = () => {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+    getValues,
+    // reset,
+  } = useBuyStocks();
+
+  const onBuyBigBusiness = () => {};
+
+  return (
+    <RowComponent>
+      <View style={tw`w-[35%]`}>
+        <Controller
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <InputComponent
+              value={value}
+              onChange={onChange}
+              placeholder={'1390'}
+              // error={errors.name}
+              label={'Business price'}
+            />
+          )}
+          name="name"
+          defaultValue=""
+        />
+      </View>
+      <View style={tw`w-[35%]`}>
+        <Controller
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <InputComponent
+              value={value}
+              onChange={onChange}
+              placeholder={'125'}
+              // error={errors.name}
+              label={'Income'}
+            />
+          )}
+          name="name"
+          defaultValue=""
+        />
+      </View>
+      <ButtonComponent
+        title="Buy Big"
+        styles="w-[28%] px-2"
+        onPress={handleSubmit(onBuyBigBusiness)}
+      />
+    </RowComponent>
+  );
+};

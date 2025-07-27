@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df448400-5184-4a49-988c-f3205425981c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/buttons/button.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/inputs/input.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/templates/container-scroll.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/user/user-empty-state.component.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/create-user/user-info.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/create-user/user-info.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/user/user-item.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/user/user-item.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/templates/container.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/templates/container.component.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/user/user-list.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/user/user-list.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slices/game.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/slices/game.slice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +44,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "development",
+    "git-widget-placeholder": "Merging development",
     "js.linters.configure.manually.selectedeslint": "true",
     "last_opened_file_path": "/Users/anatoliy/Desktop/work/self/rats-run/components/templates",
     "node.js.detected.package.eslint": "true",
@@ -51,7 +56,7 @@
     "nodejs_package_manager_path": "npm",
     "npm.start.executor": "Run",
     "prettierjs.PrettierConfiguration.Package": "/Users/margosha/Desktop/WORK/rats-run/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+    "settings.editor.selected.configurable": "settings.typescriptcompiler",
     "ts.external.directory.path": "/Users/margosha/Desktop/WORK/rats-run/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -77,6 +82,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
   </component>
@@ -99,7 +105,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1753619969633</updated>
-      <workItem from="1753619970917" duration="7249000" />
+      <workItem from="1753619970917" duration="7632000" />
     </task>
     <servers />
   </component>

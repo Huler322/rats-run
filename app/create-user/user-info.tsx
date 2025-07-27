@@ -1,5 +1,6 @@
-import { ContainerComponent } from '@/components/templates/container.component';
 import { FC } from 'react';
+
+import { ContainerComponent } from '@/components/templates/container.component';
 
 const UserInfo: FC = () => {
   return (

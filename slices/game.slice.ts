@@ -3,7 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import { IStore } from '@/store/types';
 
 const initialState = {
-  user: null,
+  user: {
+    list: [],
+    total: 0,
+  },
 } as IStore['game'];
 
 export const gameSlice = createSlice({

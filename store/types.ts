@@ -9,7 +9,20 @@ export interface IGameState {
     list: IUser[] | [];
     total: number;
   };
+  stock: Record<
+    string,
+    {
+      list: IStockState[];
+    }
+  >;
   currentUser: IUser | null;
+}
+
+export interface IStockState {
+  id: string;
+  name: string;
+  count: string;
+  price: string;
 }
 
 export interface IUser {

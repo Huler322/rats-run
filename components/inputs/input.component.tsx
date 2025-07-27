@@ -12,6 +12,7 @@ export const InputComponent: FC<IProps> = ({
   label,
   error,
   keyboardType,
+  withMessage,
   styles,
   stylesLabel,
 }) => {
@@ -35,7 +36,7 @@ export const InputComponent: FC<IProps> = ({
         onFocus={onFocus}
         onBlur={onBlur}
       />
-      {!!error ? (
+      {!!error && withMessage ? (
         <Text style={tw`absolute bottom-0 left-2 text-red-700 text-sm`}>{error.message}</Text>
       ) : null}
     </View>
@@ -47,6 +48,7 @@ interface IProps {
   label?: string;
   onChange: (v: string) => void;
   error?: FieldError;
+  withMessage?: boolean;
   placeholder?: string;
   keyboardType?:
     | 'default'

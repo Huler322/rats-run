@@ -1,13 +1,18 @@
+import { FC } from 'react';
+
 import { ButtonComponent } from '@/components/buttons/button.component';
 import { InputComponent } from '@/components/inputs/input.component';
 import { RowComponent } from '@/components/UI/row.component';
-import { useBuyStocks } from '@/hooks/useBuyStocks';
+import { generateNonce } from '@/helpers';
+import { useBuyStocks } from '@/hooks/use-buy-stocks';
 import tw from '@/lib/tailwind';
+import { setStockInList } from '@/slices/game.slice';
 import { useAppDispatch } from '@/store';
+import { IUser } from '@/store/types';
 import { Controller } from 'react-hook-form';
 import { View } from 'react-native';
 
-export const BuyStocksFormComponents = () => {
+export const BuyStocksFormComponents: FC<IProps> = ({ currentUser }) => {
   const dispatch = useAppDispatch();
 
   const {
@@ -15,20 +20,16 @@ export const BuyStocksFormComponents = () => {
     handleSubmit,
     formState: { errors },
     getValues,
-    // reset,
+    reset,
   } = useBuyStocks();
 
   const onBuyStocks = () => {
-    // const values = getValues();
-    // console.log('onSave values', values);
-    // const id = generateNonce();
-    // console.log('id', id);
-    // const createdUser: IUser = {
-    //   ...values,
-    //   id,
-    //   status: UserStatus.created,
-    // };
-    // dispatch(setUserInList(createdUser));
+    const values = getValues();
+    console.log('onSave values', values);
+    const id = generateNonce();
+    console.log('{ ...values, id }', { ...values, id });
+    dispatch(setStockInList({ id: currentUser.id, stock: { ...values, id } }));
+    reset();
   };
 
   return (
@@ -42,7 +43,8 @@ export const BuyStocksFormComponents = () => {
                 value={value}
                 onChange={onChange}
                 placeholder={'Stock name'}
-                // error={errors.name}
+                error={errors.name}
+                withMessage={false}
                 label={'Stock name'}
               />
             )}
@@ -58,7 +60,8 @@ export const BuyStocksFormComponents = () => {
                 value={value}
                 onChange={onChange}
                 placeholder={'22'}
-                // error={errors.count}
+                withMessage={false}
+                error={errors.count}
                 label={'Count'}
               />
             )}
@@ -74,7 +77,8 @@ export const BuyStocksFormComponents = () => {
                 value={value}
                 onChange={onChange}
                 placeholder={'15'}
-                // error={errors.price}
+                withMessage={false}
+                error={errors.price}
                 label={'Price'}
               />
             )}
@@ -87,3 +91,7 @@ export const BuyStocksFormComponents = () => {
     </View>
   );
 };
+
+interface IProps {
+  currentUser: IUser;
+}

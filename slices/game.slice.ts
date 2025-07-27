@@ -1,10 +1,11 @@
 import { getTotalSpending } from '@/helpers/balance-helper';
-import { IStore, IUser } from '@/store/types';
+import { IStockState, IStore, IUser } from '@/store/types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Decimal from 'decimal.js';
 
 const initialState = {
   currentUser: null,
+  stock: {},
   user: {
     list: [],
     total: 1,
@@ -154,6 +155,14 @@ export const gameSlice = createSlice({
         return item;
       });
     },
+    setStockInList: (state, action: PayloadAction<{ id: string; stock: IStockState }>) => {
+      state.stock = {
+        ...state.stock,
+        [action.payload.id]: {
+          list: [...state.stock[action.payload.id]?.list, action.payload.stock],
+        },
+      };
+    },
     setUserInList: (state, action: PayloadAction<IUser>) => {
       const list = [...state.user.list, action.payload];
       state.user.list = list;
@@ -172,6 +181,7 @@ export const {
   minusChild,
   closeCreditCar,
   plusChild,
+  setStockInList,
   setGrandfatherValue,
   setGrandmotherValue,
 } = gameSlice.actions;

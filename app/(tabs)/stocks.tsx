@@ -3,22 +3,24 @@ import { BuyStocksFormComponents } from '@/components/stocks/buy-stocks-form.com
 import { StockItemComponent } from '@/components/stocks/stock-item.component';
 import { StockItemsHeaderComponent } from '@/components/stocks/stock-items-header.component';
 import { ContainerScrollComponent } from '@/components/templates/container-scroll.component';
+import { useAppSelector } from '@/store';
 import { View } from 'react-native';
 
-const stocks = [
-  { count: '15', name: 'GDV', price: '10' },
-  { count: '15', name: 'GDV', price: '10' },
-];
-
 export default function StocksScreen() {
+  const { currentUser, stock } = useAppSelector(({ game }) => game);
+
+  if (!currentUser?.id) return null;
+
+  const currentStockList = stock ? stock[currentUser.id]?.list : [];
+  console.log('currentStockList', currentStockList);
   return (
     <ContainerScrollComponent styles={'bg-white'} header={<HeaderComponent />}>
-      <BuyStocksFormComponents />
+      <BuyStocksFormComponents currentUser={currentUser} />
 
-      {stocks.length ? (
+      {currentStockList?.length ? (
         <View>
           <StockItemsHeaderComponent />
-          {stocks.map((stock, key) => (
+          {currentStockList?.map((stock, key) => (
             <View key={key}>
               <StockItemComponent stock={stock} />
             </View>

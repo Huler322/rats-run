@@ -1,3 +1,4 @@
+import { HeaderComponent } from '@/components/header/header.component';
 import { ContainerScrollComponent } from '@/components/templates/container-scroll.component';
 import { UserDreamInfoComponent } from '@/components/user-info/user-dream-info.component';
 import { UserSpendingComponent } from '@/components/user-info/user-spending.component';
@@ -9,7 +10,7 @@ export default function HomeScreen() {
   if (!currentUser) return null;
 
   return (
-    <ContainerScrollComponent styles={'bg-white'}>
+    <ContainerScrollComponent styles={'bg-white'} header={<HeaderComponent />}>
       <UserDreamInfoComponent currentUser={currentUser} />
       <UserSpendingComponent currentUser={currentUser} />
     </ContainerScrollComponent>

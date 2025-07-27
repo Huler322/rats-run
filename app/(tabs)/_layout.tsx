@@ -1,5 +1,6 @@
-import { Tabs } from 'expo-router';
 import React from 'react';
+
+import { Tabs } from 'expo-router';
 import { Platform } from 'react-native';
 
 export default function TabLayout() {
@@ -8,26 +9,26 @@ export default function TabLayout() {
       screenOptions={{
         headerShown: false,
         tabBarStyle: Platform.select({
+          default: {},
           ios: {
             // Use a transparent background on iOS to show the blur effect
             position: 'absolute',
           },
-          default: {},
         }),
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
           tabBarIcon: ({ color }) => <></>,
+          title: 'Home',
         }}
       />
       <Tabs.Screen
         name="explore"
         options={{
-          title: 'Explore',
           tabBarIcon: ({ color }) => <></>,
+          title: 'Explore',
         }}
       />
     </Tabs>

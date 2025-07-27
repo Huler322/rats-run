@@ -5,18 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df448400-5184-4a49-988c-f3205425981c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/(tabs)/rich.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/UI/row.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/user-info/user-dream-info.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/user-info/user-spending.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(tabs)/richCircle.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.expo/types/router.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.expo/types/router.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/explore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/poor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/inputs/input.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/inputs/input.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/poor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/stocks.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/rich.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/poorCircle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/buttons/button.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/buttons/button.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/user-info/user-spending.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/user-info/user-spending.component.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helpers/balance-helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/balance-helper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +42,7 @@
     "git-widget-placeholder": "development",
     "js.linters.configure.manually.selectedeslint": "true",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/anatoliy/Desktop/work/self/rats-run/components/templates",
+    "last_opened_file_path": "/Users/margosha/Desktop/WORK/rats-run/app/(tabs)",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -61,6 +59,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/(tabs)" />
       <recent name="$PROJECT_DIR$/components/templates" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/slices" />

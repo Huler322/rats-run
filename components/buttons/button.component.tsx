@@ -6,7 +6,7 @@ import { TouchableOpacity, Text } from 'react-native';
 export const ButtonComponent: FC<IProps> = ({ title }) => {
   return (
     <TouchableOpacity style={tw`px-4 py-2 rounded-md text-center bg-orange-500 `}>
-      <Text style={tw`text-lg font-medium`}>{title}</Text>
+      <Text style={tw`text-lg font-medium text-center`}>{title}</Text>
     </TouchableOpacity>
   );
 };

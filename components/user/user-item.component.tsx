@@ -1,6 +1,8 @@
 import { FC } from 'react';
 
 import tw from '@/lib/tailwind';
+import { setCurrentUser } from '@/slices/game.slice';
+import { useAppDispatch } from '@/store';
 import { IUser } from '@/store/types';
 import { TypeNavigation } from '@/types';
 import { AntDesign } from '@expo/vector-icons';
@@ -10,9 +12,12 @@ import { View, Text, TouchableOpacity } from 'react-native';
 export const UserItemComponent: FC<IProps> = ({ item }) => {
   const navigation = useRouter();
 
+  const dispatch = useAppDispatch();
+
   const openDeleteUserModal = () => {};
 
   const openGame = () => {
+    dispatch(setCurrentUser(item));
     navigation.push(`/${TypeNavigation.TABS}`);
   };
 

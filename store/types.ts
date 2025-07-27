@@ -9,6 +9,7 @@ export interface IGameState {
     list: IUser[] | [];
     total: number;
   };
+  currentUser: IUser | null;
 }
 
 export interface IUser {

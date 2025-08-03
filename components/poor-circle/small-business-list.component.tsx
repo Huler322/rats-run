@@ -4,7 +4,7 @@ import tw from '@/lib/tailwind';
 import { AntDesign } from '@expo/vector-icons';
 import { InputComponent } from '@/components/inputs/input.component';
 import { Controller } from 'react-hook-form';
-import { useBuyStocks } from '@/hooks/useBuyStocks';
+import { useBuyStocks } from '@/hooks/form/use-buy-stocks';
 
 const smallBusinessList = [
   { id: 1, income: 2000, price: 25000 },
@@ -24,7 +24,7 @@ export const SmallBusinessListComponent = () => {
     // reset,
   } = useBuyStocks();
 
-  const onIncreaseIncome = () => {};
+  const onIncreaseIncome = (id: number) => {};
 
   return (
     <View>

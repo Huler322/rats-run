@@ -1,7 +1,7 @@
 import { ButtonComponent } from '@/components/buttons/button.component';
 import { InputComponent } from '@/components/inputs/input.component';
 import { RowComponent } from '@/components/UI/row.component';
-import { useBuyStocks } from '@/hooks/use-buy-stocks';
+import { useBuyStocks } from '@/hooks/form/use-buy-stocks';
 import tw from '@/lib/tailwind';
 import { Controller } from 'react-hook-form';
 import { View } from 'react-native';

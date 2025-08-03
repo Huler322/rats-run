@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="df448400-5184-4a49-988c-f3205425981c" name="Changes" comment="Merge remote-tracking branch 'origin/development'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/poor-circle/big-business-list.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/poor-circle/big-business-list.component.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/poor-circle/buy-big-business-form.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/poor-circle/buy-big-business-form.component.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/poor-circle/buy-small-business-form.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/poor-circle/buy-small-business-form.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/poor-circle/small-business-list.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/poor-circle/small-business-list.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/rich-circle/rich-add-bussiness-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/rich-circle/rich-add-bussiness-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/stocks/buy-stocks-form.components.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/stocks/buy-stocks-form.components.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/use-buy-stocks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/form/use-buy-stocks.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +59,9 @@
       <recent name="$PROJECT_DIR$/components/templates" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/slices" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/hooks/form" />
     </key>
   </component>
   <component name="RunManager">

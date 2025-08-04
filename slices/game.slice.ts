@@ -180,6 +180,13 @@ export const gameSlice = createSlice({
         ...state.currentUser,
         currentCapital: currentCapital,
       };
+      state.currentUser = currentUser;
+      state.user.list = state.user.list.map((item) => {
+        if (item.id === currentUser.id) {
+          return currentUser;
+        }
+        return item;
+      });
       if (new Decimal(currentStock.count).eq(new Decimal(action.payload.count))) {
         state.stock = {
           ...state.stock,
@@ -187,29 +194,17 @@ export const gameSlice = createSlice({
             list: stockList.filter((item) => item.id !== action.payload.id),
           },
         };
-        state.currentUser = currentUser;
-        state.user.list = state.user.list.map((item) => {
-          if (item.id === state?.currentUser?.id) {
-            return currentUser;
-          }
-          return item;
-        });
         return;
       }
-      const stockCount = new Decimal(currentStock.count).minus(new Decimal(action.payload.count));
-      state.currentUser = currentUser;
-      state.user.list = state.user.list.map((item) => {
-        if (item.id === state?.currentUser?.id) {
-          return currentUser;
-        }
-        return item;
-      });
+      const stockCount = new Decimal(currentStock.count)
+        .minus(new Decimal(action.payload.count))
+        .toString();
       state.stock = {
         ...state.stock,
         [state.currentUser.id]: {
           list: stockList.map((item) => {
             if (item.id === action.payload.id) {
-              return { ...item, count: stockCount.toString() };
+              return { ...item, count: stockCount };
             }
             return item;
           }),

@@ -25,9 +25,7 @@ export const BuyStocksFormComponents: FC<IProps> = ({ currentUser }) => {
 
   const onBuyStocks = () => {
     const values = getValues();
-    console.log('onSave values', values);
     const id = generateNonce();
-    console.log('{ ...values, id }', { ...values, id });
     dispatch(setStockInList({ id: currentUser.id, stock: { ...values, id } }));
     reset();
   };

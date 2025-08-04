@@ -159,7 +159,7 @@ export const gameSlice = createSlice({
       state.stock = {
         ...state.stock,
         [action.payload.id]: {
-          list: [...state.stock[action.payload.id]?.list, action.payload.stock],
+          list: [...state.stock[action.payload.id].list, action.payload.stock],
         },
       };
     },
@@ -169,6 +169,53 @@ export const gameSlice = createSlice({
       state.user.total = list.length;
       state.currentUser = action.payload;
     },
+    sellStocks: (state, action: PayloadAction<{ id: string; price: string; count: string }>) => {
+      if (!state.currentUser) return;
+      const stockList = state.stock[state.currentUser.id]?.list;
+      const currentStock = stockList.find((item) => item.id === action.payload.id);
+      if (!currentStock) return;
+      const earned = new Decimal(action.payload.count).mul(new Decimal(action.payload.price));
+      const currentCapital = new Decimal(state.currentUser.currentCapital).plus(earned).toString();
+      const currentUser = {
+        ...state.currentUser,
+        currentCapital: currentCapital,
+      };
+      if (new Decimal(currentStock.count).eq(new Decimal(action.payload.count))) {
+        state.stock = {
+          ...state.stock,
+          [state.currentUser.id]: {
+            list: stockList.filter((item) => item.id !== action.payload.id),
+          },
+        };
+        state.currentUser = currentUser;
+        state.user.list = state.user.list.map((item) => {
+          if (item.id === state?.currentUser?.id) {
+            return currentUser;
+          }
+          return item;
+        });
+        return;
+      }
+      const stockCount = new Decimal(currentStock.count).minus(new Decimal(action.payload.count));
+      state.currentUser = currentUser;
+      state.user.list = state.user.list.map((item) => {
+        if (item.id === state?.currentUser?.id) {
+          return currentUser;
+        }
+        return item;
+      });
+      state.stock = {
+        ...state.stock,
+        [state.currentUser.id]: {
+          list: stockList.map((item) => {
+            if (item.id === action.payload.id) {
+              return { ...item, count: stockCount.toString() };
+            }
+            return item;
+          }),
+        },
+      };
+    },
   },
 });
 
@@ -177,6 +224,7 @@ export const {
   setUserInList,
   clearCurrentUser,
   deleteUserInList,
+  sellStocks,
   closeCreditApartment,
   minusChild,
   closeCreditCar,

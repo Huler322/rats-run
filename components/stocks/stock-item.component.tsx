@@ -11,9 +11,13 @@ export const StockItemComponent: FC<IProps> = ({ stock }) => {
     <View
       style={tw`mb-2 px-3 bg-gray-800 rounded-lg overflow-hidden pt-3 border-b border-gray-600`}
     >
-      <RowComponent styles="mb-1 text-center w-full">
-        <Text style={tw`text-2xl text-white font-medium text-center w-full mb-4`}>
-          {stock.name}
+      <RowComponent styles="w-full mb-4 text-center">
+        <Text style={tw`text-base text-white font-medium w-[32%] text-center`}>
+          Count - {stock.count}
+        </Text>
+        <Text style={tw`text-xl text-white font-medium w-[32%] text-center`}>{stock.name}</Text>
+        <Text style={tw`text-base text-white font-medium w-[32%] text-center`}>
+          Price - {stock.price}
         </Text>
       </RowComponent>
       <SellStocksFormComponent stock={stock} />

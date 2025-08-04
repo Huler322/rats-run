@@ -8,8 +8,11 @@ import tw from '@/lib/tailwind';
 import { IStockState } from '@/store/types';
 import { Controller } from 'react-hook-form';
 import { View } from 'react-native';
+import { useAppDispatch } from '@/store';
+import { sellStocks } from '@/slices/game.slice';
 
 export const SellStocksFormComponent: FC<IProps> = ({ stock }) => {
+  const dispatch = useAppDispatch();
   const {
     control,
     handleSubmit,
@@ -26,8 +29,7 @@ export const SellStocksFormComponent: FC<IProps> = ({ stock }) => {
 
   const onSellStocks = () => {
     const values = getValues();
-    console.log('values', values);
-    console.log('stock', stock);
+    dispatch(sellStocks({ id: stock.id, price: values.price, count: values.count }));
   };
 
   return (

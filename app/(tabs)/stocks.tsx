@@ -12,7 +12,7 @@ export default function StocksScreen() {
   if (!currentUser?.id) return null;
 
   const currentStockList = stock ? stock[currentUser.id]?.list : [];
-  console.log('currentStockList', currentStockList);
+
   return (
     <ContainerScrollComponent styles={'bg-white'} header={<HeaderComponent />}>
       <BuyStocksFormComponents currentUser={currentUser} />

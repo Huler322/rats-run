@@ -9,6 +9,8 @@ import { setUserDivorced } from '@/slices/game.slice';
 export const RichActionButtons: FC<IProps> = ({ currentUser }) => {
   const dispatch = useAppDispatch();
 
+  if (!currentUser) return <></>;
+
   const handleDivorce = () => {
     dispatch(setUserDivorced(currentUser));
   };
@@ -26,5 +28,5 @@ export const RichActionButtons: FC<IProps> = ({ currentUser }) => {
 };
 
 interface IProps {
-  currentUser: IUser;
+  currentUser: IUser | null;
 }

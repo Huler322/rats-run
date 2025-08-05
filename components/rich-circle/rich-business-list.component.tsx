@@ -2,16 +2,24 @@ import { Text, View } from 'react-native';
 import { RowComponent } from '@/components/UI/row.component';
 import tw from '@/lib/tailwind';
 import { AntDesign } from '@expo/vector-icons';
+import { FC } from 'react';
+import { IRichBusinessState } from '@/store/types';
+import { useAppDispatch, useAppSelector } from '@/store';
+import { deleteRichBusinessInList } from '@/slices/game.slice';
 
-const richBusinessList = [
-  { id: 1, name: 'Hugo Boss', price: 275000, income: 12000 },
-  { id: 2, name: 'Zavod strausov', price: 333000, income: 33000 },
-];
+export const RichBusinessListComponent: FC<IProps> = ({ list }) => {
+  const { currentUser } = useAppSelector(({ game }) => game);
 
-export const RichBusinessListComponent = () => {
+  const dispatch = useAppDispatch();
+
+  const onDeleteBusiness = (business: IRichBusinessState) => {
+    if (!currentUser) return;
+    dispatch(deleteRichBusinessInList({ id: currentUser.id, business }));
+  };
+
   return (
     <View>
-      {richBusinessList.map((item, key) => (
+      {list.map((item, key) => (
         <View
           style={tw`bg-gray-800 rounded-lg overflow-hidden py-2 border-b border-gray-600 mb-2 px-3`}
           key={key}
@@ -22,7 +30,7 @@ export const RichBusinessListComponent = () => {
               name="minuscircle"
               size={32}
               style={tw`text-red-500`}
-              onPress={() => onDeleteBigBusiness(item.id)}
+              onPress={() => onDeleteBusiness(item)}
             />
           </RowComponent>
 
@@ -39,3 +47,7 @@ export const RichBusinessListComponent = () => {
     </View>
   );
 };
+
+interface IProps {
+  list: IRichBusinessState[];
+}

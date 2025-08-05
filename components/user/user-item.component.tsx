@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import tw from '@/lib/tailwind';
-import { deleteUserInList, setCurrentUser } from '@/slices/game.slice';
+import { clearCurrentUser, deleteUserInList, setCurrentUser } from '@/slices/game.slice';
 import { useAppDispatch } from '@/store';
 import { IUser } from '@/store/types';
 import { TypeNavigation } from '@/types';
@@ -25,6 +25,7 @@ export const UserItemComponent: FC<IProps> = ({ item }) => {
   };
 
   const openGame = () => {
+    dispatch(clearCurrentUser());
     dispatch(setCurrentUser(item));
     navigation.push(`/${TypeNavigation.TABS}`);
   };

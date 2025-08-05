@@ -7,11 +7,18 @@ import { Controller } from 'react-hook-form';
 import { useBuyStocks } from '@/hooks/form/use-buy-stocks';
 import { FC } from 'react';
 import { IBusinessState } from '@/store/types';
+import { useAppDispatch, useAppSelector } from '@/store';
+import { deleteSmallBusinessInList } from '@/slices/game.slice';
 
 export const SmallBusinessListComponent: FC<IProps> = ({ list }) => {
-  if (!list.length) return null;
+  const { currentUser } = useAppSelector(({ game }) => game);
 
-  const onDeleteBigBusiness = (id: string) => {};
+  const dispatch = useAppDispatch();
+
+  const onDeleteBigBusiness = (business: IBusinessState) => {
+    if (!currentUser?.id) return;
+    dispatch(deleteSmallBusinessInList({ id: currentUser.id, business }));
+  };
 
   const {
     control,
@@ -22,6 +29,8 @@ export const SmallBusinessListComponent: FC<IProps> = ({ list }) => {
   } = useBuyStocks();
 
   const onIncreaseIncome = (id: string) => {};
+
+  if (!list.length) return <></>;
 
   return (
     <View>
@@ -40,7 +49,7 @@ export const SmallBusinessListComponent: FC<IProps> = ({ list }) => {
               name="minuscircle"
               size={32}
               style={tw`text-red-500`}
-              onPress={() => onDeleteBigBusiness(item.id)}
+              onPress={() => onDeleteBigBusiness(item)}
             />
           </RowComponent>
           <RowComponent styles="items-start">

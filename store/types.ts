@@ -15,10 +15,20 @@ export interface IGameState {
     smallBusiness: Record<string, { list: IBusinessState[] }>;
     bigBusiness: Record<string, { list: IBusinessState[] }>;
   };
+  richCircle: {
+    business: Record<string, { list: IRichBusinessState[] }>;
+  };
 }
 
 export interface IBusinessState {
   id: string;
+  price: string;
+  income: string;
+}
+
+export interface IRichBusinessState {
+  id: string;
+  name: string;
   price: string;
   income: string;
 }

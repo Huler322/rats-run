@@ -1,5 +1,5 @@
 import { getTotalSpending } from '@/helpers/balance-helper';
-import { IBusinessState, IStockState, IStore, IUser } from '@/store/types';
+import { IBusinessState, IRichBusinessState, IStockState, IStore, IUser } from '@/store/types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Decimal from 'decimal.js';
 
@@ -13,6 +13,9 @@ const initialState = {
   poorCircle: {
     smallBusiness: {},
     bigBusiness: {},
+  },
+  richCircle: {
+    business: {},
   },
 } as IStore['game'];
 
@@ -176,10 +179,19 @@ export const gameSlice = createSlice({
       });
     },
     setStockInList: (state, action: PayloadAction<{ id: string; stock: IStockState }>) => {
+      if (state.stock[action.payload.id]?.list?.length) {
+        state.stock = {
+          ...state.stock,
+          [action.payload.id]: {
+            list: [...state.stock[action.payload.id].list, action.payload.stock],
+          },
+        };
+        return;
+      }
       state.stock = {
         ...state.stock,
         [action.payload.id]: {
-          list: [...state.stock[action.payload.id].list, action.payload.stock],
+          list: [action.payload.stock],
         },
       };
     },
@@ -222,6 +234,65 @@ export const gameSlice = createSlice({
         },
       };
     },
+    updateSmallBusinessList: (
+      state,
+      action: PayloadAction<{ id: string; business: IBusinessState }>,
+    ) => {
+      if (!state.currentUser) return;
+      const updatedBusinessList = state.poorCircle.smallBusiness[action.payload.id].list.map(
+        (item) => {
+          if (action.payload.business.id === item.id) {
+            return action.payload.business;
+          }
+          return item;
+        },
+      );
+      state.poorCircle = {
+        ...state.poorCircle,
+        smallBusiness: {
+          ...state.poorCircle.smallBusiness,
+          [action.payload.id]: {
+            list: updatedBusinessList,
+          },
+        },
+      };
+    },
+    deleteSmallBusinessInList: (
+      state,
+      action: PayloadAction<{ id: string; business: IBusinessState }>,
+    ) => {
+      if (!state.currentUser) return;
+      const updatedList = state.poorCircle.smallBusiness[action.payload.id].list.filter(
+        (item) => item.id !== action.payload.business.id,
+      );
+      state.poorCircle = {
+        ...state.poorCircle,
+        smallBusiness: {
+          ...state.poorCircle.smallBusiness,
+          [action.payload.id]: {
+            list: updatedList,
+          },
+        },
+      };
+    },
+    deleteBigBusinessInList: (
+      state,
+      action: PayloadAction<{ id: string; business: IBusinessState }>,
+    ) => {
+      if (!state.currentUser) return;
+      const updatedList = state.poorCircle.bigBusiness[action.payload.id].list.filter(
+        (item) => item.id !== action.payload.business.id,
+      );
+      state.poorCircle = {
+        ...state.poorCircle,
+        bigBusiness: {
+          ...state.poorCircle.bigBusiness,
+          [action.payload.id]: {
+            list: updatedList,
+          },
+        },
+      };
+    },
     setBigBusinessList: (
       state,
       action: PayloadAction<{ id: string; business: IBusinessState }>,
@@ -257,6 +328,57 @@ export const gameSlice = createSlice({
           ...state.poorCircle.bigBusiness,
           [action.payload.id]: {
             list: [action.payload.business],
+          },
+        },
+      };
+    },
+    setRichBusinessList: (
+      state,
+      action: PayloadAction<{ id: string; business: IRichBusinessState }>,
+    ) => {
+      if (!state.currentUser) return;
+      const totalCapital = new Decimal(state.currentUser.currentCapital)
+        .minus(action.payload.business.price)
+        .toString();
+      const updatedUser = { ...state.currentUser, currentCapital: totalCapital };
+      state.currentUser = updatedUser;
+      state.user.list = state.user.list.map((item) => {
+        if (item.id === action.payload.id) return updatedUser;
+        return item;
+      });
+      if (state.richCircle.business[action.payload.id]?.list) {
+        state.richCircle = {
+          business: {
+            ...state.richCircle.business,
+            [action.payload.id]: {
+              list: [...state.richCircle.business[action.payload.id].list, action.payload.business],
+            },
+          },
+        };
+        return;
+      }
+      state.richCircle = {
+        business: {
+          ...state.richCircle.business,
+          [action.payload.id]: {
+            list: [action.payload.business],
+          },
+        },
+      };
+    },
+    deleteRichBusinessInList: (
+      state,
+      action: PayloadAction<{ id: string; business: IRichBusinessState }>,
+    ) => {
+      if (!state.currentUser) return;
+      const updatedList = state.richCircle.business[action.payload.id].list.filter(
+        (item) => item.id !== action.payload.business.id,
+      );
+      state.richCircle = {
+        business: {
+          ...state.richCircle.business,
+          [action.payload.id]: {
+            list: updatedList,
           },
         },
       };
@@ -328,4 +450,9 @@ export const {
   setUserDivorced,
   setSmallBusinessList,
   setBigBusinessList,
+  deleteSmallBusinessInList,
+  deleteBigBusinessInList,
+  setRichBusinessList,
+  deleteRichBusinessInList,
+  updateSmallBusinessList,
 } = gameSlice.actions;

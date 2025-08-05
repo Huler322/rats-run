@@ -4,18 +4,31 @@ import { Controller } from 'react-hook-form';
 import { InputComponent } from '@/components/inputs/input.component';
 import { ButtonComponent } from '@/components/buttons/button.component';
 import { RowComponent } from '@/components/UI/row.component';
-import { useBuyStocks } from '@/hooks/form/use-buy-stocks';
+import { useRichBuyBusiness } from '@/hooks/form/use-buy-rich-business';
+import { useAppDispatch, useAppSelector } from '@/store';
+import { generateNonce } from '@/helpers';
+import { setRichBusinessList } from '@/slices/game.slice';
 
-export const RichAddBussinessForm = () => {
+export const RichAddBusinessForm = () => {
+  const { currentUser } = useAppSelector(({ game }) => game);
+
+  const dispatch = useAppDispatch();
+
   const {
     control,
     handleSubmit,
     formState: { errors },
     getValues,
-    // reset,
-  } = useBuyStocks();
+    reset,
+  } = useRichBuyBusiness(currentUser);
 
-  const onBuyBusiness = () => {};
+  const onBuyBusiness = () => {
+    if (!currentUser) return;
+    const values = getValues();
+    const id = generateNonce();
+    dispatch(setRichBusinessList({ id: currentUser.id, business: { ...values, id } }));
+    reset();
+  };
 
   return (
     <View style={tw`mb-2 mt-2`}>
@@ -26,7 +39,7 @@ export const RichAddBussinessForm = () => {
             value={value}
             onChange={onChange}
             placeholder={'Hugo Boss'}
-            // error={errors.name}
+            error={errors.name}
             label={'Business name'}
           />
         )}
@@ -42,11 +55,11 @@ export const RichAddBussinessForm = () => {
                 value={value}
                 onChange={onChange}
                 placeholder={'430900'}
-                // error={errors.name}
+                error={errors.price}
                 label={'Business price'}
               />
             )}
-            name="name"
+            name="price"
             defaultValue=""
           />
         </View>
@@ -58,11 +71,11 @@ export const RichAddBussinessForm = () => {
                 value={value}
                 onChange={onChange}
                 placeholder={'125'}
-                // error={errors.name}
+                error={errors.income}
                 label={'Income'}
               />
             )}
-            name="name"
+            name="income"
             defaultValue=""
           />
         </View>

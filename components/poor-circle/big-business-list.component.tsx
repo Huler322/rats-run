@@ -4,11 +4,20 @@ import { AntDesign } from '@expo/vector-icons';
 import { View, Text } from 'react-native';
 import { FC } from 'react';
 import { IBusinessState } from '@/store/types';
+import { useAppDispatch, useAppSelector } from '@/store';
+import { deleteBigBusinessInList } from '@/slices/game.slice';
 
 export const BigBusinessListComponent: FC<IProps> = ({ list }) => {
-  if (!list.length) return null;
+  const { currentUser } = useAppSelector(({ game }) => game);
 
-  const onDeleteBigBusiness = (id: string) => {};
+  const dispatch = useAppDispatch();
+
+  const onDeleteBigBusiness = (business: IBusinessState) => {
+    if (!currentUser?.id) return;
+    dispatch(deleteBigBusinessInList({ id: currentUser.id, business }));
+  };
+
+  if (!list.length) return <></>;
 
   return (
     <View>
@@ -24,7 +33,7 @@ export const BigBusinessListComponent: FC<IProps> = ({ list }) => {
               name="minuscircle"
               size={32}
               style={tw`text-red-500`}
-              onPress={() => onDeleteBigBusiness(item.id)}
+              onPress={() => onDeleteBigBusiness(item)}
             />
           </RowComponent>
         </View>

@@ -5,16 +5,17 @@ import tw from '@/lib/tailwind';
 import { IUser } from '@/store/types';
 import { AntDesign, FontAwesome5 } from '@expo/vector-icons';
 import { Text, View } from 'react-native';
+import { useRouter } from 'expo-router';
 
 export const UserDreamInfoComponent: FC<IProps> = ({ currentUser }) => {
-  const openDeleteUserModal = () => {};
+  const navigation = useRouter();
 
   return (
     <View style={tw`bg-gray-800 rounded-lg overflow-hidden mb-4`}>
       <RowComponent styles={'bg-gray-700 px-4 py-2 border-b border-gray-600'}>
-        <AntDesign name="arrowleft" size={24} color="white" />
+        <AntDesign name="arrowleft" size={24} color="white" onPress={() => navigation.back()} />
         <Text style={tw`text-center text-lg font-medium text-white`}>{currentUser.name}</Text>
-        <AntDesign name="delete" size={24} color="red" onPress={openDeleteUserModal} />
+        <View />
       </RowComponent>
 
       <RowComponent styles="px-4 py-5 border-b border-gray-600">

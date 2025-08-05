@@ -2,6 +2,8 @@ import { ContainerScrollComponent } from '@/components/templates/container-scrol
 import { UserEmptyStateComponent } from '@/components/user/user-empty-state.component';
 import { UserListComponent } from '@/components/user/user-list.component';
 import { useAppSelector } from '@/store';
+import { usePathname } from 'expo-router';
+import { useEffect } from 'react';
 
 const RootScreen = () => {
   const { user } = useAppSelector(({ game }) => game);

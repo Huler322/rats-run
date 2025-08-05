@@ -39,7 +39,7 @@ export interface IUser {
   dream: IDream;
   spending: ISpending;
   currentCapital: string;
-  isDivorce: boolean;
+  isDivorced: boolean;
 }
 
 export interface IDream {

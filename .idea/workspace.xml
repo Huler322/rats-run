@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df448400-5184-4a49-988c-f3205425981c" name="Changes" comment="Merge remote-tracking branch 'origin/development'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <change afterPath="$PROJECT_DIR$/hooks/form/use-buy-business.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/poorCircle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/poorCircle.tsx" afterDir="false" />
+    <list default="true" id="df448400-5184-4a49-988c-f3205425981c" name="Changes" comment="Merge remote-tracking branch 'origin/development'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;slices/game.slice.ts&#10;#&#9;store/types.ts">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/richCircle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/richCircle.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/create-or-edit-user/form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/create-or-edit-user/form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header/header.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/header.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/poor-circle/big-business-list.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/poor-circle/big-business-list.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/poor-circle/buy-big-business-form.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/poor-circle/buy-big-business-form.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/poor-circle/buy-small-business-form.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/poor-circle/buy-small-business-form.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/poor-circle/small-business-list.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/poor-circle/small-business-list.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/rich-circle/rich-action-buttons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/rich-circle/rich-action-buttons.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/user-info/user-dream-info.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/user-info/user-dream-info.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/user/user-item.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/user/user-item.component.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/slices/game.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/slices/game.slice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/types.ts" afterDir="false" />
     </list>
@@ -40,7 +39,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging main",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "/Users/anatoliy/Desktop/work/self/rats-run/hooks/form",
     "node.js.detected.package.eslint": "true",

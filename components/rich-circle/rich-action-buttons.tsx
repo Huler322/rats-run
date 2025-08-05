@@ -4,7 +4,7 @@ import { ButtonComponent } from '@/components/buttons/button.component';
 import { FC } from 'react';
 import { IUser } from '@/store/types';
 import { useAppDispatch } from '@/store';
-import { setUserDivorced } from '@/slices/game.slice';
+import { setUserDivorced, minusTax } from '@/slices/game.slice';
 
 export const RichActionButtons: FC<IProps> = ({ currentUser }) => {
   const dispatch = useAppDispatch();
@@ -14,7 +14,9 @@ export const RichActionButtons: FC<IProps> = ({ currentUser }) => {
   const handleDivorce = () => {
     dispatch(setUserDivorced(currentUser));
   };
-  const handleTax = () => {};
+  const handleTax = () => {
+    dispatch(minusTax(currentUser));
+  };
 
   return (
     <View style={tw`flex flex-row gap-4 items-center justify-between`}>

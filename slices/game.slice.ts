@@ -141,6 +141,22 @@ export const gameSlice = createSlice({
         return item;
       });
     },
+    minusTax: (state, action: PayloadAction<IUser>) => {
+      if (!state.currentUser) return;
+      const currentCapital = new Decimal(state.currentUser.currentCapital);
+      const totalCapital = currentCapital.minus(currentCapital.mul(0.1)).floor().toString();
+      const updatedUser = {
+        ...state.currentUser,
+        currentCapital: totalCapital,
+      };
+      state.currentUser = updatedUser;
+      state.user.list = state.user.list.map((item) => {
+        if (item.id === action.payload.id) {
+          return updatedUser;
+        }
+        return item;
+      });
+    },
     setCurrentUser: (state, action: PayloadAction<IUser>) => {
       state.currentUser = action.payload;
     },
@@ -572,4 +588,5 @@ export const {
   deleteRichBusinessInList,
   updateSmallBusinessList,
   getSalary,
+  minusTax,
 } = gameSlice.actions;

@@ -1,19 +1,23 @@
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { RowComponent } from '@/components/UI/row.component';
 import tw from '@/lib/tailwind';
 import { AntDesign } from '@expo/vector-icons';
-import { InputComponent } from '@/components/inputs/input.component';
-import { Controller } from 'react-hook-form';
 import { useBuyStocks } from '@/hooks/form/use-buy-stocks';
 import { FC } from 'react';
 import { IBusinessState } from '@/store/types';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { deleteSmallBusinessInList } from '@/slices/game.slice';
+import { useRouter } from 'expo-router';
+import { TypeNavigation } from '@/types';
 
 export const SmallBusinessListComponent: FC<IProps> = ({ list }) => {
   const { currentUser } = useAppSelector(({ game }) => game);
 
+  const navigation = useRouter();
+
   const dispatch = useAppDispatch();
+
+  if (!list.length) return null;
 
   const onDeleteBigBusiness = (business: IBusinessState) => {
     if (!currentUser?.id) return;
@@ -38,11 +42,12 @@ export const SmallBusinessListComponent: FC<IProps> = ({ list }) => {
         Small Businesses
       </Text>
       {list.map((item, key) => (
-        <View
+        <TouchableOpacity
+          onPress={() => navigation.navigate(TypeNavigation.POOR_CIRCLE_SMALL_BUSINESS_ITEM_MODAL)}
           key={key}
           style={tw`mb-2 px-3 bg-gray-800 rounded-lg overflow-hidden py-2 border-b border-gray-600`}
         >
-          <RowComponent styles="mb-1">
+          <RowComponent>
             <Text style={tw`text-base text-white font-medium w-[50%]`}>Small Bussiness</Text>
             <Text style={tw`text-base text-orange-500 font-medium`}>$ {item.income}</Text>
             <AntDesign
@@ -52,30 +57,7 @@ export const SmallBusinessListComponent: FC<IProps> = ({ list }) => {
               onPress={() => onDeleteBigBusiness(item)}
             />
           </RowComponent>
-          <RowComponent styles="items-start">
-            <AntDesign
-              name="pluscircle"
-              size={32}
-              style={tw`text-green-500 mt-2`}
-              onPress={() => onIncreaseIncome(item.id)}
-            />
-            <View style={tw`w-3/4`}>
-              <Controller
-                control={control}
-                render={({ field: { onChange, value } }) => (
-                  <InputComponent
-                    value={value}
-                    onChange={onChange}
-                    // error={errors.name}
-                    placeholder={'Increase income'}
-                  />
-                )}
-                name="name"
-                defaultValue=""
-              />
-            </View>
-          </RowComponent>
-        </View>
+        </TouchableOpacity>
       ))}
     </View>
   );

@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df448400-5184-4a49-988c-f3205425981c" name="Changes" comment="Merge remote-tracking branch 'origin/development'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;slices/game.slice.ts&#10;#&#9;store/types.ts">
-      <change afterPath="$PROJECT_DIR$/app/poor-circle-small-business-item-modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.expo/types/router.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.expo/types/router.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/poor-circle/big-business-list.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/poor-circle/big-business-list.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/poor-circle/small-business-list.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/poor-circle/small-business-list.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slices/game.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/slices/game.slice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

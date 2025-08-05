@@ -141,11 +141,10 @@ export const gameSlice = createSlice({
     minusTax: (state, action: PayloadAction<IUser>) => {
       if (!state.currentUser) return;
       const currentCapital = new Decimal(state.currentUser.currentCapital);
-      const totalCapital = currentCapital.minus(currentCapital.mul(0.1)).toString();
+      const totalCapital = currentCapital.minus(currentCapital.mul(0.1)).floor().toString();
       const updatedUser = {
         ...state.currentUser,
         currentCapital: totalCapital,
-        isDivorced: true,
       };
       state.currentUser = updatedUser;
       state.user.list = state.user.list.map((item) => {

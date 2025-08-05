@@ -1,5 +1,5 @@
 import { getTotalSpending } from '@/helpers/balance-helper';
-import { IStockState, IStore, IUser } from '@/store/types';
+import { IBusinessState, IStockState, IStore, IUser } from '@/store/types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Decimal from 'decimal.js';
 
@@ -9,6 +9,10 @@ const initialState = {
   user: {
     list: [],
     total: 1,
+  },
+  poorCircle: {
+    smallBusiness: {},
+    bigBusiness: {},
   },
 } as IStore['game'];
 
@@ -163,6 +167,84 @@ export const gameSlice = createSlice({
         },
       };
     },
+    setSmallBusinessList: (
+      state,
+      action: PayloadAction<{ id: string; business: IBusinessState }>,
+    ) => {
+      if (!state.currentUser) return;
+      const totalCapital = new Decimal(state.currentUser.currentCapital)
+        .minus(action.payload.business.price)
+        .toString();
+      const updatedUser = { ...state.currentUser, currentCapital: totalCapital };
+      state.currentUser = updatedUser;
+      state.user.list = state.user.list.map((item) => {
+        if (item.id === action.payload.id) return updatedUser;
+        return item;
+      });
+      if (state.poorCircle.smallBusiness[action.payload.id]?.list) {
+        state.poorCircle = {
+          ...state.poorCircle,
+          smallBusiness: {
+            ...state.poorCircle.smallBusiness,
+            [action.payload.id]: {
+              list: [
+                ...state.poorCircle.smallBusiness[action.payload.id].list,
+                action.payload.business,
+              ],
+            },
+          },
+        };
+        return;
+      }
+      state.poorCircle = {
+        ...state.poorCircle,
+        smallBusiness: {
+          ...state.poorCircle.smallBusiness,
+          [action.payload.id]: {
+            list: [action.payload.business],
+          },
+        },
+      };
+    },
+    setBigBusinessList: (
+      state,
+      action: PayloadAction<{ id: string; business: IBusinessState }>,
+    ) => {
+      if (!state.currentUser) return;
+      const totalCapital = new Decimal(state.currentUser.currentCapital)
+        .minus(action.payload.business.price)
+        .toString();
+      const updatedUser = { ...state.currentUser, currentCapital: totalCapital };
+      state.currentUser = updatedUser;
+      state.user.list = state.user.list.map((item) => {
+        if (item.id === action.payload.id) return updatedUser;
+        return item;
+      });
+      if (state.poorCircle.bigBusiness[action.payload.id]?.list) {
+        state.poorCircle = {
+          ...state.poorCircle,
+          bigBusiness: {
+            ...state.poorCircle.bigBusiness,
+            [action.payload.id]: {
+              list: [
+                ...state.poorCircle.bigBusiness[action.payload.id].list,
+                action.payload.business,
+              ],
+            },
+          },
+        };
+        return;
+      }
+      state.poorCircle = {
+        ...state.poorCircle,
+        bigBusiness: {
+          ...state.poorCircle.bigBusiness,
+          [action.payload.id]: {
+            list: [action.payload.business],
+          },
+        },
+      };
+    },
     setUserInList: (state, action: PayloadAction<IUser>) => {
       const list = [...state.user.list, action.payload];
       state.user.list = list;
@@ -227,4 +309,6 @@ export const {
   setStockInList,
   setGrandfatherValue,
   setGrandmotherValue,
+  setSmallBusinessList,
+  setBigBusinessList,
 } = gameSlice.actions;

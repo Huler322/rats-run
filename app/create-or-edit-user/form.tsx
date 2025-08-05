@@ -39,6 +39,7 @@ const Form = () => {
         },
       },
       status: UserStatus.created,
+      isDivorce: false,
     };
     dispatch(setUserInList(createdUser));
     navigation.push(`/${TypeNavigation.TABS}`);

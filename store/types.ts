@@ -11,6 +11,16 @@ export interface IGameState {
   };
   stock: Record<string, { list: IStockState[] }>;
   currentUser: IUser | null;
+  poorCircle: {
+    smallBusiness: Record<string, { list: IBusinessState[] }>;
+    bigBusiness: Record<string, { list: IBusinessState[] }>;
+  };
+}
+
+export interface IBusinessState {
+  id: string;
+  price: string;
+  income: string;
 }
 
 export interface IStockState {
@@ -29,6 +39,7 @@ export interface IUser {
   dream: IDream;
   spending: ISpending;
   currentCapital: string;
+  isDivorce: boolean;
 }
 
 export interface IDream {

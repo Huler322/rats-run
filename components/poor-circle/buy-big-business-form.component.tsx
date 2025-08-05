@@ -1,21 +1,34 @@
 import { ButtonComponent } from '@/components/buttons/button.component';
 import { InputComponent } from '@/components/inputs/input.component';
 import { RowComponent } from '@/components/UI/row.component';
-import { useBuyStocks } from '@/hooks/form/use-buy-stocks';
 import tw from '@/lib/tailwind';
 import { Controller } from 'react-hook-form';
 import { View } from 'react-native';
+import { useBuyBusiness } from '@/hooks/form/use-buy-business';
+import { useAppDispatch, useAppSelector } from '@/store';
+import { generateNonce } from '@/helpers';
+import { setBigBusinessList } from '@/slices/game.slice';
 
 export const BuyBigBusinessFormComponent = () => {
+  const { currentUser } = useAppSelector(({ game }) => game);
+
+  const dispatch = useAppDispatch();
+
   const {
     control,
     handleSubmit,
     formState: { errors },
     getValues,
-    // reset,
-  } = useBuyStocks();
+    reset,
+  } = useBuyBusiness(currentUser);
 
-  const onBuyBigBusiness = () => {};
+  const onBuyBigBusiness = () => {
+    if (!currentUser) return;
+    const values = getValues();
+    const id = generateNonce();
+    dispatch(setBigBusinessList({ id: currentUser.id, business: { ...values, id } }));
+    reset();
+  };
 
   return (
     <RowComponent>
@@ -27,11 +40,12 @@ export const BuyBigBusinessFormComponent = () => {
               value={value}
               onChange={onChange}
               placeholder={'1390'}
-              // error={errors.name}
+              error={errors.price}
               label={'Business price'}
+              withMessage={true}
             />
           )}
-          name="name"
+          name="price"
           defaultValue=""
         />
       </View>
@@ -43,11 +57,12 @@ export const BuyBigBusinessFormComponent = () => {
               value={value}
               onChange={onChange}
               placeholder={'125'}
-              // error={errors.name}
+              error={errors.income}
               label={'Income'}
+              withMessage={true}
             />
           )}
-          name="name"
+          name="income"
           defaultValue=""
         />
       </View>

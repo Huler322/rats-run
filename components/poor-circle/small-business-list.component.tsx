@@ -5,16 +5,13 @@ import { AntDesign } from '@expo/vector-icons';
 import { InputComponent } from '@/components/inputs/input.component';
 import { Controller } from 'react-hook-form';
 import { useBuyStocks } from '@/hooks/form/use-buy-stocks';
+import { FC } from 'react';
+import { IBusinessState } from '@/store/types';
 
-const smallBusinessList = [
-  { id: 1, income: 2000, price: 25000 },
-  { id: 2, income: 1500, price: 15000 },
-];
+export const SmallBusinessListComponent: FC<IProps> = ({ list }) => {
+  if (!list.length) return null;
 
-export const SmallBusinessListComponent = () => {
-  if (!smallBusinessList.length) return null;
-
-  const onDeleteBigBusiness = (id: number) => {};
+  const onDeleteBigBusiness = (id: string) => {};
 
   const {
     control,
@@ -24,14 +21,14 @@ export const SmallBusinessListComponent = () => {
     // reset,
   } = useBuyStocks();
 
-  const onIncreaseIncome = (id: number) => {};
+  const onIncreaseIncome = (id: string) => {};
 
   return (
     <View>
       <Text style={tw`py-2 border-t border-b border-orange-500 mb-2 text-lg font-bold text-center`}>
         Small Businesses
       </Text>
-      {smallBusinessList.map((item, key) => (
+      {list.map((item, key) => (
         <View
           key={key}
           style={tw`mb-2 px-3 bg-gray-800 rounded-lg overflow-hidden py-2 border-b border-gray-600`}
@@ -74,3 +71,7 @@ export const SmallBusinessListComponent = () => {
     </View>
   );
 };
+
+interface IProps {
+  list: IBusinessState[];
+}

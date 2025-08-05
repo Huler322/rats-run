@@ -8,12 +8,19 @@ import { BigBusinessListComponent } from '@/components/poor-circle/big-business-
 import { SmallBusinessListComponent } from '@/components/poor-circle/small-business-list.component';
 
 export default function PoorCircleScreen() {
+  const { currentUser, poorCircle } = useAppSelector(({ game }) => game);
+
+  if (!currentUser) return null;
+
+  const smallBusinessList = poorCircle.smallBusiness[currentUser.id]?.list ?? [];
+  const bigBusinessList = poorCircle.bigBusiness[currentUser.id]?.list ?? [];
+
   return (
     <ContainerScrollComponent styles={'bg-white'} header={<HeaderComponent />}>
       <BuySmallBusinessFormComponent />
       <BuyBigBusinessFormComponent />
-      <SmallBusinessListComponent />
-      <BigBusinessListComponent />
+      <SmallBusinessListComponent list={smallBusinessList} />
+      <BigBusinessListComponent list={bigBusinessList} />
     </ContainerScrollComponent>
   );
 }

@@ -118,6 +118,22 @@ export const gameSlice = createSlice({
         return item;
       });
     },
+    setUserDivorced: (state, action: PayloadAction<IUser>) => {
+      if (!state.currentUser) return;
+      const totalCapital = new Decimal(state.currentUser.currentCapital).div(2).toString();
+      const updatedUser = {
+        ...state.currentUser,
+        currentCapital: totalCapital,
+        isDivorced: true,
+      };
+      state.currentUser = updatedUser;
+      state.user.list = state.user.list.map((item) => {
+        if (item.id === action.payload.id) {
+          return updatedUser;
+        }
+        return item;
+      });
+    },
     setCurrentUser: (state, action: PayloadAction<IUser>) => {
       state.currentUser = action.payload;
     },
@@ -227,4 +243,5 @@ export const {
   setStockInList,
   setGrandfatherValue,
   setGrandmotherValue,
+  setUserDivorced,
 } = gameSlice.actions;

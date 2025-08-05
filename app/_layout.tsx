@@ -33,6 +33,13 @@ export default function RootLayout() {
                 headerShown: false,
               }}
             />
+            <Stack.Screen
+              name={TypeNavigation.POOR_CIRCLE_SMALL_BUSINESS_ITEM_MODAL}
+              options={{
+                presentation: 'modal',
+                headerShown: false,
+              }}
+            />
 
             <Stack.Screen
               name={TypeNavigation.CREATE_OR_EDIT_USER}

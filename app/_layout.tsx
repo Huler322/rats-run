@@ -20,6 +20,21 @@ export default function RootLayout() {
             <Stack.Screen name={TypeNavigation.INDEX} options={{ headerShown: false }} />
 
             <Stack.Screen
+              name={TypeNavigation.INCOME_CAPITAL_MODAL}
+              options={{
+                presentation: 'modal',
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name={TypeNavigation.MINUS_CAPITAL_MODAL}
+              options={{
+                presentation: 'modal',
+                headerShown: false,
+              }}
+            />
+
+            <Stack.Screen
               name={TypeNavigation.CREATE_OR_EDIT_USER}
               options={{ headerShown: false }}
             />

@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df448400-5184-4a49-988c-f3205425981c" name="Changes" comment="Merge remote-tracking branch 'origin/development'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;slices/game.slice.ts&#10;#&#9;store/types.ts">
+      <change afterPath="$PROJECT_DIR$/app/income-capital-modal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/minus-capital-modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.expo/types/router.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.expo/types/router.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/rich-circle/rich-action-buttons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/rich-circle/rich-action-buttons.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/user-info/user-spending.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/user-info/user-spending.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slices/game.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/slices/game.slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/user-info/user-dream-info.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/user-info/user-dream-info.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +43,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "development",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/anatoliy/Desktop/work/self/rats-run/hooks/form",
+    "last_opened_file_path": "/Users/margosha/Desktop/WORK/rats-run/app",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -49,7 +52,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "npm.start.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "/Users/anatoliy/Desktop/work/self/rats-run/node_modules/prettier",
+    "prettierjs.PrettierConfiguration.Package": "/Users/margosha/Desktop/WORK/rats-run/node_modules/prettier",
     "settings.editor.selected.configurable": "settings.javascript.prettier",
     "ts.external.directory.path": "/Users/margosha/Desktop/WORK/rats-run/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
@@ -57,11 +60,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/hooks/form" />
       <recent name="$PROJECT_DIR$/hooks" />
       <recent name="$PROJECT_DIR$/components/templates" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/slices" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/hooks/form" />

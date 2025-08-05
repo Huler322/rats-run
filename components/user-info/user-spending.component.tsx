@@ -25,18 +25,20 @@ export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
 
   const totalSpending = getTotalSpending(currentUser);
 
+  // console.log(currentUser);
+
   const countChilde = new Decimal(currentUser.spending.child.count);
 
   const isPossibleCloseCreditCar = currentUser?.spending?.creditCar?.full?.length
     ? new Decimal(currentUser.currentCapital).greaterThanOrEqualTo(
         new Decimal(currentUser?.spending?.creditCar?.full),
-      )
+      ) && new Decimal(currentUser?.spending?.creditCar?.full).gt(0)
     : false;
 
   const isPossibleCloseCreditApartment = currentUser?.spending?.creditApartments?.full.length
     ? new Decimal(currentUser.currentCapital).greaterThanOrEqualTo(
         new Decimal(currentUser?.spending?.creditApartments?.full),
-      )
+      ) && new Decimal(currentUser?.spending?.creditApartments?.full).gt(0)
     : false;
 
   const onPlusChild = () => {

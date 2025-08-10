@@ -7,9 +7,9 @@ import { useSellStocks } from '@/hooks/use-sell-stocks';
 import tw from '@/lib/tailwind';
 import { IStockState } from '@/store/types';
 import { Controller } from 'react-hook-form';
-import { View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { useAppDispatch } from '@/store';
-import { sellStocks } from '@/slices/game.slice';
+import { deleteBigBusinessInList, sellStocks } from '@/slices/game.slice';
 
 export const SellStocksFormComponent: FC<IProps> = ({ stock }) => {
   const dispatch = useAppDispatch();
@@ -29,7 +29,17 @@ export const SellStocksFormComponent: FC<IProps> = ({ stock }) => {
 
   const onSellStocks = () => {
     const values = getValues();
-    dispatch(sellStocks({ id: stock.id, price: values.price, count: values.count }));
+    Alert.alert('Are you sure want to sell stock?', 'My Alert Msg', [
+      {
+        style: 'cancel',
+        text: 'Keep',
+      },
+      {
+        onPress: () =>
+          dispatch(sellStocks({ id: stock.id, price: values.price, count: values.count })),
+        text: 'Sell',
+      },
+    ]);
   };
 
   return (

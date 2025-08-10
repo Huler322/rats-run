@@ -1,24 +1,29 @@
 import { RowComponent } from '@/components/UI/row.component';
 import tw from '@/lib/tailwind';
 import { AntDesign } from '@expo/vector-icons';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, Alert } from 'react-native';
 import { FC } from 'react';
 import { IBusinessState } from '@/store/types';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { deleteBigBusinessInList } from '@/slices/game.slice';
-import { TypeNavigation } from '@/types';
-import { useRouter } from 'expo-router';
 
 export const BigBusinessListComponent: FC<IProps> = ({ list }) => {
   const { currentUser } = useAppSelector(({ game }) => game);
 
   const dispatch = useAppDispatch();
 
-  const navigation = useRouter();
-
   const onDeleteBigBusiness = (business: IBusinessState) => {
     if (!currentUser?.id) return;
-    dispatch(deleteBigBusinessInList({ id: currentUser.id, business }));
+    Alert.alert('Are you sure want to delete business?', 'My Alert Msg', [
+      {
+        style: 'cancel',
+        text: 'Keep',
+      },
+      {
+        onPress: () => dispatch(deleteBigBusinessInList({ id: currentUser.id, business })),
+        text: 'Delete',
+      },
+    ]);
   };
 
   if (!list.length) return <></>;

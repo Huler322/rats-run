@@ -39,18 +39,19 @@ const PoorCircleSmallBusinessItemModal = () => {
 
   const onDeleteSmallBusiness = () => {
     if (!foundBusiness) return;
-    Alert.alert('Are you sure want delete user?', 'My Alert Msg', [
+    Alert.alert('Are you sure want to delete business?', 'My Alert Msg', [
       {
         style: 'cancel',
         text: 'Keep',
       },
       {
-        onPress: () =>
-          dispatch(deleteSmallBusinessInList({ id: currentUser.id, business: foundBusiness })),
+        onPress: () => {
+          dispatch(deleteSmallBusinessInList({ id: currentUser.id, business: foundBusiness }));
+          navigation.back();
+        },
         text: 'Delete',
       },
     ]);
-    navigation.back();
   };
 
   const onIncreaseIncome = () => {

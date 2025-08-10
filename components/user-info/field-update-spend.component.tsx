@@ -3,20 +3,43 @@ import { FC, useState } from 'react';
 import { ButtonComponent } from '@/components/buttons/button.component';
 import { InputComponent } from '@/components/inputs/input.component';
 import tw from '@/lib/tailwind';
-import { View } from 'react-native';
+import { Alert, View } from 'react-native';
+import { sellStocks } from '@/slices/game.slice';
 
 export const FieldUpdateSpend: FC<IProps> = ({ onPress, placeholder, label }) => {
   const [value, setValue] = useState('');
 
   const onAddForm = () => {
     if (!value.length) return;
-    onPress(value);
-    setValue('');
+    Alert.alert('Are you sure want to remove?', 'My Alert Msg', [
+      {
+        style: 'cancel',
+        text: 'Keep',
+      },
+      {
+        onPress: () => {
+          onPress(value);
+          setValue('');
+        },
+        text: 'Remove',
+      },
+    ]);
   };
 
   const onRemove = () => {
-    onPress('0');
-    setValue('');
+    Alert.alert('Are you sure want to remove?', 'My Alert Msg', [
+      {
+        style: 'cancel',
+        text: 'Keep',
+      },
+      {
+        onPress: () => {
+          onPress('0');
+          setValue('');
+        },
+        text: 'Remove',
+      },
+    ]);
   };
 
   return (

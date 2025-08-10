@@ -4,6 +4,7 @@ import { BuySmallBusinessFormComponent } from '@/components/poor-circle/buy-smal
 import { BuyBigBusinessFormComponent } from '@/components/poor-circle/buy-big-business-form.component';
 import { BigBusinessListComponent } from '@/components/poor-circle/big-business-list.component';
 import { SmallBusinessListComponent } from '@/components/poor-circle/small-business-list.component';
+import { HeaderComponent } from '@/components/header/header.component';
 
 export default function PoorCircleScreen() {
   const { currentUser, poorCircle } = useAppSelector(({ game }) => game);

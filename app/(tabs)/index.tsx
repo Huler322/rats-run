@@ -10,9 +10,10 @@ export default function HomeScreen() {
   if (!currentUser) return null;
 
   return (
-    <ContainerScrollComponent styles={'bg-white'} header={<HeaderComponent />}>
-      <UserDreamInfoComponent currentUser={currentUser} />
+    <ContainerScrollComponent styles={'bg-white'}>
+      <HeaderComponent />
       <UserSpendingComponent currentUser={currentUser} />
+      <UserDreamInfoComponent currentUser={currentUser} />
     </ContainerScrollComponent>
   );
 }

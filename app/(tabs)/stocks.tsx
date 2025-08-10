@@ -14,7 +14,7 @@ export default function StocksScreen() {
   const currentStockList = stock ? stock[currentUser.id]?.list : [];
 
   return (
-    <ContainerScrollComponent styles={'bg-white'} header={<HeaderComponent />}>
+    <ContainerScrollComponent styles={'bg-white'}>
       <BuyStocksFormComponents currentUser={currentUser} />
 
       {currentStockList?.length ? (

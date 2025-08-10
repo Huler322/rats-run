@@ -16,7 +16,7 @@ export default function RichCircleScreen() {
   const businessList = richCircle.business[currentUser.id]?.list ?? [];
 
   return (
-    <ContainerScrollComponent styles={'bg-white'} header={<HeaderComponent />}>
+    <ContainerScrollComponent styles={'bg-white'}>
       <RichActionButtons currentUser={currentUser} />
       <RichAddBusinessForm />
       <RichBusinessListComponent list={businessList} />

@@ -19,13 +19,13 @@ import { IUser } from '@/store/types';
 import { AntDesign, Entypo, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import Decimal from 'decimal.js';
 import { Text, View } from 'react-native';
+import { useRouter } from 'expo-router';
 
 export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
   const dispatch = useAppDispatch();
+  const navigation = useRouter();
 
   const totalSpending = getTotalSpending(currentUser);
-
-  // console.log(currentUser);
 
   const countChilde = new Decimal(currentUser.spending.child.count);
 
@@ -67,13 +67,15 @@ export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
   };
 
   return (
-    <View style={tw`pb-20`}>
+    <View style={tw`mb-4`}>
       <View style={tw`bg-gray-800 rounded-lg overflow-hidden mb-4`}>
-        <View style={tw`px-4 py-5 border-b border-gray-600`}>
+        <RowComponent styles={`px-4 py-3 border-b border-gray-600`}>
+          <AntDesign name="arrowleft" size={24} color="white" onPress={() => navigation.back()} />
           <Text style={tw`text-center text-lg font-medium text-white`}>Spending</Text>
-        </View>
+          <View />
+        </RowComponent>
 
-        <RowComponent styles="px-4 py-5 border-b border-gray-600 ">
+        <RowComponent styles="px-4 py-2 border-b border-gray-600 ">
           <View style={tw`flex-row items-center`}>
             <Ionicons name="home-outline" size={16} style={tw`text-orange-400`} />
             <Text style={tw`text-base text-gray-300 ml-2`}>Apartments</Text>
@@ -83,7 +85,7 @@ export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
           </Text>
         </RowComponent>
 
-        <RowComponent styles="px-4 py-5 border-b border-gray-600 ">
+        <RowComponent styles="px-4 py-2 border-b border-gray-600 ">
           <View style={tw`flex-row items-center`}>
             <Ionicons name="fast-food-outline" size={16} style={tw`text-orange-400`} />
             <Text style={tw`text-base text-gray-300 ml-2`}>Food</Text>
@@ -93,7 +95,7 @@ export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
           </Text>
         </RowComponent>
 
-        <RowComponent styles="px-4 py-5 border-b border-gray-600 ">
+        <RowComponent styles="px-4 py-2 border-b border-gray-600 ">
           <View style={tw`flex-row items-center`}>
             <Entypo name="open-book" size={16} style={tw`text-orange-400`} />
             <Text style={tw`text-base text-gray-300 ml-2`}>Education</Text>
@@ -103,7 +105,7 @@ export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
           </Text>
         </RowComponent>
 
-        <RowComponent styles="px-4 py-5 border-b border-gray-600 ">
+        <RowComponent styles="px-4 py-2 border-b border-gray-600 ">
           <View style={tw`flex-row items-center`}>
             <Ionicons name="shirt-outline" size={16} style={tw`text-orange-400`} />
             <Text style={tw`text-base text-gray-300 ml-2`}>Clothes</Text>
@@ -113,7 +115,7 @@ export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
           </Text>
         </RowComponent>
 
-        <RowComponent styles="px-4 py-5 border-b border-gray-600 ">
+        <RowComponent styles="px-4 py-2 border-b border-gray-600 ">
           <View style={tw`flex-row items-center`}>
             <AntDesign name="wifi" size={16} style={tw`text-orange-400`} />
             <Text style={tw`text-base text-gray-300 ml-2`}>Internet</Text>
@@ -123,7 +125,7 @@ export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
           </Text>
         </RowComponent>
 
-        <RowComponent styles="px-4 py-5 border-b border-gray-600 ">
+        <RowComponent styles="px-4 py-2 border-b border-gray-600 ">
           <View style={tw`flex-row items-center`}>
             <Ionicons name="bus-outline" size={16} style={tw`text-orange-400`} />
             <Text style={tw`text-base text-gray-300 ml-2`}>Travel</Text>
@@ -132,7 +134,7 @@ export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
             $ {currentUser.spending.travel}
           </Text>
         </RowComponent>
-        <View style={tw`border-b border-gray-600 px-4 py-5`}>
+        <View style={tw`border-b border-gray-600 px-4 py-2`}>
           <RowComponent>
             <View style={tw`flex-row items-center`}>
               <Ionicons name="home-outline" size={16} style={tw`text-orange-400`} />
@@ -155,7 +157,7 @@ export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
           ) : null}
         </View>
 
-        <View style={tw`border-b border-gray-600 px-4 py-5`}>
+        <View style={tw`border-b border-gray-600 px-4 py-2`}>
           <RowComponent>
             <View style={tw`flex-row items-center`}>
               <AntDesign name="car" size={16} style={tw`text-orange-400`} />
@@ -178,7 +180,7 @@ export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
           ) : null}
         </View>
 
-        <RowComponent styles="px-4 py-5 border-b border-gray-600 flex-col w-full">
+        <RowComponent styles="px-4 py-2 border-b border-gray-600 flex-col w-full">
           <View style={tw`flex flex-row items-center justify-between w-full`}>
             <View style={tw`flex-row items-center`}>
               <MaterialIcons name="child-care" size={16} style={tw`text-orange-400`} />
@@ -200,7 +202,7 @@ export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
           </View>
         </RowComponent>
 
-        <View style={tw`border-b border-gray-600 px-4 py-5`}>
+        <View style={tw`border-b border-gray-600 px-4 py-2`}>
           <RowComponent styles={'mb-5'}>
             <View style={tw`flex-row items-center`}>
               <MaterialIcons name="elderly-woman" size={16} style={tw`text-orange-400`} />
@@ -221,7 +223,7 @@ export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
             placeholder={'cost'}
           />
         </View>
-        <View style={tw`border-b border-gray-600 px-4 py-5`}>
+        <View style={tw`border-b border-gray-600 px-4 py-2`}>
           <RowComponent styles="mb-5 ">
             <View style={tw`flex-row items-center`}>
               <MaterialIcons name="elderly" size={16} style={tw`text-orange-400`} />
@@ -243,7 +245,7 @@ export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
           />
         </View>
 
-        <RowComponent styles="px-4 py-5 border-t border-gray-600 ">
+        <RowComponent styles="px-4 py-2 border-t border-gray-600 ">
           <Text style={tw`text-base font-bold text-white`}>Total Spending</Text>
           <Text style={tw`text-base font-bold text-orange-400`}>$ {totalSpending}</Text>
         </RowComponent>

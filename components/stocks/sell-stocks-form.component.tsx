@@ -11,9 +11,13 @@ import { Alert, View, Text } from 'react-native';
 import { useAppDispatch } from '@/store';
 import { sellStocks } from '@/slices/game.slice';
 import Decimal from 'decimal.js';
+import { useRouter } from 'expo-router';
 
 export const SellStocksFormComponent: FC<IProps> = ({ stock }) => {
+  const navigation = useRouter();
+
   const dispatch = useAppDispatch();
+
   const {
     control,
     handleSubmit,
@@ -37,8 +41,10 @@ export const SellStocksFormComponent: FC<IProps> = ({ stock }) => {
         text: 'Keep',
       },
       {
-        onPress: () =>
-          dispatch(sellStocks({ id: stock.id, price: values.price, count: values.count })),
+        onPress: () => {
+          dispatch(sellStocks({ id: stock.id, price: values.price, count: values.count }));
+          navigation.back();
+        },
         text: 'Sell',
       },
     ]);

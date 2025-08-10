@@ -1,18 +1,17 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 
 import { ButtonComponent } from '@/components/buttons/button.component';
 import { InputComponent } from '@/components/inputs/input.component';
 import { RowComponent } from '@/components/UI/row.component';
-import { useSellStocks } from '@/hooks/use-sell-stocks';
 import tw from '@/lib/tailwind';
 import { IStockState } from '@/store/types';
 import { Controller } from 'react-hook-form';
 import { Alert, View, Text } from 'react-native';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { plusInCapital, sellStocks } from '@/slices/game.slice';
-import { useGetDividendsStocks } from '@/hooks/use-get-dividends-stocks';
 import Decimal from 'decimal.js';
 import { useRouter } from 'expo-router';
+import { useAmount } from '@/hooks/form/use-amount';
 
 export const GetDividendsFromStock: FC<IProps> = ({ stock }) => {
   const dispatch = useAppDispatch();
@@ -22,27 +21,29 @@ export const GetDividendsFromStock: FC<IProps> = ({ stock }) => {
 
   const {
     control,
-    handleSubmit,
     formState: { errors },
     getValues,
-  } = useGetDividendsStocks();
+    handleSubmit,
+  } = useAmount();
 
   if (!currentUser) return <></>;
 
   const onGetDividendsFromStocks = () => {
     const values = getValues();
-    const sumOfDividends = new Decimal(values.price).mul(stock.count);
+    const sumOfDividends = new Decimal(values.amount).mul(stock.count).toString();
     Alert.alert('Are you sure want to get dividends stock?', '', [
       {
         style: 'cancel',
         text: 'Cancel',
       },
       {
-        onPress: () => dispatch(plusInCapital({ user: currentUser, amount: sumOfDividends })),
+        onPress: () => {
+          dispatch(plusInCapital({ user: currentUser, amount: sumOfDividends }));
+          navigation.back();
+        },
         text: 'Get money',
       },
     ]);
-    navigation.back();
   };
 
   return (
@@ -61,11 +62,11 @@ export const GetDividendsFromStock: FC<IProps> = ({ stock }) => {
                 value={value}
                 onChange={onChange}
                 placeholder={'5'}
-                error={errors.count}
+                error={errors.amount}
                 keyboardType={'number-pad'}
               />
             )}
-            name="price"
+            name="amount"
             defaultValue=""
           />
         </View>

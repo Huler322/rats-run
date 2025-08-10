@@ -245,6 +245,24 @@ export const gameSlice = createSlice({
       });
     },
     setStockInList: (state, action: PayloadAction<{ id: string; stock: IStockState }>) => {
+      if (!state.currentUser) return;
+      const totalStockCost = new Decimal(action.payload.stock.count).mul(
+        action.payload.stock.price,
+      );
+      const totalCapital = new Decimal(state.currentUser.currentCapital)
+        .minus(totalStockCost)
+        .toString();
+      const updatedUser = {
+        ...state.currentUser,
+        currentCapital: totalCapital,
+      };
+      state.currentUser = updatedUser;
+      state.user.list = state.user.list.map((item) => {
+        if (item.id === action.payload.id) {
+          return updatedUser;
+        }
+        return item;
+      });
       if (state.stock[action.payload.id]?.list?.length) {
         state.stock = {
           ...state.stock,

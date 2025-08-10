@@ -6,15 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="df448400-5184-4a49-988c-f3205425981c" name="Changes" comment="Merge remote-tracking branch 'origin/development'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/create-or-edit-user/form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/create-or-edit-user/form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/income-capital-modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/income-capital-modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/minus-capital-modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/minus-capital-modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/poor-circle-small-business-item-modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/poor-circle-small-business-item-modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/poor-circle/buy-big-business-form.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/poor-circle/buy-big-business-form.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/poor-circle/buy-small-business-form.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/poor-circle/buy-small-business-form.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/rich-circle/rich-add-bussiness-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/rich-circle/rich-add-bussiness-form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/stocks/buy-stocks-form.components.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/stocks/buy-stocks-form.components.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/stocks/sell-stocks-form.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/stocks/sell-stocks-form.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

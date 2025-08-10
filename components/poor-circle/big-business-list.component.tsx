@@ -30,7 +30,9 @@ export const BigBusinessListComponent: FC<IProps> = ({ list }) => {
       </Text>
       {list.map((item, key) => (
         <TouchableOpacity
-          onPress={() => navigation.navigate(TypeNavigation.POOR_CIRCLE_SMALL_BUSINESS_ITEM_MODAL)}
+          onPress={() =>
+            navigation.navigate(TypeNavigation.POOR_CIRCLE_BIG_BUSINESS_ITEM_MODAL, { id: item.id })
+          }
           key={key}
         >
           <RowComponent styles="mb-2 px-3 bg-gray-800 rounded-lg overflow-hidden py-2 border-b border-gray-600">

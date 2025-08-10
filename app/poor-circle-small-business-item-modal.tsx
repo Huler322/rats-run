@@ -2,16 +2,17 @@ import { View, Text } from 'react-native';
 import tw from '@/lib/tailwind';
 import { RowComponent } from '@/components/UI/row.component';
 import { ButtonComponent } from '@/components/buttons/button.component';
+import { useRouter } from 'expo-router';
 
 const PoorCircleSmallBusinessItemModal = () => {
-  const onDeleteBigBusiness = (id: string) => {};
+  const onDeleteSmallBusiness = (id: string) => {};
   const onIncreaseIncome = (id: string) => {};
 
   return (
     <View style={tw`py-8 px-4 items-center justify-center h-full w-full`}>
       <View style={tw`mb-10`}>
         <Text style={tw`font-bold text-lg mb-1 text-center`}>Business</Text>
-        <ButtonComponent title="Delete business" onPress={() => onDeleteBigBusiness(item.id)} />
+        <ButtonComponent title="Delete business" onPress={() => onDeleteSmallBusiness(item.id)} />
       </View>
 
       <RowComponent styles="justify-between mb-10 w-full">

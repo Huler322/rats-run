@@ -11,18 +11,9 @@ import { useRouter } from 'expo-router';
 import { TypeNavigation } from '@/types';
 
 export const SmallBusinessListComponent: FC<IProps> = ({ list }) => {
-  const { currentUser } = useAppSelector(({ game }) => game);
-
   const navigation = useRouter();
 
-  const dispatch = useAppDispatch();
-
   if (!list.length) return null;
-
-  const onDeleteBigBusiness = (business: IBusinessState) => {
-    if (!currentUser?.id) return;
-    dispatch(deleteSmallBusinessInList({ id: currentUser.id, business }));
-  };
 
   const {
     control,
@@ -31,8 +22,6 @@ export const SmallBusinessListComponent: FC<IProps> = ({ list }) => {
     getValues,
     // reset,
   } = useBuyStocks();
-
-  const onIncreaseIncome = (id: string) => {};
 
   if (!list.length) return <></>;
 
@@ -44,8 +33,9 @@ export const SmallBusinessListComponent: FC<IProps> = ({ list }) => {
       {list.map((item, key) => (
         <TouchableOpacity
           onPress={() =>
-            navigation.navigate(TypeNavigation.POOR_CIRCLE_SMALL_BUSINESS_ITEM_MODAL, {
-              id: item.id,
+            navigation.push({
+              pathname: TypeNavigation.POOR_CIRCLE_SMALL_BUSINESS_ITEM_MODAL,
+              params: { id: item.id },
             })
           }
           key={key}

@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from '@/store';
 import {
   deleteSmallBusinessInList,
   deleteUserInList,
+  quitFromJob,
   updateSmallBusinessList,
 } from '@/slices/game.slice';
 import { useLocalSearchParams, useRouter } from 'expo-router';
@@ -89,6 +90,7 @@ const PoorCircleSmallBusinessItemModal = () => {
                 business: { ...foundBusiness, income: updatedBusinessIncome },
               }),
             );
+            dispatch(quitFromJob());
             reset();
             navigation.back();
           },

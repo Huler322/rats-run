@@ -3,13 +3,13 @@ import { FC } from 'react';
 import { RowComponent } from '@/components/UI/row.component';
 import tw from '@/lib/tailwind';
 import { IUser } from '@/store/types';
-import {  FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 import { Text, View } from 'react-native';
 
 export const UserDreamInfoComponent: FC<IProps> = ({ currentUser }) => {
   return (
     <>
-      <View style={tw`bg-gray-800 rounded-lg overflow-hidden mb-20`}>
+      <View style={tw`bg-gray-800 rounded-lg overflow-hidden mb-40`}>
         <RowComponent styles={'bg-gray-700 px-4 py-2 border-b border-gray-600'}>
           <Text style={tw`text-center text-lg font-medium text-white`}>{currentUser.name}</Text>
         </RowComponent>

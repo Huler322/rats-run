@@ -5,6 +5,7 @@ import { StockItemsHeaderComponent } from '@/components/stocks/stock-items-heade
 import { ContainerScrollComponent } from '@/components/templates/container-scroll.component';
 import { useAppSelector } from '@/store';
 import { View } from 'react-native';
+import tw from '@/lib/tailwind';
 
 export default function StocksScreen() {
   const { currentUser, stock } = useAppSelector(({ game }) => game);
@@ -18,7 +19,7 @@ export default function StocksScreen() {
       <BuyStocksFormComponents currentUser={currentUser} />
 
       {currentStockList?.length ? (
-        <View>
+        <View style={tw`pb-40`}>
           <StockItemsHeaderComponent />
           {currentStockList?.map((stock, key) => (
             <View key={key}>

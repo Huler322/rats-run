@@ -11,7 +11,7 @@ export const FieldUpdateSpend: FC<IProps> = ({ onPress, placeholder, label }) =>
 
   const onAddForm = () => {
     if (!value.length) return;
-    Alert.alert('Are you sure want to remove?', '', [
+    Alert.alert('Are you sure want to take?', '', [
       {
         style: 'cancel',
         text: 'Keep',

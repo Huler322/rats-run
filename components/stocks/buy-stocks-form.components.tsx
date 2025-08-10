@@ -50,24 +50,7 @@ export const BuyStocksFormComponents: FC<IProps> = ({ currentUser }) => {
             defaultValue=""
           />
         </View>
-        <View style={tw`w-[20%]`}>
-          <Controller
-            control={control}
-            render={({ field: { onChange, value } }) => (
-              <InputComponent
-                value={value}
-                onChange={onChange}
-                placeholder={'22'}
-                withMessage={false}
-                error={errors.count}
-                label={'Count'}
-                keyboardType={'number-pad'}
-              />
-            )}
-            name="count"
-            defaultValue=""
-          />
-        </View>
+
         <View style={tw`w-[20%]`}>
           <Controller
             control={control}
@@ -83,6 +66,25 @@ export const BuyStocksFormComponents: FC<IProps> = ({ currentUser }) => {
               />
             )}
             name="price"
+            defaultValue=""
+          />
+        </View>
+
+        <View style={tw`w-[20%]`}>
+          <Controller
+            control={control}
+            render={({ field: { onChange, value } }) => (
+              <InputComponent
+                value={value}
+                onChange={onChange}
+                placeholder={'22'}
+                withMessage={false}
+                error={errors.count}
+                label={'Count'}
+                keyboardType={'number-pad'}
+              />
+            )}
+            name="count"
             defaultValue=""
           />
         </View>

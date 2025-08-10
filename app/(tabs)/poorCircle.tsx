@@ -16,8 +16,10 @@ export default function PoorCircleScreen() {
 
   return (
     <ContainerScrollComponent styles={'bg-white'} header={<HeaderComponent />}>
-      <BuySmallBusinessFormComponent list={smallBusinessList} />
-      <BuyBigBusinessFormComponent list={bigBusinessList} />
+      {smallBusinessList?.length < 10 ? (
+        <BuySmallBusinessFormComponent list={smallBusinessList} />
+      ) : null}
+      {bigBusinessList?.length < 7 ? <BuyBigBusinessFormComponent list={bigBusinessList} /> : null}
       <SmallBusinessListComponent list={smallBusinessList} />
       <BigBusinessListComponent list={bigBusinessList} />
     </ContainerScrollComponent>

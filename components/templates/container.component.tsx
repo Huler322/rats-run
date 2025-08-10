@@ -27,7 +27,6 @@ export const ContainerComponent: FC<IProps> = ({ children, header, styles, style
       <View style={tw`px-4`}>{header ? header : null}</View>
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
         <KeyboardAvoidingView
-          style={{ flex: 1 }}
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
           keyboardVerticalOffset={offset}
         >

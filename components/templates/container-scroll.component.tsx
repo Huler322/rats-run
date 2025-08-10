@@ -19,7 +19,6 @@ export const ContainerScrollComponent: FC<IProps> = ({ children, styles, header 
     >
       {header ? <View style={tw`px-4`}>{header}</View> : null}
       <KeyboardAvoidingView
-        style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={offset}
       >

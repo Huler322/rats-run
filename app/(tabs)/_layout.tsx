@@ -5,7 +5,7 @@ import { Feather } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 import { Alert, Platform, Text, TouchableOpacity } from 'react-native';
 import { useAppDispatch } from '@/store';
-import { getSalary, quitFromJob, setSmallBusinessList } from '@/slices/game.slice';
+import { getSalary } from '@/slices/game.slice';
 
 export default function TabLayout() {
   const dispatch = useAppDispatch();
@@ -48,7 +48,7 @@ export default function TabLayout() {
           name="poorCircle"
           options={{
             tabBarIcon: ({ color }) => <Feather name="trending-down" size={24} color={color} />,
-            title: 'Poor Circle',
+            title: 'Poor Circle',
           }}
         />
 

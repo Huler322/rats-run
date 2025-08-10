@@ -114,10 +114,10 @@ export const gameSlice = createSlice({
     minusChild: (state, action: PayloadAction<IUser>) => {
       if (!state.currentUser) return;
       const countChild = parseInt(state.currentUser.spending.child.count) - 1;
-      const totalSpending = getTotalSpending(action.payload);
+      const currentCapital = new Decimal(state.currentUser.currentCapital).minus(1000).toString();
       const updatedUser = {
         ...state.currentUser,
-        currentCapital: totalSpending.toString(),
+        currentCapital,
         spending: {
           ...state.currentUser.spending,
           child: {
@@ -137,10 +137,10 @@ export const gameSlice = createSlice({
     plusChild: (state, action: PayloadAction<IUser>) => {
       if (!state.currentUser) return;
       const countChild = parseInt(state.currentUser.spending.child.count) + 1;
-      const totalSpending = getTotalSpending(action.payload);
+      const currentCapital = new Decimal(state.currentUser.currentCapital).plus(1000).toString();
       const updatedUser = {
         ...state.currentUser,
-        currentCapital: totalSpending.toString(),
+        currentCapital,
         spending: {
           ...state.currentUser.spending,
           child: {
@@ -441,7 +441,9 @@ export const gameSlice = createSlice({
       if (!state.currentUser) return;
       const totalMinus = getTotalSpending(state.currentUser);
       const totalSalary = getTotalSalary(state.currentUser, state.poorCircle, state.richCircle);
-      const totalCapital = new Decimal(totalSalary).minus(new Decimal(totalMinus)).toString();
+      const totalCapital = Decimal.sum(state.currentUser.currentCapital, new Decimal(totalSalary))
+        .minus(new Decimal(totalMinus))
+        .toString();
       const updatedUser = { ...state.currentUser, currentCapital: totalCapital };
       state.currentUser = updatedUser;
       state.user.list = state.user.list.map((item) => {

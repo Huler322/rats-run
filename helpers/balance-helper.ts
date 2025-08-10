@@ -98,12 +98,5 @@ export const getTotalSalary = (
   const businessCost = businessList?.length
     ? Decimal.sum(...businessList.map((item) => new Decimal(item.income)))
     : new Decimal(0);
-  const currentCapital = new Decimal(currentUser.currentCapital);
-  return Decimal.sum(
-    currentCapital,
-    totalSalary,
-    smallBusinessCost,
-    bigBusinessCost,
-    businessCost,
-  ).toString();
+  return Decimal.sum(totalSalary, smallBusinessCost, bigBusinessCost, businessCost).toString();
 };

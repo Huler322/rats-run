@@ -10,7 +10,8 @@ import { setStockInList } from '@/slices/game.slice';
 import { useAppDispatch } from '@/store';
 import { IUser } from '@/store/types';
 import { Controller } from 'react-hook-form';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
+import Decimal from 'decimal.js';
 
 export const BuyStocksFormComponents: FC<IProps> = ({ currentUser }) => {
   const dispatch = useAppDispatch();
@@ -21,7 +22,14 @@ export const BuyStocksFormComponents: FC<IProps> = ({ currentUser }) => {
     formState: { errors },
     getValues,
     reset,
+    watch,
   } = useBuyStocks();
+
+  const { price, count } = watch();
+
+  const totalCost = new Decimal(price?.length ? price : 0)
+    .mul(new Decimal(count?.length ? count : 0))
+    .toString();
 
   const onBuyStocks = () => {
     const values = getValues();
@@ -89,6 +97,11 @@ export const BuyStocksFormComponents: FC<IProps> = ({ currentUser }) => {
           />
         </View>
       </RowComponent>
+
+      <RowComponent styles={'mb-4 text-center w-full'}>
+        <Text style={tw`text-center w-full`}>It will cost {totalCost}$</Text>
+      </RowComponent>
+
       <ButtonComponent onPress={handleSubmit(onBuyStocks)} title={'Buy Stock'} />
     </View>
   );

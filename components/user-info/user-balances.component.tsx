@@ -1,5 +1,5 @@
 import { RowComponent } from '@/components/UI/row.component';
-import { Text } from 'react-native';
+import { Alert, Text } from 'react-native';
 import tw from '@/lib/tailwind';
 import { ButtonComponent } from '@/components/buttons/button.component';
 import { TypeNavigation } from '@/types';
@@ -7,7 +7,7 @@ import { useRouter } from 'expo-router';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { getTotalSalary, getTotalSpending } from '@/helpers/balance-helper';
 import Decimal from 'decimal.js';
-import { quitFromJob } from '@/slices/game.slice';
+import { deleteBigBusinessInList, quitFromJob } from '@/slices/game.slice';
 
 export const UserBalancesComponent = () => {
   const dispatch = useAppDispatch();
@@ -35,7 +35,16 @@ export const UserBalancesComponent = () => {
     countSmallBusinesses < 2;
 
   const onQuitFromJob = () => {
-    dispatch(quitFromJob());
+    Alert.alert('Are you sure want to quit from job?', '', [
+      {
+        style: 'cancel',
+        text: 'Keep',
+      },
+      {
+        onPress: () => dispatch(quitFromJob()),
+        text: 'Yep',
+      },
+    ]);
   };
 
   return (

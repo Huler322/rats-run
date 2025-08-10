@@ -7,8 +7,7 @@
     <list default="true" id="df448400-5184-4a49-988c-f3205425981c" name="Changes" comment="Merge remote-tracking branch 'origin/dev2'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/stocks/get-dividends-from-stocks-form.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/stocks/get-dividends-from-stocks-form.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/stocks/sell-stocks-form.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/stocks/sell-stocks-form.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/use-get-dividends-stocks.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/user-info/user-balances.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/user-info/user-balances.component.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

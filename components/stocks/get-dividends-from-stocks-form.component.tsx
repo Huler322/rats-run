@@ -8,7 +8,7 @@ import { IStockState } from '@/store/types';
 import { Controller } from 'react-hook-form';
 import { Alert, View, Text } from 'react-native';
 import { useAppDispatch, useAppSelector } from '@/store';
-import { plusInCapital, sellStocks } from '@/slices/game.slice';
+import { plusInCapital } from '@/slices/game.slice';
 import Decimal from 'decimal.js';
 import { useRouter } from 'expo-router';
 import { useAmount } from '@/hooks/form/use-amount';

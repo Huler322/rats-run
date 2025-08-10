@@ -29,23 +29,19 @@ export const BigBusinessListComponent: FC<IProps> = ({ list }) => {
         Big Businesses
       </Text>
       {list.map((item, key) => (
-        <TouchableOpacity
-          onPress={() =>
-            navigation.navigate(TypeNavigation.POOR_CIRCLE_BIG_BUSINESS_ITEM_MODAL, { id: item.id })
-          }
+        <RowComponent
+          styles="mb-2 px-3 bg-gray-800 rounded-lg overflow-hidden py-2 border-b border-gray-600"
           key={key}
         >
-          <RowComponent styles="mb-2 px-3 bg-gray-800 rounded-lg overflow-hidden py-2 border-b border-gray-600">
-            <Text style={tw`text-base text-white font-medium w-[50%]`}>Big Bussiness</Text>
-            <Text style={tw`text-base text-orange-500 font-medium`}>$ {item.income}</Text>
-            <AntDesign
-              name="minuscircle"
-              size={32}
-              style={tw`text-red-500`}
-              onPress={() => onDeleteBigBusiness(item)}
-            />
-          </RowComponent>
-        </TouchableOpacity>
+          <Text style={tw`text-base text-white font-medium w-[50%]`}>Big Bussiness</Text>
+          <Text style={tw`text-base text-orange-500 font-medium`}>$ {item.income}</Text>
+          <AntDesign
+            name="minuscircle"
+            size={32}
+            style={tw`text-red-500`}
+            onPress={() => onDeleteBigBusiness(item)}
+          />
+        </RowComponent>
       ))}
     </View>
   );

@@ -54,12 +54,6 @@ export const SmallBusinessListComponent: FC<IProps> = ({ list }) => {
           <RowComponent>
             <Text style={tw`text-base text-white font-medium w-[50%]`}>Small Bussiness</Text>
             <Text style={tw`text-base text-orange-500 font-medium`}>$ {item.income}</Text>
-            <AntDesign
-              name="minuscircle"
-              size={32}
-              style={tw`text-red-500`}
-              onPress={() => onDeleteBigBusiness(item)}
-            />
           </RowComponent>
         </TouchableOpacity>
       ))}

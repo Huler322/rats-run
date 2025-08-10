@@ -4,13 +4,13 @@ export interface IPlusOrMinus {
   amount: string;
 }
 
-export const usePlusOrMinus = () => {
+export const useAmount = () => {
   const resolver: Resolver<IPlusOrMinus> = async (values) => {
     const errors: FieldErrors<IPlusOrMinus> = {};
 
     if (!values.amount?.trim()) {
       errors.amount = {
-        message: 'Field price',
+        message: 'Field required',
         type: 'required',
       };
     }

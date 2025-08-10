@@ -3,7 +3,7 @@ import tw from '@/lib/tailwind';
 import { ButtonComponent } from '@/components/buttons/button.component';
 import { InputComponent } from '@/components/inputs/input.component';
 import { Controller } from 'react-hook-form';
-import { usePlusOrMinus } from '@/hooks/form/use-plus-or-minus';
+import { useAmount } from '@/hooks/form/use-amount';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { plusInCapital } from '@/slices/game.slice';
 import { useRouter } from 'expo-router';
@@ -20,7 +20,8 @@ const IncomeCapitalModal = () => {
     formState: { errors },
     getValues,
     reset,
-  } = usePlusOrMinus();
+    handleSubmit,
+  } = useAmount();
 
   const addMoneyToCapital = () => {
     if (!currentUser) return;
@@ -44,6 +45,7 @@ const IncomeCapitalModal = () => {
             stylesContainer={'w-full'}
             value={value}
             onChange={onChange}
+            withMessage={true}
             error={errors.amount}
             placeholder={'0'}
           />
@@ -51,7 +53,11 @@ const IncomeCapitalModal = () => {
         name="amount"
         defaultValue=""
       />
-      <ButtonComponent styles="mt-2 w-full" title="Add money" onPress={addMoneyToCapital} />
+      <ButtonComponent
+        styles="mt-2 w-full"
+        title="Add money"
+        onPress={handleSubmit(addMoneyToCapital)}
+      />
     </View>
   );
 };

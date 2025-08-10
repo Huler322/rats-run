@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="df448400-5184-4a49-988c-f3205425981c" name="Changes" comment="Merge remote-tracking branch 'origin/development'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header/header.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/header.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers/balance-helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/balance-helper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slices/.game.slice.ts.swp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/slices/game.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/slices/game.slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/poorCircle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/poorCircle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/income-capital-modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/income-capital-modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/minus-capital-modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/minus-capital-modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/poor-circle-small-business-item-modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/poor-circle-small-business-item-modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/form/use-plus-or-minus.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/form/use-amount.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,27 +31,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/anatoliy/Desktop/work/self/rats-run/hooks/form&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/anatoliy/Desktop/work/self/rats-run/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/anatoliy/Desktop/work/self/rats-run/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/Users/anatoliy/Desktop/work/self/rats-run/hooks/form",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.start.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "/Users/anatoliy/Desktop/work/self/rats-run/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "/Users/anatoliy/Desktop/work/self/rats-run/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/hooks/form" />
@@ -83,7 +85,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-WS-251.27812.50" />
+        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-WS-252.23892.411" />
       </set>
     </attachedChunks>
   </component>
@@ -102,10 +104,17 @@
       <workItem from="1753619970917" duration="10392000" />
       <workItem from="1753630832209" duration="2475000" />
       <workItem from="1753633656007" duration="6485000" />
+      <workItem from="1754823692699" duration="574000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="javascript:npm:react" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:prettier" />
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
   </component>
 </project>

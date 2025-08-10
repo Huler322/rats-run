@@ -5,7 +5,7 @@ import { Controller } from 'react-hook-form';
 import { InputComponent } from '@/components/inputs/input.component';
 import { useRouter } from 'expo-router';
 import { useAppDispatch, useAppSelector } from '@/store';
-import { usePlusOrMinus } from '@/hooks/form/use-plus-or-minus';
+import { useAmount } from '@/hooks/form/use-amount';
 import { minusInCapital } from '@/slices/game.slice';
 
 const MinusCapitalModal = () => {
@@ -20,7 +20,8 @@ const MinusCapitalModal = () => {
     formState: { errors },
     getValues,
     reset,
-  } = usePlusOrMinus();
+    handleSubmit,
+  } = useAmount();
 
   const minusMoneyToCapital = () => {
     if (!currentUser) return;
@@ -44,6 +45,7 @@ const MinusCapitalModal = () => {
             stylesContainer={'w-full'}
             value={value}
             onChange={onChange}
+            withMessage={true}
             error={errors.amount}
             placeholder={'0'}
           />
@@ -51,7 +53,11 @@ const MinusCapitalModal = () => {
         name="amount"
         defaultValue=""
       />
-      <ButtonComponent styles="mt-2 w-full" title="Lost money" onPress={minusMoneyToCapital} />
+      <ButtonComponent
+        styles="mt-2 w-full"
+        title="Lost money"
+        onPress={handleSubmit(minusMoneyToCapital)}
+      />
     </View>
   );
 };

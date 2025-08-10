@@ -28,7 +28,7 @@ export const InputComponent: FC<IProps> = ({
         autoCapitalize="none"
         style={tw`placeholder:text-red-400 rounded-md px-4 py-3 border ${focusStyle} ${
           styles ?? ''
-        } text-base leading-5`}
+        } text-base text-black leading-5`}
         onChangeText={onChange}
         value={value}
         placeholder={placeholder ?? ''}

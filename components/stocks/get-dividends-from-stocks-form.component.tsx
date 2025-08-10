@@ -8,47 +8,51 @@ import tw from '@/lib/tailwind';
 import { IStockState } from '@/store/types';
 import { Controller } from 'react-hook-form';
 import { Alert, View, Text } from 'react-native';
-import { useAppDispatch } from '@/store';
-import { sellStocks } from '@/slices/game.slice';
+import { useAppDispatch, useAppSelector } from '@/store';
+import { plusInCapital, sellStocks } from '@/slices/game.slice';
+import { useGetDividendsStocks } from '@/hooks/use-get-dividends-stocks';
+import Decimal from 'decimal.js';
+import { useRouter } from 'expo-router';
 
-export const SellStocksFormComponent: FC<IProps> = ({ stock }) => {
+export const GetDividendsFromStock: FC<IProps> = ({ stock }) => {
   const dispatch = useAppDispatch();
+  const navigation = useRouter();
+
+  const { currentUser } = useAppSelector(({ game }) => game);
+
   const {
     control,
     handleSubmit,
     formState: { errors },
     getValues,
-    setValue,
-    // reset,
-  } = useSellStocks();
+  } = useGetDividendsStocks();
 
-  useEffect(() => {
-    setValue('price', stock.price);
-    setValue('count', stock.count);
-  }, [stock]);
+  if (!currentUser) return <></>;
 
-  const onSellStocks = () => {
+  const onGetDividendsFromStocks = () => {
     const values = getValues();
-    Alert.alert('Are you sure want to sell stock?', '', [
+    const sumOfDividends = new Decimal(values.price).mul(stock.count);
+    Alert.alert('Are you sure want to get dividends stock?', '', [
       {
         style: 'cancel',
-        text: 'Keep',
+        text: 'Cancel',
       },
       {
-        onPress: () =>
-          dispatch(sellStocks({ id: stock.id, price: values.price, count: values.count })),
-        text: 'Sell',
+        onPress: () => dispatch(plusInCapital({ user: currentUser, amount: sumOfDividends })),
+        text: 'Get money',
       },
     ]);
+    navigation.back();
   };
 
   return (
-    <View style={tw`mb-12`}>
+    <View>
+      <Text style={tw`text-center px-4 mb-1 text-base`}>Get dividends from your stocks</Text>
       <Text style={tw`text-center px-4 mb-2 text-base`}>
-        You can sell your all stocks or part of stocks
+        Write below how much $ you get for 1 stock.
       </Text>
       <RowComponent styles="items-start">
-        <View style={tw`w-[45%]`}>
+        <View style={tw`w-full`}>
           <Controller
             control={control}
             render={({ field: { onChange, value } }) => (
@@ -56,25 +60,8 @@ export const SellStocksFormComponent: FC<IProps> = ({ stock }) => {
                 styles="text-center text-gray-200"
                 value={value}
                 onChange={onChange}
-                placeholder={'250'}
+                placeholder={'5'}
                 error={errors.count}
-                keyboardType={'number-pad'}
-              />
-            )}
-            name="count"
-            defaultValue=""
-          />
-        </View>
-        <View style={tw`w-[45%]`}>
-          <Controller
-            control={control}
-            render={({ field: { onChange, value } }) => (
-              <InputComponent
-                styles="text-center text-gray-200"
-                value={value}
-                onChange={onChange}
-                placeholder={'120'}
-                error={errors.price}
                 keyboardType={'number-pad'}
               />
             )}
@@ -83,7 +70,11 @@ export const SellStocksFormComponent: FC<IProps> = ({ stock }) => {
           />
         </View>
       </RowComponent>
-      <ButtonComponent title="Sell" onPress={handleSubmit(onSellStocks)} styles="bg-orange-500" />
+      <ButtonComponent
+        title="Get Dividends"
+        onPress={handleSubmit(onGetDividendsFromStocks)}
+        styles="bg-orange-500"
+      />
     </View>
   );
 };

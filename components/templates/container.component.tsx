@@ -30,7 +30,7 @@ export const ContainerComponent: FC<IProps> = ({ children, header, styles, style
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
           keyboardVerticalOffset={offset}
         >
-          <View style={tw`px-8 h-full ${stylesChildren ?? ''}`}>{children}</View>
+          <View style={tw`px-4 h-full ${stylesChildren ?? ''}`}>{children}</View>
         </KeyboardAvoidingView>
       </TouchableWithoutFeedback>
     </SafeAreaView>

@@ -42,7 +42,7 @@ const PoorCircleSmallBusinessItemModal = () => {
 
   const onDeleteSmallBusiness = () => {
     if (!foundBusiness) return;
-    Alert.alert('Are you sure want to delete business?', 'My Alert Msg', [
+    Alert.alert('Are you sure want to delete business?', '', [
       {
         style: 'cancel',
         text: 'Keep',
@@ -101,7 +101,7 @@ const PoorCircleSmallBusinessItemModal = () => {
   };
 
   return (
-    <ContainerComponent>
+    <ContainerComponent styles={'bg-white'}>
       <View style={tw`items-center justify-center h-full w-full`}>
         <View style={tw`mb-10`}>
           <Text style={tw`font-bold text-lg mb-1 text-center`}>Business</Text>

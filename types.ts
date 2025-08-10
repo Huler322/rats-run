@@ -15,7 +15,7 @@ export enum TypeNavigation {
 
   POOR_CIRCLE_SMALL_BUSINESS_ITEM_MODAL = 'poor-circle-small-business-item-modal',
 
-  POOR_CIRCLE_BIG_BUSINESS_ITEM_MODAL = 'poor-circle-big-business-item-modal',
+  STOCK_ITEM_MODAL = 'stock-item-modal',
 }
 
 export enum UserStatus {

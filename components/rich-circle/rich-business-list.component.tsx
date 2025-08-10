@@ -1,11 +1,11 @@
-import { Text, View } from 'react-native';
+import { Alert, Text, View } from 'react-native';
 import { RowComponent } from '@/components/UI/row.component';
 import tw from '@/lib/tailwind';
 import { AntDesign } from '@expo/vector-icons';
 import { FC } from 'react';
 import { IRichBusinessState } from '@/store/types';
 import { useAppDispatch, useAppSelector } from '@/store';
-import { deleteRichBusinessInList } from '@/slices/game.slice';
+import { deleteRichBusinessInList, deleteSmallBusinessInList } from '@/slices/game.slice';
 
 export const RichBusinessListComponent: FC<IProps> = ({ list }) => {
   const { currentUser } = useAppSelector(({ game }) => game);
@@ -14,11 +14,22 @@ export const RichBusinessListComponent: FC<IProps> = ({ list }) => {
 
   const onDeleteBusiness = (business: IRichBusinessState) => {
     if (!currentUser) return;
-    dispatch(deleteRichBusinessInList({ id: currentUser.id, business }));
+    Alert.alert('Are you sure want to delete business?', 'My Alert Msg', [
+      {
+        style: 'cancel',
+        text: 'Keep',
+      },
+      {
+        onPress: () => {
+          dispatch(deleteRichBusinessInList({ id: currentUser.id, business }));
+        },
+        text: 'Delete',
+      },
+    ]);
   };
 
   return (
-    <View>
+    <View style={tw`pb-40`}>
       {list.map((item, key) => (
         <View
           style={tw`bg-gray-800 rounded-lg overflow-hidden py-2 border-b border-gray-600 mb-2 px-3`}

@@ -26,6 +26,24 @@ export const gameSlice = createSlice({
     clearCurrentUser: (state) => {
       state.currentUser = initialState.currentUser;
     },
+    quitFromJob: (state) => {
+      if (!state.currentUser) return;
+      const updatedUser = {
+        ...state.currentUser,
+        profession: '',
+        salary: {
+          ...state.currentUser.salary,
+          salary: '0',
+        },
+      };
+      state.currentUser = updatedUser;
+      state.user.list = state.user.list.map((item) => {
+        if (item.id === updatedUser.id) {
+          return updatedUser;
+        }
+        return item;
+      });
+    },
     closeCreditApartment: (state, action: PayloadAction<IUser>) => {
       if (!state.currentUser) return;
       const totalCapital = new Decimal(state.currentUser.currentCapital)
@@ -523,4 +541,5 @@ export const {
   plusInCapital,
   getSalary,
   minusTax,
+  quitFromJob,
 } = gameSlice.actions;

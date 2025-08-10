@@ -16,8 +16,8 @@ export default function PoorCircleScreen() {
 
   return (
     <ContainerScrollComponent styles={'bg-white'} header={<HeaderComponent />}>
-      <BuySmallBusinessFormComponent />
-      <BuyBigBusinessFormComponent />
+      <BuySmallBusinessFormComponent list={smallBusinessList} />
+      <BuyBigBusinessFormComponent list={bigBusinessList} />
       <SmallBusinessListComponent list={smallBusinessList} />
       <BigBusinessListComponent list={bigBusinessList} />
     </ContainerScrollComponent>

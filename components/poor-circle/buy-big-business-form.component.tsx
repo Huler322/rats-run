@@ -3,13 +3,16 @@ import { InputComponent } from '@/components/inputs/input.component';
 import { RowComponent } from '@/components/UI/row.component';
 import tw from '@/lib/tailwind';
 import { Controller } from 'react-hook-form';
-import { View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { useBuyBusiness } from '@/hooks/form/use-buy-business';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { generateNonce } from '@/helpers';
-import { setBigBusinessList } from '@/slices/game.slice';
+import { quitFromJob, setBigBusinessList, setSmallBusinessList } from '@/slices/game.slice';
+import { IBusinessState } from '@/store/types';
+import { FC } from 'react';
+import Decimal from 'decimal.js';
 
-export const BuyBigBusinessFormComponent = () => {
+export const BuyBigBusinessFormComponent: FC<IProps> = ({ list }) => {
   const { currentUser } = useAppSelector(({ game }) => game);
 
   const dispatch = useAppDispatch();
@@ -22,10 +25,33 @@ export const BuyBigBusinessFormComponent = () => {
     reset,
   } = useBuyBusiness(currentUser);
 
+  const isUserAlreadyQuiteFromJob = new Decimal(currentUser?.salary?.salary ?? 0).eq(0);
+
   const onBuyBigBusiness = () => {
     if (!currentUser) return;
     const values = getValues();
     const id = generateNonce();
+    if (!list.length && !isUserAlreadyQuiteFromJob) {
+      Alert.alert(
+        'If you want to grow your small business, you need to quit your job.',
+        'Do you want to quit your job and expand your business?',
+        [
+          {
+            style: 'cancel',
+            text: 'Cancel',
+          },
+          {
+            onPress: () => {
+              dispatch(setBigBusinessList({ id: currentUser.id, business: { ...values, id } }));
+              dispatch(quitFromJob());
+              reset();
+            },
+            text: 'Buy',
+          },
+        ],
+      );
+      return;
+    }
     dispatch(setBigBusinessList({ id: currentUser.id, business: { ...values, id } }));
     reset();
   };
@@ -74,3 +100,7 @@ export const BuyBigBusinessFormComponent = () => {
     </RowComponent>
   );
 };
+
+interface IProps {
+  list: IBusinessState[];
+}

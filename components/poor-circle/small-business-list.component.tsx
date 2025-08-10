@@ -1,27 +1,13 @@
 import { View, Text, TouchableOpacity } from 'react-native';
 import { RowComponent } from '@/components/UI/row.component';
 import tw from '@/lib/tailwind';
-import { AntDesign } from '@expo/vector-icons';
-import { useBuyStocks } from '@/hooks/form/use-buy-stocks';
 import { FC } from 'react';
 import { IBusinessState } from '@/store/types';
-import { useAppDispatch, useAppSelector } from '@/store';
-import { deleteSmallBusinessInList } from '@/slices/game.slice';
 import { useRouter } from 'expo-router';
 import { TypeNavigation } from '@/types';
 
 export const SmallBusinessListComponent: FC<IProps> = ({ list }) => {
   const navigation = useRouter();
-
-  if (!list.length) return null;
-
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-    getValues,
-    // reset,
-  } = useBuyStocks();
 
   if (!list.length) return <></>;
 

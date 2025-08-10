@@ -3,13 +3,16 @@ import { InputComponent } from '@/components/inputs/input.component';
 import { RowComponent } from '@/components/UI/row.component';
 import tw from '@/lib/tailwind';
 import { Controller } from 'react-hook-form';
-import { View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { useAppDispatch, useAppSelector } from '@/store';
-import { setSmallBusinessList } from '@/slices/game.slice';
+import { quitFromJob, sellStocks, setSmallBusinessList } from '@/slices/game.slice';
 import { useBuyBusiness } from '@/hooks/form/use-buy-business';
 import { generateNonce } from '@/helpers';
+import { IBusinessState } from '@/store/types';
+import { FC } from 'react';
+import Decimal from 'decimal.js';
 
-export const BuySmallBusinessFormComponent = () => {
+export const BuySmallBusinessFormComponent: FC<IProps> = ({ list }) => {
   const { currentUser } = useAppSelector(({ game }) => game);
 
   const dispatch = useAppDispatch();
@@ -21,11 +24,34 @@ export const BuySmallBusinessFormComponent = () => {
     getValues,
     reset,
   } = useBuyBusiness(currentUser);
+  console.log('currentUser?.salary?.salary', currentUser?.salary?.salary);
+  const isUserAlreadyQuiteFromJob = new Decimal(currentUser?.salary?.salary ?? 0).eq(0);
 
   const onBuySmallBusiness = () => {
     if (!currentUser) return;
     const values = getValues();
     const id = generateNonce();
+    if (list.length === 1 && !isUserAlreadyQuiteFromJob) {
+      Alert.alert(
+        'If you want to grow your small business, you need to quit your job.',
+        'Do you want to quit your job and expand your business?',
+        [
+          {
+            style: 'cancel',
+            text: 'Cancel',
+          },
+          {
+            onPress: () => {
+              dispatch(setSmallBusinessList({ id: currentUser.id, business: { ...values, id } }));
+              dispatch(quitFromJob());
+              reset();
+            },
+            text: 'Buy',
+          },
+        ],
+      );
+      return;
+    }
     dispatch(setSmallBusinessList({ id: currentUser.id, business: { ...values, id } }));
     reset();
   };
@@ -74,3 +100,7 @@ export const BuySmallBusinessFormComponent = () => {
     </RowComponent>
   );
 };
+
+interface IProps {
+  list: IBusinessState[];
+}

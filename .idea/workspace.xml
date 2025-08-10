@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df448400-5184-4a49-988c-f3205425981c" name="Changes" comment="Merge remote-tracking branch 'origin/development'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;components/poor-circle/big-business-list.component.tsx">
+      <change afterPath="$PROJECT_DIR$/hooks/form/use-plus-or-minus.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/poorCircle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/poorCircle.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/richCircle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/richCircle.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/stocks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/stocks.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header/header.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/header.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/income-capital-modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/income-capital-modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/minus-capital-modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/minus-capital-modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/inputs/input.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/inputs/input.component.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/user-info/user-dream-info.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/user-info/user-dream-info.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/user-info/user-spending.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/user-info/user-spending.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slices/game.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/slices/game.slice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +36,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "development",
+    "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "/Users/anatoliy/Desktop/work/self/rats-run/hooks/form",
     "node.js.detected.package.eslint": "true",
@@ -49,8 +48,8 @@
     "nodejs_package_manager_path": "npm",
     "npm.start.executor": "Run",
     "prettierjs.PrettierConfiguration.Package": "/Users/anatoliy/Desktop/work/self/rats-run/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.typescriptcompiler",
-    "ts.external.directory.path": "/Users/margosha/Desktop/WORK/rats-run/node_modules/typescript/lib",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Users/anatoliy/Desktop/work/self/rats-run/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>

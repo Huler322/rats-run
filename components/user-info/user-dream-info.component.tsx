@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { RowComponent } from '@/components/UI/row.component';
 import tw from '@/lib/tailwind';
 import { IUser } from '@/store/types';
-import { AntDesign, FontAwesome5 } from '@expo/vector-icons';
+import {  FontAwesome5 } from '@expo/vector-icons';
 import { Text, View } from 'react-native';
 
 export const UserDreamInfoComponent: FC<IProps> = ({ currentUser }) => {

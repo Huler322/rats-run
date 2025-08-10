@@ -14,12 +14,13 @@ export const InputComponent: FC<IProps> = ({
   keyboardType,
   withMessage,
   styles,
+  stylesContainer,
   stylesLabel,
 }) => {
   const { focusStyle, onBlur, onFocus } = useInputStyles(error);
 
   return (
-    <View style={tw`pb-6 relative`}>
+    <View style={tw`pb-6 relative ${stylesContainer ?? ''}`}>
       {label ? (
         <Text style={tw`text-gray-900 ml-2 mb-2 font-medium ${stylesLabel ?? ''}`}>{label}</Text>
       ) : null}
@@ -58,5 +59,6 @@ interface IProps {
     | 'numeric'
     | 'ascii-capable';
   styles?: string;
+  stylesContainer?: string;
   stylesLabel?: string;
 }

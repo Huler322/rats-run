@@ -55,6 +55,7 @@ export const SellStocksFormComponent: FC<IProps> = ({ stock }) => {
                 onChange={onChange}
                 placeholder={'250'}
                 error={errors.count}
+                keyboardType={'number-pad'}
               />
             )}
             name="count"
@@ -71,6 +72,7 @@ export const SellStocksFormComponent: FC<IProps> = ({ stock }) => {
                 onChange={onChange}
                 placeholder={'120'}
                 error={errors.price}
+                keyboardType={'number-pad'}
               />
             )}
             name="price"

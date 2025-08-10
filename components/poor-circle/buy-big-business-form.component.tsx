@@ -69,6 +69,7 @@ export const BuyBigBusinessFormComponent: FC<IProps> = ({ list }) => {
               error={errors.price}
               label={'Business price'}
               withMessage={true}
+              keyboardType={'number-pad'}
             />
           )}
           name="price"
@@ -84,6 +85,7 @@ export const BuyBigBusinessFormComponent: FC<IProps> = ({ list }) => {
               onChange={onChange}
               placeholder={'125'}
               error={errors.income}
+              keyboardType={'number-pad'}
               label={'Income'}
               withMessage={true}
             />

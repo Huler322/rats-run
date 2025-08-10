@@ -172,6 +172,7 @@ const Form = () => {
                   onChange={onChange}
                   placeholder={'Enter your price of dream'}
                   error={errors?.dream?.price}
+                  keyboardType={'number-pad'}
                   label={'Price of Dream'}
                 />
               )}
@@ -192,6 +193,7 @@ const Form = () => {
                 onChange={onChange}
                 placeholder={'Enter your salary'}
                 error={errors?.salary?.salary}
+                keyboardType={'number-pad'}
                 label={'Salary'}
               />
             )}
@@ -236,6 +238,7 @@ const Form = () => {
                   placeholder={'Enter your start capital'}
                   error={errors.currentCapital}
                   label={'Starting Capital'}
+                  keyboardType={'number-pad'}
                 />
               )}
               name="currentCapital"
@@ -256,6 +259,7 @@ const Form = () => {
                 placeholder={'Enter your apartment costs'}
                 error={errors?.spending?.apartments}
                 label={'Apartment costs'}
+                keyboardType={'number-pad'}
               />
             )}
             name="spending.apartments"
@@ -270,6 +274,7 @@ const Form = () => {
                 placeholder={'Enter your Food costs'}
                 error={errors?.spending?.food}
                 label={'Food costs'}
+                keyboardType={'number-pad'}
               />
             )}
             name="spending.food"
@@ -284,6 +289,7 @@ const Form = () => {
                 placeholder={'Enter your Education costs'}
                 error={errors?.spending?.education}
                 label={'Education costs'}
+                keyboardType={'number-pad'}
               />
             )}
             name="spending.education"
@@ -298,6 +304,7 @@ const Form = () => {
                 placeholder={'Enter your Clothes costs'}
                 error={errors?.spending?.clothes}
                 label={'Clothes costs'}
+                keyboardType={'number-pad'}
               />
             )}
             name="spending.clothes"
@@ -312,6 +319,7 @@ const Form = () => {
                 placeholder={'Enter your Internet costs'}
                 error={errors?.spending?.internet}
                 label={'Internet costs'}
+                keyboardType={'number-pad'}
               />
             )}
             name="spending.internet"
@@ -326,6 +334,7 @@ const Form = () => {
                 placeholder={'Enter your Travel costs'}
                 error={errors?.spending?.travel}
                 label={'Travel costs'}
+                keyboardType={'number-pad'}
               />
             )}
             name="spending.travel"
@@ -340,6 +349,7 @@ const Form = () => {
                 placeholder={'Enter your child costs'}
                 error={errors?.spending?.child?.cost}
                 label={'Child costs'}
+                keyboardType={'number-pad'}
               />
             )}
             name="spending.child.cost"
@@ -357,6 +367,7 @@ const Form = () => {
                 placeholder={'Enter your full price for apartment credit'}
                 error={errors?.spending?.creditApartments?.full}
                 label={'Full Apartment Credit Price'}
+                keyboardType={'number-pad'}
               />
             )}
             name="spending.creditApartments.full"
@@ -371,6 +382,7 @@ const Form = () => {
                 placeholder={'Enter your month price for apartment credit'}
                 error={errors?.spending?.creditApartments?.month}
                 label={'Month Apartment Credit Price'}
+                keyboardType={'number-pad'}
               />
             )}
             name="spending.creditApartments.month"
@@ -385,6 +397,7 @@ const Form = () => {
                 placeholder={'Enter your full price for car credit'}
                 error={errors?.spending?.creditCar?.full}
                 label={'Full Car Credit Price'}
+                keyboardType={'number-pad'}
               />
             )}
             name="spending.creditCar.full"
@@ -399,6 +412,7 @@ const Form = () => {
                 placeholder={'Enter your month price for car credit'}
                 error={errors?.spending?.creditCar?.month}
                 label={'Month Car Credit Price'}
+                keyboardType={'number-pad'}
               />
             )}
             name="spending.creditCar.month"

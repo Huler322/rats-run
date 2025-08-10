@@ -57,6 +57,7 @@ export const RichAddBusinessForm = () => {
                 placeholder={'430900'}
                 error={errors.price}
                 label={'Business price'}
+                keyboardType={'number-pad'}
               />
             )}
             name="price"
@@ -73,6 +74,7 @@ export const RichAddBusinessForm = () => {
                 placeholder={'125'}
                 error={errors.income}
                 label={'Income'}
+                keyboardType={'number-pad'}
               />
             )}
             name="income"

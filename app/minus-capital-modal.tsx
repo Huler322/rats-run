@@ -50,6 +50,7 @@ const MinusCapitalModal = () => {
               withMessage={true}
               error={errors.amount}
               placeholder={'0'}
+              keyboardType={'number-pad'}
             />
           )}
           name="amount"

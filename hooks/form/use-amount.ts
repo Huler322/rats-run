@@ -1,4 +1,5 @@
 import { FieldErrors, Resolver, useForm } from 'react-hook-form';
+import { isPositiveInt } from '@/helpers';
 
 export interface IPlusOrMinus {
   amount: string;
@@ -7,19 +8,15 @@ export interface IPlusOrMinus {
 export const useAmount = () => {
   const resolver: Resolver<IPlusOrMinus> = async (values) => {
     const errors: FieldErrors<IPlusOrMinus> = {};
+    const amountStr = values.amount?.trim();
 
-    if (!values.amount?.trim()) {
+    if (!amountStr) {
       errors.amount = {
         message: 'Field required',
         type: 'required',
       };
-    }
-
-    if (!Number.isInteger(Number(values.amount))) {
-      errors.amount = {
-        message: 'It is not a number',
-        type: 'validate',
-      };
+    } else if (!isPositiveInt(amountStr)) {
+      errors.amount = { message: 'Amount must be an integer', type: 'validate' };
     }
 
     return {

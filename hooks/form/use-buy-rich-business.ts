@@ -1,12 +1,16 @@
 import { IBusinessState, IRichBusinessState, IStockState, IUser } from '@/store/types';
 import { FieldErrors, Resolver, useForm } from 'react-hook-form';
 import Decimal from 'decimal.js';
+import { isPositiveInt } from '@/helpers';
 
 export const useRichBuyBusiness = (currentUser: IUser | null) => {
   const resolver: Resolver<IRichBusinessState> = async (values) => {
     const errors: FieldErrors<IRichBusinessState> = {};
+    const name = values.name?.trim();
+    const incomeStr = values.income?.trim();
+    const priceStr = values.price?.trim();
 
-    if (!values.name?.trim()) {
+    if (!name) {
       errors.name = {
         message: 'Name price',
         type: 'required',
@@ -18,6 +22,8 @@ export const useRichBuyBusiness = (currentUser: IUser | null) => {
         message: 'Business price',
         type: 'required',
       };
+    } else if (!isPositiveInt(priceStr)) {
+      errors.price = { message: 'Price must be an integer', type: 'validate' };
     }
 
     if (!values.income?.trim()) {
@@ -25,6 +31,8 @@ export const useRichBuyBusiness = (currentUser: IUser | null) => {
         message: 'Income is required',
         type: 'required',
       };
+    } else if (!isPositiveInt(incomeStr)) {
+      errors.income = { message: 'Income must be an integer', type: 'validate' };
     }
 
     if (new Decimal(values.price).gt(currentUser?.currentCapital ?? '0')) {

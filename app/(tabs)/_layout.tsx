@@ -3,15 +3,24 @@ import React from 'react';
 import tw from '@/lib/tailwind';
 import { Feather } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
-import { Platform, Text, TouchableOpacity } from 'react-native';
+import { Alert, Platform, Text, TouchableOpacity } from 'react-native';
 import { useAppDispatch } from '@/store';
-import { getSalary } from '@/slices/game.slice';
+import { getSalary, quitFromJob, setSmallBusinessList } from '@/slices/game.slice';
 
 export default function TabLayout() {
   const dispatch = useAppDispatch();
 
   const setSalary = () => {
-    dispatch(getSalary());
+    Alert.alert('Are you sure want to get salary?', '', [
+      {
+        style: 'cancel',
+        text: 'No',
+      },
+      {
+        onPress: () => dispatch(getSalary()),
+        text: 'Get',
+      },
+    ]);
   };
 
   return (

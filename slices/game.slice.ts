@@ -1,4 +1,4 @@
-import { getTotalSpending } from '@/helpers/balance-helper';
+import { getTotalSalary, getTotalSpending } from '@/helpers/balance-helper';
 import { IBusinessState, IRichBusinessState, IStockState, IStore, IUser } from '@/store/types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Decimal from 'decimal.js';
@@ -439,111 +439,9 @@ export const gameSlice = createSlice({
     },
     getSalary: (state) => {
       if (!state.currentUser) return;
-      const apartmentsCost = new Decimal(
-        state.currentUser?.spending?.apartments?.length
-          ? state.currentUser?.spending?.apartments
-          : 0,
-      );
-      const foodCost = new Decimal(
-        state.currentUser?.spending?.food?.length ? state.currentUser?.spending?.food : 0,
-      );
-      const educationCost = new Decimal(
-        state.currentUser?.spending?.education?.length ? state.currentUser?.spending?.education : 0,
-      );
-      const clothesCost = new Decimal(
-        state.currentUser?.spending?.clothes?.length ? state.currentUser?.spending?.clothes : 0,
-      );
-      const internetCost = new Decimal(
-        state.currentUser?.spending?.internet?.length ? state.currentUser?.spending?.internet : 0,
-      );
-      const travelCost = new Decimal(
-        state.currentUser?.spending?.travel?.length ? state.currentUser?.spending?.travel : 0,
-      );
-      const childCost = new Decimal(
-        state.currentUser?.spending?.child?.cost?.length
-          ? state.currentUser?.spending?.child?.cost
-          : 0,
-      ).mul(
-        new Decimal(
-          state.currentUser?.spending?.child?.count?.length
-            ? state.currentUser?.spending?.child?.count
-            : 0,
-        ),
-      );
-      const creditApartmentsCost = new Decimal(
-        state.currentUser?.spending?.creditApartments?.month?.length
-          ? state.currentUser?.spending?.creditApartments?.month
-          : 0,
-      );
-      const creditCarCost = new Decimal(
-        state.currentUser?.spending?.creditCar?.month?.length
-          ? state.currentUser?.spending?.creditCar?.month
-          : 0,
-      );
-      const caringGrandfatherCost = new Decimal(
-        state.currentUser?.spending?.caringGrandfather?.length
-          ? state.currentUser?.spending?.caringGrandfather
-          : 0,
-      );
-      const caringGrandmotherCost = new Decimal(
-        state.currentUser?.spending?.caringGrandmother?.length
-          ? state.currentUser?.spending?.caringGrandmother
-          : 0,
-      );
-      const totalMinus = Decimal.sum(
-        apartmentsCost,
-        foodCost,
-        educationCost,
-        clothesCost,
-        internetCost,
-        travelCost,
-        childCost,
-        creditApartmentsCost,
-        creditCarCost,
-        caringGrandfatherCost,
-        caringGrandmotherCost,
-      );
-
-      const salaryCost = new Decimal(
-        state.currentUser?.salary?.salary?.length ? state.currentUser?.salary?.salary : 0,
-      );
-      const passiveBusinessSalaryCost = new Decimal(
-        state.currentUser?.salary?.passiveBusinessSalary?.length
-          ? state.currentUser?.salary?.passiveBusinessSalary
-          : 0,
-      );
-      const passiveImmovableSalaryCost = new Decimal(
-        state.currentUser?.salary?.passiveImmovableSalary?.length
-          ? state.currentUser?.salary?.passiveImmovableSalary
-          : 0,
-      );
-      const totalSalary = Decimal.sum(
-        salaryCost,
-        passiveBusinessSalaryCost,
-        passiveImmovableSalaryCost,
-      );
-      const smallBusinessList = state.poorCircle.smallBusiness[state.currentUser.id]?.list;
-      const smallBusinessCost = smallBusinessList?.length
-        ? Decimal.sum(...smallBusinessList.map((item) => new Decimal(item.income)))
-        : new Decimal(0);
-      const bigBusinessList = state.poorCircle.bigBusiness[state.currentUser.id]?.list;
-      const bigBusinessCost = bigBusinessList?.length
-        ? Decimal.sum(...bigBusinessList.map((item) => new Decimal(item.income)))
-        : new Decimal(0);
-      const businessList = state.richCircle.business[state.currentUser.id]?.list;
-      const businessCost = businessList?.length
-        ? Decimal.sum(...businessList.map((item) => new Decimal(item.income)))
-        : new Decimal(0);
-      const currentCapital = new Decimal(state.currentUser.currentCapital);
-      const totalCapital = Decimal.sum(
-        currentCapital,
-        totalSalary,
-        smallBusinessCost,
-        bigBusinessCost,
-        businessCost,
-      )
-        .minus(totalMinus)
-        .toString();
+      const totalMinus = getTotalSpending(state.currentUser);
+      const totalSalary = getTotalSalary(state.currentUser, state.poorCircle, state.richCircle);
+      const totalCapital = new Decimal(totalSalary).minus(new Decimal(totalMinus)).toString();
       const updatedUser = { ...state.currentUser, currentCapital: totalCapital };
       state.currentUser = updatedUser;
       state.user.list = state.user.list.map((item) => {

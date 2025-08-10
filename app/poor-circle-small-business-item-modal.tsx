@@ -16,17 +16,19 @@ const PoorCircleSmallBusinessItemModal = () => {
 
   const { currentUser, poorCircle } = useAppSelector(({ game }) => game);
 
+  if (!currentUser) return <></>;
+
   const smallBusinessList = poorCircle.smallBusiness[currentUser.id]?.list ?? [];
 
   const currentBusiness = smallBusinessList?.find((business) => business.id === id);
 
   const onDeleteSmallBusiness = () => {
-    if (!currentUser?.id) return;
+    if (!currentBusiness) return;
     dispatch(deleteSmallBusinessInList({ id: currentUser.id, business: currentBusiness }));
     navigation.back();
   };
 
-  const onIncreaseIncome = (id: string) => {};
+  const onIncreaseIncome = () => {};
 
   return (
     <View style={tw`py-8 px-4 items-center justify-center h-full w-full`}>
@@ -37,12 +39,12 @@ const PoorCircleSmallBusinessItemModal = () => {
 
       <RowComponent styles="justify-between mb-4 w-full">
         <Text style={tw`font-regular text-lg`}>Business price:</Text>
-        <Text style={tw`font-bold text-lg`}>$ {currentBusiness.price}</Text>
+        <Text style={tw`font-bold text-lg`}>$ {currentBusiness?.price ?? ''}</Text>
       </RowComponent>
 
       <RowComponent styles="justify-between mb-10 w-full">
         <Text style={tw`font-regular text-lg`}>Income:</Text>
-        <Text style={tw`font-bold text-lg`}>$ {currentBusiness.income}</Text>
+        <Text style={tw`font-bold text-lg`}>$ {currentBusiness?.income ?? ''}</Text>
       </RowComponent>
 
       <Text style={tw`text-center mb-2 text-base px-2`}>Use to expand your business</Text>
@@ -61,11 +63,7 @@ const PoorCircleSmallBusinessItemModal = () => {
       {/*    defaultValue=""*/}
       {/*  />*/}
       {/*</View>*/}
-      <ButtonComponent
-        styles="w-full"
-        title="Increase income"
-        onPress={() => onIncreaseIncome(item.id)}
-      />
+      <ButtonComponent styles="w-full" title="Increase income" onPress={onIncreaseIncome} />
     </View>
   );
 };

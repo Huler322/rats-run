@@ -36,7 +36,7 @@ export const UserDreamInfoComponent: FC<IProps> = ({ currentUser }) => {
         <RowComponent styles="px-4 py-5 border-b border-gray-600">
           <RowComponent>
             <FontAwesome5 name="flag" size={18} style={tw`text-gray-300 mr-2`} />
-            <Text style={tw`text-base text-gray-300`}>Dream price</Text>
+            <Text style={tw`text-base text-gray-300`}>Dream name</Text>
           </RowComponent>
           <RowComponent>
             <Text style={tw`text-base text-orange-400 font-semibold`}>

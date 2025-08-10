@@ -16,7 +16,7 @@ export default function PoorCircleScreen() {
   const bigBusinessList = poorCircle.bigBusiness[currentUser.id]?.list ?? [];
 
   return (
-    <ContainerScrollComponent styles={'bg-white'}>
+    <ContainerScrollComponent styles={'bg-white'} header={<HeaderComponent />}>
       <BuySmallBusinessFormComponent />
       <BuyBigBusinessFormComponent />
       <SmallBusinessListComponent list={smallBusinessList} />

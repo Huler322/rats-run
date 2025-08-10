@@ -79,6 +79,38 @@ export const gameSlice = createSlice({
       state.user.list = list;
       state.user.total = list.length;
     },
+    plusInCapital: (state, action: PayloadAction<{ amount: string; user: IUser }>) => {
+      const currentCapital = new Decimal(action.payload.user.currentCapital)
+        .plus(action.payload.amount)
+        .toString();
+      const updatedUser = {
+        ...action.payload.user,
+        currentCapital,
+      };
+      state.currentUser = updatedUser;
+      state.user.list = state.user.list.map((item) => {
+        if (item.id === action.payload.user.id) {
+          return updatedUser;
+        }
+        return item;
+      });
+    },
+    minusInCapital: (state, action: PayloadAction<{ amount: string; user: IUser }>) => {
+      const currentCapital = new Decimal(action.payload.user.currentCapital)
+        .minus(action.payload.amount)
+        .toString();
+      const updatedUser = {
+        ...action.payload.user,
+        currentCapital,
+      };
+      state.currentUser = updatedUser;
+      state.user.list = state.user.list.map((item) => {
+        if (item.id === action.payload.user.id) {
+          return updatedUser;
+        }
+        return item;
+      });
+    },
     minusChild: (state, action: PayloadAction<IUser>) => {
       if (!state.currentUser) return;
       const countChild = parseInt(state.currentUser.spending.child.count) - 1;
@@ -587,6 +619,8 @@ export const {
   setRichBusinessList,
   deleteRichBusinessInList,
   updateSmallBusinessList,
+  minusInCapital,
+  plusInCapital,
   getSalary,
   minusTax,
 } = gameSlice.actions;

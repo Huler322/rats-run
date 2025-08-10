@@ -1,9 +1,34 @@
 import { View, Text } from 'react-native';
 import tw from '@/lib/tailwind';
 import { ButtonComponent } from '@/components/buttons/button.component';
+import { Controller } from 'react-hook-form';
+import { InputComponent } from '@/components/inputs/input.component';
+import { useRouter } from 'expo-router';
+import { useAppDispatch, useAppSelector } from '@/store';
+import { usePlusOrMinus } from '@/hooks/form/use-plus-or-minus';
+import { minusInCapital } from '@/slices/game.slice';
 
 const MinusCapitalModal = () => {
-  const handleMinusMoneyToCapital = () => {};
+  const navigation = useRouter();
+
+  const dispatch = useAppDispatch();
+
+  const { currentUser } = useAppSelector(({ game }) => game);
+
+  const {
+    control,
+    formState: { errors },
+    getValues,
+    reset,
+  } = usePlusOrMinus();
+
+  const minusMoneyToCapital = () => {
+    if (!currentUser) return;
+    const values = getValues();
+    dispatch(minusInCapital({ user: currentUser, amount: values.amount }));
+    reset();
+    navigation.back();
+  };
 
   return (
     <View style={tw`py-8 px-4 items-center justify-center h-full`}>
@@ -11,24 +36,22 @@ const MinusCapitalModal = () => {
       <Text style={tw`text-center px-8 mb-4 text-base`}>
         Lost from money down the drain / buying lands & apartments & cars
       </Text>
-      {/*<Controller*/}
-      {/*  control={control}*/}
-      {/*  render={({ field: { onChange, value } }) => (*/}
-      {/*    <InputComponent*/}
-      {/*      value={value}*/}
-      {/*      onChange={onChange}*/}
-      {/*      // error={errors.name}*/}
-      {/*      placeholder={'5000$'}*/}
-      {/*    />*/}
-      {/*  )}*/}
-      {/*  name="name"*/}
-      {/*  defaultValue=""*/}
-      {/*/>*/}
-      <ButtonComponent
-        styles="mt-2 w-full"
-        title="Lost money"
-        onPress={handleMinusMoneyToCapital}
+      <Controller
+        control={control}
+        render={({ field: { onChange, value } }) => (
+          <InputComponent
+            styles={'w-full'}
+            stylesContainer={'w-full'}
+            value={value}
+            onChange={onChange}
+            error={errors.amount}
+            placeholder={'0'}
+          />
+        )}
+        name="amount"
+        defaultValue=""
       />
+      <ButtonComponent styles="mt-2 w-full" title="Lost money" onPress={minusMoneyToCapital} />
     </View>
   );
 };

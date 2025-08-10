@@ -23,7 +23,7 @@ export const UserDreamInfoComponent: FC<IProps> = ({ currentUser }) => {
         <ButtonComponent
           styles="w-[48%]"
           title="Minus"
-          onPress={() => navigation.navigate(TypeNavigation.INCOME_CAPITAL_MODAL)}
+          onPress={() => navigation.navigate(TypeNavigation.MINUS_CAPITAL_MODAL)}
         />
       </RowComponent>
       <View style={tw`bg-gray-800 rounded-lg overflow-hidden mb-4`}>

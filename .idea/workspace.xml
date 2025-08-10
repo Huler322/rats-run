@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df448400-5184-4a49-988c-f3205425981c" name="Changes" comment="Merge remote-tracking branch 'origin/development'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;slices/game.slice.ts&#10;#&#9;store/types.ts">
+    <list default="true" id="df448400-5184-4a49-988c-f3205425981c" name="Changes" comment="Merge remote-tracking branch 'origin/development'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <change afterPath="$PROJECT_DIR$/app/poor-circle-big-business-item-modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.expo/types/router.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.expo/types/router.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slices/game.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/slices/game.slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/poor-circle-small-business-item-modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/poor-circle-small-business-item-modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/poor-circle/big-business-list.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/poor-circle/big-business-list.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/poor-circle/small-business-list.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/poor-circle/small-business-list.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,27 +37,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "development",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/margosha/Desktop/WORK/rats-run/app",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.start.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "/Users/margosha/Desktop/WORK/rats-run/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "/Users/margosha/Desktop/WORK/rats-run/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;development&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/margosha/Desktop/WORK/rats-run/app&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/margosha/Desktop/WORK/rats-run/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/margosha/Desktop/WORK/rats-run/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app" />
@@ -87,7 +92,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-WS-251.27812.50" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-WS-241.14494.235" />
       </set>
     </attachedChunks>
   </component>
@@ -106,6 +111,7 @@
       <workItem from="1753619970917" duration="10392000" />
       <workItem from="1753630832209" duration="2475000" />
       <workItem from="1753633656007" duration="6485000" />
+      <workItem from="1754817333054" duration="803000" />
     </task>
     <servers />
   </component>

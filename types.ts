@@ -14,6 +14,8 @@ export enum TypeNavigation {
   MINUS_CAPITAL_MODAL = 'minus-capital-modal',
 
   POOR_CIRCLE_SMALL_BUSINESS_ITEM_MODAL = 'poor-circle-small-business-item-modal',
+
+  POOR_CIRCLE_BIG_BUSINESS_ITEM_MODAL = 'poor-circle-big-business-item-modal',
 }
 
 export enum UserStatus {

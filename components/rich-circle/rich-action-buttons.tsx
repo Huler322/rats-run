@@ -4,7 +4,7 @@ import { ButtonComponent } from '@/components/buttons/button.component';
 import { FC } from 'react';
 import { IUser } from '@/store/types';
 import { useAppDispatch } from '@/store';
-import { minusTax } from '@/slices/game.slice';
+import { minusTax, setUserDivorced } from '@/slices/game.slice';
 
 export const RichActionButtons: FC<IProps> = ({ currentUser }) => {
   const dispatch = useAppDispatch();
@@ -12,36 +12,32 @@ export const RichActionButtons: FC<IProps> = ({ currentUser }) => {
   if (!currentUser) return <></>;
 
   const handleDivorce = () => {
-    Alert.alert('Are you sure want to divorce?', 'After divorce you lost half from capital', [
+    Alert.alert('Are you want to divorce?', 'After divorce you lost half from capital', [
       {
-        style: 'Cancel',
+        style: 'cancel',
         text: 'Cancel',
       },
-      { onPress: () => dispatch(minusTax(currentUser)), text: 'Divorce' },
+      { onPress: () => dispatch(setUserDivorced(currentUser)), text: 'Divorce' },
     ]);
   };
 
   const handleTax = () => {
-    Alert.alert(
-      'Are you sure want to pay tax?',
-      'You lose 10% of your capital when you pay taxes.',
-      [
-        {
-          style: 'Cancel',
-          text: 'Cancel',
-        },
-        { onPress: () => dispatch(minusTax(currentUser)), text: 'Pay Tax' },
-      ],
-    );
+    Alert.alert('Are you want to pay tax?', 'You lose 10% of your capital when you pay taxes.', [
+      {
+        style: 'cancel',
+        text: 'Cancel',
+      },
+      { onPress: () => dispatch(minusTax(currentUser)), text: 'Pay Tax' },
+    ]);
   };
 
   return (
-    <View style={tw`flex flex-row gap-4 items-center justify-between`}>
+    <View style={tw`mb-10`}>
       {!currentUser.isDivorced && (
-        <ButtonComponent styles={'w-[45%]'} title="Divorce" onPress={handleDivorce} />
+        <ButtonComponent styles={'w-full mb-5'} title="Divorce" onPress={handleDivorce} />
       )}
 
-      <ButtonComponent styles={'w-[45%]'} title="Tax 10%" onPress={handleTax} />
+      <ButtonComponent styles={'w-full'} title="Tax 10%" onPress={handleTax} />
     </View>
   );
 };

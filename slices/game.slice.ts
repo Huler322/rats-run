@@ -455,6 +455,15 @@ export const gameSlice = createSlice({
       state.user.total = list.length;
       state.currentUser = action.payload;
     },
+    updateUserInfo: (state, action: PayloadAction<IUser>) => {
+      state.user.list = state.user.list.map((item) => {
+        if (item.id === action.payload.id) {
+          return action.payload;
+        }
+        return item;
+      });
+      state.currentUser = action.payload;
+    },
     getSalary: (state) => {
       if (!state.currentUser) return;
       const totalMinus = getTotalSpending(state.currentUser);
@@ -541,5 +550,6 @@ export const {
   plusInCapital,
   getSalary,
   minusTax,
+  updateUserInfo,
   quitFromJob,
 } = gameSlice.actions;

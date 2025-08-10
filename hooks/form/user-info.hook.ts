@@ -74,15 +74,11 @@ export const useFormUserInfo = (): UseFormReturn<IUserFormInput> => {
 
     requireInt('spending.apartments', values.spending.apartments);
     requireInt('spending.food', values.spending.food);
-
-    if (values.spending.education) {
-      requireInt('spending.education', values.spending.education);
-    }
-
+    requireInt('spending.education', values.spending.education);
     requireInt('spending.clothes', values.spending.clothes);
     requireInt('spending.internet', values.spending.internet);
     requireInt('spending.travel', values.spending.travel);
-    requireInt('spending.child', values.spending.child.cost);
+    requireInt('spending.child.cost', values.spending.child.cost);
 
     if (values.spending.creditApartments.full) {
       requireInt('spending.creditApartments.full', values.spending.creditApartments.full);
@@ -100,13 +96,13 @@ export const useFormUserInfo = (): UseFormReturn<IUserFormInput> => {
       requireInt('spending.creditCar.month', values.spending.creditCar.month);
     }
 
-    if (values.salary.passiveBusinessSalary) {
-      requireInt('salary.passiveBusinessSalary', values.salary.passiveBusinessSalary);
-    }
-
-    if (values.salary.passiveImmovableSalary) {
-      requireInt('salary.passiveImmovableSalary', values.salary.passiveImmovableSalary);
-    }
+    // if (values.salary.passiveBusinessSalary) {
+    //   requireInt('salary.passiveBusinessSalary', values.salary.passiveBusinessSalary);
+    // }
+    //
+    // if (values.salary.passiveImmovableSalary) {
+    //   requireInt('salary.passiveImmovableSalary', values.salary.passiveImmovableSalary);
+    // }
 
     return {
       errors,

@@ -4,16 +4,22 @@ import tw from '@/lib/tailwind';
 import { ButtonComponent } from '@/components/buttons/button.component';
 import { TypeNavigation } from '@/types';
 import { useRouter } from 'expo-router';
-import { useAppSelector } from '@/store';
+import { useAppDispatch, useAppSelector } from '@/store';
 import { getTotalSalary, getTotalSpending } from '@/helpers/balance-helper';
 import Decimal from 'decimal.js';
+import { quitFromJob } from '@/slices/game.slice';
 
 export const UserBalancesComponent = () => {
+  const dispatch = useAppDispatch();
+
   const navigation = useRouter();
 
   const { currentUser, poorCircle, richCircle } = useAppSelector(({ game }) => game);
 
   if (!currentUser) return null;
+
+  const countSmallBusinesses = poorCircle?.smallBusiness[currentUser.id]?.list?.length ?? 0;
+  const countBigBusinesses = poorCircle?.bigBusiness[currentUser.id]?.list?.length ?? 0;
 
   const totalSpending = getTotalSpending(currentUser);
   const totalIncome = getTotalSalary(currentUser, poorCircle, richCircle);
@@ -23,9 +29,14 @@ export const UserBalancesComponent = () => {
     currentUser.profession.length && new Decimal(currentUser.salary.salary).greaterThan(0);
 
   const isShowButtonGetNewJob =
-    !currentUser.profession.length && new Decimal(currentUser.salary.salary).equals(0);
+    !currentUser.profession.length &&
+    new Decimal(currentUser.salary.salary).eq(0) &&
+    countBigBusinesses === 0 &&
+    countSmallBusinesses < 2;
 
-  const quitFromJob = () => {};
+  const onQuitFromJob = () => {
+    dispatch(quitFromJob());
+  };
 
   return (
     <>
@@ -65,14 +76,16 @@ export const UserBalancesComponent = () => {
         />
       </RowComponent>
 
-      <RowComponent styles="mb-2">
-        {isShowButtonQuitFromJob ? (
-          <ButtonComponent styles="w-[48%]" title="Quit from job" onPress={quitFromJob} />
-        ) : null}
+      {isShowButtonQuitFromJob ? (
+        <RowComponent styles={'mb-2'}>
+          <ButtonComponent styles="w-full" title="Quit from job" onPress={onQuitFromJob} />
+        </RowComponent>
+      ) : null}
 
-        {isShowButtonGetNewJob ? (
+      {isShowButtonGetNewJob ? (
+        <RowComponent styles="mb-2">
           <ButtonComponent
-            styles="w-[48%]"
+            styles="w-full"
             title="Get a new job"
             onPress={() =>
               navigation.push({
@@ -81,8 +94,8 @@ export const UserBalancesComponent = () => {
               })
             }
           />
-        ) : null}
-      </RowComponent>
+        </RowComponent>
+      ) : null}
     </>
   );
 };

@@ -58,9 +58,10 @@ export const useFormUserInfo = (): UseFormReturn<IUserFormInput> => {
     };
 
     const requireInt = (path: string, value: string) => {
-      if (!value || value.trim() === '') {
+      const v = (value ?? '').trim();
+      if (!v) {
         set(path, 'This field is required');
-      } else if (!/^\d+$/.test(value)) {
+      } else if (!/^-?\d+$/.test(v)) {
         set(path, 'Only whole numbers are allowed');
       }
     };

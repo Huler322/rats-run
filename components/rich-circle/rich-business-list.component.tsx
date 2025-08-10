@@ -14,7 +14,7 @@ export const RichBusinessListComponent: FC<IProps> = ({ list }) => {
 
   const onDeleteBusiness = (business: IRichBusinessState) => {
     if (!currentUser) return;
-    Alert.alert('Are you sure want to delete business?', 'My Alert Msg', [
+    Alert.alert('Are you sure want to delete business?', '', [
       {
         style: 'cancel',
         text: 'Keep',

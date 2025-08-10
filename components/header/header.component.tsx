@@ -2,11 +2,6 @@ import { RowComponent } from '@/components/UI/row.component';
 import tw from '@/lib/tailwind';
 import { useAppSelector } from '@/store';
 import { Text } from 'react-native';
-import { getTotalSalary, getTotalSpending } from '@/helpers/balance-helper';
-import { ButtonComponent } from '@/components/buttons/button.component';
-import { TypeNavigation } from '@/types';
-import { useRouter } from 'expo-router';
-import Decimal from 'decimal.js';
 
 export const HeaderComponent = () => {
   const { currentUser } = useAppSelector(({ game }) => game);

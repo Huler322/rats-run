@@ -15,7 +15,7 @@ export const UserItemComponent: FC<IProps> = ({ item }) => {
   const dispatch = useAppDispatch();
 
   const openDeleteUserModal = () => {
-    Alert.alert('Are you sure want to delete user?', 'My Alert Msg', [
+    Alert.alert('Are you sure want to delete user?', '', [
       {
         style: 'cancel',
         text: 'Keep',

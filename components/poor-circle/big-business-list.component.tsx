@@ -14,7 +14,7 @@ export const BigBusinessListComponent: FC<IProps> = ({ list }) => {
 
   const onDeleteBigBusiness = (business: IBusinessState) => {
     if (!currentUser?.id) return;
-    Alert.alert('Are you sure want to delete business?', 'My Alert Msg', [
+    Alert.alert('Are you sure want to delete business?', '', [
       {
         style: 'cancel',
         text: 'Keep',

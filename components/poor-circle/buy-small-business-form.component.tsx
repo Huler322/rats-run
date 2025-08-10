@@ -24,7 +24,7 @@ export const BuySmallBusinessFormComponent: FC<IProps> = ({ list }) => {
     getValues,
     reset,
   } = useBuyBusiness(currentUser);
-  console.log('currentUser?.salary?.salary', currentUser?.salary?.salary);
+
   const isUserAlreadyQuiteFromJob = new Decimal(currentUser?.salary?.salary ?? 0).eq(0);
 
   const onBuySmallBusiness = () => {

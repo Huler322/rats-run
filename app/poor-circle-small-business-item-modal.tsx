@@ -33,6 +33,8 @@ const PoorCircleSmallBusinessItemModal = () => {
 
   if (!currentUser) return <></>;
 
+  const isUserAlreadyQuiteFromJob = new Decimal(currentUser?.salary?.salary ?? 0).eq(0);
+
   const smallBusinessList = poorCircle.smallBusiness[currentUser.id]?.list ?? [];
 
   const foundBusiness = smallBusinessList?.find((business) => business.id === id);
@@ -60,14 +62,40 @@ const PoorCircleSmallBusinessItemModal = () => {
     const updatedBusinessIncome = new Decimal(foundBusiness.income)
       .plus(new Decimal(values.amount))
       .toString();
-    dispatch(
-      updateSmallBusinessList({
-        id: currentUser.id,
-        business: { ...foundBusiness, income: updatedBusinessIncome },
-      }),
+    if (isUserAlreadyQuiteFromJob) {
+      dispatch(
+        updateSmallBusinessList({
+          id: currentUser.id,
+          business: { ...foundBusiness, income: updatedBusinessIncome },
+        }),
+      );
+      reset();
+      navigation.back();
+      return;
+    }
+    Alert.alert(
+      'If you want to grow your small business, you need to quit your job.',
+      'Do you want to quit your job and expand your business?',
+      [
+        {
+          style: 'cancel',
+          text: 'Cancel',
+        },
+        {
+          onPress: () => {
+            dispatch(
+              updateSmallBusinessList({
+                id: currentUser.id,
+                business: { ...foundBusiness, income: updatedBusinessIncome },
+              }),
+            );
+            reset();
+            navigation.back();
+          },
+          text: 'Increase',
+        },
+      ],
     );
-    reset();
-    navigation.back();
   };
 
   return (

@@ -42,9 +42,13 @@ export const UserItemComponent: FC<IProps> = ({ item }) => {
               <Text style={tw`mr-2 text-gray-100`}>Name</Text>
               <Text style={tw`text-orange-500`}>{item.name}</Text>
             </View>
-            <View style={tw`flex flex-row items-center`}>
+            <View style={tw`flex flex-row items-center mb-1`}>
               <Text style={tw`mr-2 text-gray-100`}>Profession</Text>
               <Text style={tw`text-orange-500`}>{item.profession}</Text>
+            </View>
+            <View style={tw`flex flex-row items-center`}>
+              <Text style={tw`mr-2 text-gray-100`}>Status</Text>
+              <Text style={tw`text-orange-500`}>{item.status}</Text>
             </View>
           </View>
         </View>

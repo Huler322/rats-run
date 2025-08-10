@@ -2,6 +2,7 @@ import { getTotalSalary, getTotalSpending } from '@/helpers/balance-helper';
 import { IBusinessState, IRichBusinessState, IStockState, IStore, IUser } from '@/store/types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Decimal from 'decimal.js';
+import { UserStatus } from '@/types';
 
 const initialState = {
   currentUser: null,
@@ -23,6 +24,16 @@ export const gameSlice = createSlice({
   initialState,
   name: 'game',
   reducers: {
+    setStatusOfGame: (state, action: PayloadAction<{ status: UserStatus; user: IUser }>) => {
+      const updatedUser = { ...action.payload.user, status: action.payload.status };
+      state.currentUser = updatedUser;
+      state.user.list = state.user.list.map((item) => {
+        if (item.id === action.payload.user.id) {
+          return updatedUser;
+        }
+        return item;
+      });
+    },
     clearCurrentUser: (state) => {
       state.currentUser = initialState.currentUser;
     },
@@ -570,4 +581,5 @@ export const {
   minusTax,
   updateUserInfo,
   quitFromJob,
+  setStatusOfGame,
 } = gameSlice.actions;

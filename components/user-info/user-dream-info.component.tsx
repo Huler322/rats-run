@@ -9,7 +9,7 @@ import { Text, View } from 'react-native';
 export const UserDreamInfoComponent: FC<IProps> = ({ currentUser }) => {
   return (
     <>
-      <View style={tw`bg-gray-800 rounded-lg overflow-hidden mb-40`}>
+      <View style={tw`bg-gray-800 rounded-lg overflow-hidden`}>
         <RowComponent styles={'bg-gray-700 px-4 py-2 border-b border-gray-600'}>
           <Text style={tw`text-center text-lg font-medium text-white`}>{currentUser.name}</Text>
         </RowComponent>

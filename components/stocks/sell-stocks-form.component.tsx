@@ -10,6 +10,7 @@ import { Controller } from 'react-hook-form';
 import { Alert, View, Text } from 'react-native';
 import { useAppDispatch } from '@/store';
 import { sellStocks } from '@/slices/game.slice';
+import Decimal from 'decimal.js';
 
 export const SellStocksFormComponent: FC<IProps> = ({ stock }) => {
   const dispatch = useAppDispatch();
@@ -20,6 +21,7 @@ export const SellStocksFormComponent: FC<IProps> = ({ stock }) => {
     getValues,
     setValue,
     // reset,
+    watch,
   } = useSellStocks();
 
   useEffect(() => {
@@ -41,6 +43,12 @@ export const SellStocksFormComponent: FC<IProps> = ({ stock }) => {
       },
     ]);
   };
+
+  const { price, count } = watch();
+
+  const totalCost = new Decimal(price?.length ? price : 0)
+    .mul(new Decimal(count?.length ? count : 0))
+    .toString();
 
   return (
     <View style={tw`mb-12`}>
@@ -83,6 +91,10 @@ export const SellStocksFormComponent: FC<IProps> = ({ stock }) => {
           />
         </View>
       </RowComponent>
+      <RowComponent styles={'mb-4 text-center w-full'}>
+        <Text style={tw`text-center w-full`}>It will cost {totalCost}$</Text>
+      </RowComponent>
+
       <ButtonComponent title="Sell" onPress={handleSubmit(onSellStocks)} styles="bg-orange-500" />
     </View>
   );

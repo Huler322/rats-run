@@ -8,6 +8,7 @@ import { SellStocksFormComponent } from '@/components/stocks/sell-stocks-form.co
 import { TypeNavigation } from '@/types';
 import { RowComponent } from '@/components/UI/row.component';
 import { GetDividendsFromStock } from '@/components/stocks/get-dividends-from-stocks-form.component';
+import { ContainerScrollComponent } from '@/components/templates/container-scroll.component';
 
 const StockItemModal = () => {
   const { id } = useLocalSearchParams();
@@ -20,9 +21,11 @@ const StockItemModal = () => {
 
   const currentStock = currentStockList.find((stock) => stock.id === id);
 
+  if (!currentStock) return <></>;
+
   return (
-    <ContainerComponent styles={'bg-white'}>
-      <View style={tw`items-center justify-center h-full w-full`}>
+    <ContainerScrollComponent styles={'bg-white'}>
+      <View style={tw`items-center justify-center h-full w-full py-10`}>
         <View
           style={tw`mb-12 px-3 bg-gray-800 rounded-lg overflow-hidden pt-3 border-b border-gray-600`}
         >
@@ -43,7 +46,7 @@ const StockItemModal = () => {
 
         <GetDividendsFromStock stock={currentStock} />
       </View>
-    </ContainerComponent>
+    </ContainerScrollComponent>
   );
 };
 

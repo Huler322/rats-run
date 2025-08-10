@@ -33,8 +33,8 @@ export const BuySmallBusinessFormComponent: FC<IProps> = ({ list }) => {
     const id = generateNonce();
     if (list.length === 1 && !isUserAlreadyQuiteFromJob) {
       Alert.alert(
-        'If you want to grow your small business, you need to quit your job.',
-        'Do you want to quit your job and expand your business?',
+        'If you want to buy a second small business, you need to quit your job.',
+        'Do you want to quit your job and add your second business?',
         [
           {
             style: 'cancel',

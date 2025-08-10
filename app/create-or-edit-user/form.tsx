@@ -8,11 +8,15 @@ import { setUserInList } from '@/slices/game.slice';
 import { useAppDispatch } from '@/store';
 import { IUser } from '@/store/types';
 import { TypeNavigation, UserStatus } from '@/types';
-import { useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Controller } from 'react-hook-form';
 import { View, Text } from 'react-native';
 
 const Form = () => {
+  const { id } = useLocalSearchParams();
+
+  console.log('user Id', id);
+
   const navigation = useRouter();
 
   const dispatch = useAppDispatch();

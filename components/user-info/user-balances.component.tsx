@@ -19,6 +19,14 @@ export const UserBalancesComponent = () => {
   const totalIncome = getTotalSalary(currentUser, poorCircle, richCircle);
   const totalSalary = new Decimal(totalIncome).minus(totalSpending).toString();
 
+  const isShowButtonQuitFromJob =
+    currentUser.profession.length && new Decimal(currentUser.salary.salary).greaterThan(0);
+
+  const isShowButtonGetNewJob =
+    !currentUser.profession.length && new Decimal(currentUser.salary.salary).equals(0);
+
+  const quitFromJob = () => {};
+
   return (
     <>
       <RowComponent styles="mb-1 p-2 rounded-md bg-gray-200">
@@ -55,6 +63,25 @@ export const UserBalancesComponent = () => {
           title="Minus"
           onPress={() => navigation.navigate(TypeNavigation.MINUS_CAPITAL_MODAL)}
         />
+      </RowComponent>
+
+      <RowComponent styles="mb-2">
+        {isShowButtonQuitFromJob ? (
+          <ButtonComponent styles="w-[48%]" title="Quit from job" onPress={quitFromJob} />
+        ) : null}
+
+        {isShowButtonGetNewJob ? (
+          <ButtonComponent
+            styles="w-[48%]"
+            title="Get a new job"
+            onPress={() =>
+              navigation.push({
+                pathname: TypeNavigation.CREATE_OR_EDIT_USER,
+                params: { id: currentUser.id },
+              })
+            }
+          />
+        ) : null}
       </RowComponent>
     </>
   );

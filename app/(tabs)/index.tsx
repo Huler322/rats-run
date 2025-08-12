@@ -7,12 +7,9 @@ import { UserBalancesComponent } from '@/components/user-info/user-balances.comp
 import { ButtonComponent } from '@/components/buttons/button.component';
 import { Alert } from 'react-native';
 import { setStatusOfGame } from '@/slices/game.slice';
-import { TypeNavigation, UserStatus } from '@/types';
-import { useRouter } from 'expo-router';
+import { UserStatus } from '@/types';
 
 export default function HomeScreen() {
-  const navigation = useRouter();
-
   const dispatch = useAppDispatch();
 
   const { currentUser } = useAppSelector(({ game }) => game);

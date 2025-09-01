@@ -18,7 +18,7 @@ import { useAppDispatch } from '@/store';
 import { IUser } from '@/store/types';
 import { AntDesign, Entypo, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import Decimal from 'decimal.js';
-import { Text, View } from 'react-native';
+import { Alert, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
 
 export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
@@ -52,11 +52,29 @@ export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
   };
 
   const onCloseCarCredit = () => {
-    dispatch(closeCreditCar(currentUser));
+    Alert.alert('Are you sure want to close Car credit?', '', [
+      {
+        style: 'cancel',
+        text: 'No',
+      },
+      {
+        onPress: () => dispatch(closeCreditCar(currentUser)),
+        text: 'Yes',
+      },
+    ]);
   };
 
   const onCloseApartmentCredit = () => {
-    dispatch(closeCreditApartment(currentUser));
+    Alert.alert('Are you sure want to close Apartment credit?', '', [
+      {
+        style: 'cancel',
+        text: 'No',
+      },
+      {
+        onPress: () => dispatch(closeCreditApartment(currentUser)),
+        text: 'Yes',
+      },
+    ]);
   };
 
   const onSetGrandmotherValue = (value: string) => {

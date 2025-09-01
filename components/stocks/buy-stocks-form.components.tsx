@@ -23,13 +23,15 @@ export const BuyStocksFormComponents: FC<IProps> = ({ currentUser }) => {
     getValues,
     reset,
     watch,
-  } = useBuyStocks();
+  } = useBuyStocks(currentUser);
 
   const { price, count } = watch();
 
-  const totalCost = new Decimal(price?.length ? price : 0)
-    .mul(new Decimal(count?.length ? count : 0))
-    .toString();
+  const totalCost = new Decimal(price?.length ? price : 0).mul(
+    new Decimal(count?.length ? count : 0),
+  );
+
+  const formattedTotal = totalCost.toString();
 
   const onBuyStocks = () => {
     const values = getValues();
@@ -99,7 +101,7 @@ export const BuyStocksFormComponents: FC<IProps> = ({ currentUser }) => {
       </RowComponent>
 
       <RowComponent styles={'mb-4 text-center w-full'}>
-        <Text style={tw`text-center w-full`}>It will cost {totalCost}$</Text>
+        <Text style={tw`text-center w-full`}>It will cost {formattedTotal}$</Text>
       </RowComponent>
 
       <ButtonComponent onPress={handleSubmit(onBuyStocks)} title={'Buy Stock'} />

@@ -124,6 +124,16 @@ export const gameSlice = createSlice({
         return item;
       });
     },
+    removeStockFromList: (state, action: PayloadAction<{ stock: IStockState; user: IUser }>) => {
+      state.stock = {
+        ...state.stock,
+        [action.payload.user.id]: {
+          list: state.stock[action.payload.user.id].list.filter(
+            (item) => item.id !== action.payload.stock.id,
+          ),
+        },
+      };
+    },
     minusInCapital: (state, action: PayloadAction<{ amount: string; user: IUser }>) => {
       const currentCapital = new Decimal(action.payload.user.currentCapital)
         .minus(action.payload.amount)
@@ -582,4 +592,5 @@ export const {
   updateUserInfo,
   quitFromJob,
   setStatusOfGame,
+  removeStockFromList,
 } = gameSlice.actions;

@@ -9,9 +9,14 @@ import { TypeNavigation } from '@/types';
 import { RowComponent } from '@/components/UI/row.component';
 import { GetDividendsFromStock } from '@/components/stocks/get-dividends-from-stocks-form.component';
 import { ContainerScrollComponent } from '@/components/templates/container-scroll.component';
+import { plusInCapital, removeStockFromList } from '@/slices/game.slice';
 
 const StockItemModal = () => {
+  const navigation = useRouter();
+
   const { id } = useLocalSearchParams();
+
+  const dispatch = useAppDispatch();
 
   const { currentUser, stock } = useAppSelector(({ game }) => game);
 
@@ -20,6 +25,23 @@ const StockItemModal = () => {
   const currentStockList = stock[currentUser.id].list;
 
   const currentStock = currentStockList.find((stock) => stock.id === id);
+
+  const onRemove = () => {
+    if (!currentStock) return;
+    Alert.alert('Are you sure want to remove this stock?', '', [
+      {
+        style: 'cancel',
+        text: 'Cancel',
+      },
+      {
+        onPress: () => {
+          dispatch(removeStockFromList({ user: currentUser, stock: currentStock }));
+          navigation.back();
+        },
+        text: 'Remove',
+      },
+    ]);
+  };
 
   if (!currentStock) return <></>;
 
@@ -45,6 +67,8 @@ const StockItemModal = () => {
         <SellStocksFormComponent stock={currentStock} />
 
         <GetDividendsFromStock stock={currentStock} />
+
+        <ButtonComponent title="Remove" onPress={onRemove} styles="bg-red-500 w-full mt-10" />
       </View>
     </ContainerScrollComponent>
   );

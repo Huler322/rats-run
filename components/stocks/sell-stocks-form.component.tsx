@@ -26,7 +26,7 @@ export const SellStocksFormComponent: FC<IProps> = ({ stock }) => {
     setValue,
     // reset,
     watch,
-  } = useSellStocks();
+  } = useSellStocks(stock);
 
   useEffect(() => {
     setValue('price', stock.price);
@@ -57,7 +57,7 @@ export const SellStocksFormComponent: FC<IProps> = ({ stock }) => {
     .toString();
 
   return (
-    <View style={tw`mb-12`}>
+    <View style={tw`mb-6`}>
       <Text style={tw`text-center px-4 mb-2 text-base`}>
         You can sell your all stocks or part of stocks
       </Text>
@@ -71,6 +71,7 @@ export const SellStocksFormComponent: FC<IProps> = ({ stock }) => {
                 value={value}
                 onChange={onChange}
                 placeholder={'250'}
+                withMessage={false}
                 error={errors.count}
                 keyboardType={'number-pad'}
               />

@@ -1,15 +1,14 @@
-import { View, Text, Alert, TouchableOpacity } from 'react-native';
+import { View, Text, Alert } from 'react-native';
 import tw from '@/lib/tailwind';
 import { ButtonComponent } from '@/components/buttons/button.component';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { ContainerComponent } from '@/components/templates/container.component';
 import { SellStocksFormComponent } from '@/components/stocks/sell-stocks-form.component';
-import { TypeNavigation } from '@/types';
 import { RowComponent } from '@/components/UI/row.component';
 import { GetDividendsFromStock } from '@/components/stocks/get-dividends-from-stocks-form.component';
 import { ContainerScrollComponent } from '@/components/templates/container-scroll.component';
-import { plusInCapital, removeStockFromList } from '@/slices/game.slice';
+import { removeStockFromList } from '@/slices/game.slice';
+import { IncreaseStocksFormComponent } from '@/components/stocks/Increase-stocks-form.component';
 
 const StockItemModal = () => {
   const navigation = useRouter();
@@ -67,6 +66,8 @@ const StockItemModal = () => {
         <SellStocksFormComponent stock={currentStock} />
 
         <GetDividendsFromStock stock={currentStock} />
+
+        <IncreaseStocksFormComponent stock={currentStock} />
 
         <ButtonComponent title="Remove" onPress={onRemove} styles="bg-red-500 w-full mt-10" />
       </View>

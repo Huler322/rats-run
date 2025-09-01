@@ -300,6 +300,23 @@ export const gameSlice = createSlice({
         },
       };
     },
+    increaseStock: (state, action: PayloadAction<{ user: IUser; stock: IStockState }>) => {
+      if (state.stock[action.payload.user.id]?.list?.length) {
+        const updatedStockList = state.stock[action.payload.user.id].list.map((item) => {
+          if (item.id === action.payload.stock.id) {
+            return action.payload.stock;
+          }
+          return item;
+        });
+        state.stock = {
+          ...state.stock,
+          [action.payload.user.id]: {
+            list: updatedStockList,
+          },
+        };
+        return;
+      }
+    },
     setSmallBusinessList: (
       state,
       action: PayloadAction<{ id: string; business: IBusinessState }>,
@@ -593,4 +610,5 @@ export const {
   quitFromJob,
   setStatusOfGame,
   removeStockFromList,
+  increaseStock,
 } = gameSlice.actions;

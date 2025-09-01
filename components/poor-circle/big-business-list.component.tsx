@@ -31,7 +31,7 @@ export const BigBusinessListComponent: FC<IProps> = ({ list }) => {
   return (
     <View>
       <Text style={tw`py-2 border-t border-b border-orange-500 mb-2 text-lg font-bold text-center`}>
-        Big Businesses
+        Big Businesses - {list.length}
       </Text>
       {list.map((item, key) => (
         <RowComponent

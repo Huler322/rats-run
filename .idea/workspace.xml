@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="df448400-5184-4a49-988c-f3205425981c" name="Changes" comment="Merge remote-tracking branch 'origin/dev2'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/poor-circle/big-business-list.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/poor-circle/big-business-list.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/poor-circle/small-business-list.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/poor-circle/small-business-list.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/rich-circle/rich-business-list.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/rich-circle/rich-business-list.component.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/stocks/buy-stocks-form.components.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/stocks/buy-stocks-form.components.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hooks/form/use-buy-stocks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/form/use-buy-stocks.ts" afterDir="false" />
     </list>
@@ -105,7 +108,7 @@
       <workItem from="1754823692699" duration="574000" />
       <workItem from="1756195240986" duration="1339000" />
       <workItem from="1756478120493" duration="1211000" />
-      <workItem from="1756721800663" duration="1163000" />
+      <workItem from="1756721800663" duration="1689000" />
     </task>
     <servers />
   </component>

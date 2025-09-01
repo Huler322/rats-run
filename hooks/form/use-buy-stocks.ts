@@ -40,6 +40,10 @@ export const useBuyStocks = (currentUser: IUser) => {
     );
 
     if (totalCost.gt(new Decimal(currentUser?.currentCapital ? currentUser?.currentCapital : 0))) {
+      errors.name = {
+        message: 'Not enough money',
+        type: 'validate',
+      };
       errors.price = {
         message: 'Not enough money',
         type: 'validate',

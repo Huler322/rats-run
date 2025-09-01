@@ -52,7 +52,7 @@ export const BuyStocksFormComponents: FC<IProps> = ({ currentUser }) => {
                 onChange={onChange}
                 placeholder={'Stock name'}
                 error={errors.name}
-                withMessage={false}
+                withMessage={true}
                 label={'Stock name'}
               />
             )}

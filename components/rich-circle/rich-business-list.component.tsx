@@ -30,6 +30,9 @@ export const RichBusinessListComponent: FC<IProps> = ({ list }) => {
 
   return (
     <View style={tw`pb-40`}>
+      <Text style={tw`py-2 border-t border-b border-orange-500 mb-2 text-lg font-bold text-center`}>
+        Businesses list - {list.length}
+      </Text>
       {list.map((item, key) => (
         <View
           style={tw`bg-gray-800 rounded-lg overflow-hidden py-2 border-b border-gray-600 mb-2 px-3`}

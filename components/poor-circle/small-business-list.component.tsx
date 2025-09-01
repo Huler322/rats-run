@@ -14,7 +14,7 @@ export const SmallBusinessListComponent: FC<IProps> = ({ list }) => {
   return (
     <View>
       <Text style={tw`py-2 border-t border-b border-orange-500 mb-2 text-lg font-bold text-center`}>
-        Small Businesses
+        Small Businesses - {list.length}
       </Text>
       {list.map((item, key) => (
         <TouchableOpacity

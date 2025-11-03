@@ -5,12 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df448400-5184-4a49-988c-f3205425981c" name="Changes" comment="Merge remote-tracking branch 'origin/dev2'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <change afterPath="$PROJECT_DIR$/components/stocks/Increase-stocks-form.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(tabs)/assets.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/add-asset-modal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/asset-item-modal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/asset/asset-item.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/asset/asset-list.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/asset/sell-asset-form.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/buttons/radio-button.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hooks/form/use-buy-asset.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hooks/use-sell-asset.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.expo/types/router.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.expo/types/router.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/stock-item-modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/stock-item-modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/stocks/sell-stocks-form.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/stocks/sell-stocks-form.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/use-sell-stocks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/use-sell-stocks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/create-or-edit-user/form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/create-or-edit-user/form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/inputs/input.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/inputs/input.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/user-info/user-balances.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/user-info/user-balances.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/user-info/user-spending.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/user-info/user-spending.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/slices/game.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/slices/game.slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +57,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/anatoliy/Desktop/work/self/rats-run/components/stocks",
+    "last_opened_file_path": "/Users/anatoliy/Desktop/work/self/cashflow-helper/hooks",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -47,20 +66,20 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "npm.start.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "/Users/anatoliy/Desktop/work/self/rats-run/node_modules/prettier",
+    "prettierjs.PrettierConfiguration.Package": "/Users/anatoliy/Desktop/work/self/cashflow-helper/node_modules/prettier",
     "settings.editor.selected.configurable": "settings.javascript.prettier",
     "to.speed.mode.migration.done": "true",
-    "ts.external.directory.path": "/Users/anatoliy/Desktop/work/self/rats-run/node_modules/typescript/lib",
+    "ts.external.directory.path": "/Users/anatoliy/Desktop/work/self/cashflow-helper/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/components/stocks" />
-      <recent name="$PROJECT_DIR$/hooks/form" />
       <recent name="$PROJECT_DIR$/hooks" />
-      <recent name="$PROJECT_DIR$/components/templates" />
-      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/components/asset" />
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/hooks/form" />
+      <recent name="$PROJECT_DIR$/app/(tabs)" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/hooks/form" />
@@ -108,7 +127,10 @@
       <workItem from="1754823692699" duration="574000" />
       <workItem from="1756195240986" duration="1339000" />
       <workItem from="1756478120493" duration="1211000" />
-      <workItem from="1756721800663" duration="6824000" />
+      <workItem from="1756721800663" duration="9133000" />
+      <workItem from="1761651029662" duration="280000" />
+      <workItem from="1761652439736" duration="31383000" />
+      <workItem from="1761925607099" duration="5975000" />
     </task>
     <servers />
   </component>

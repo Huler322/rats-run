@@ -1,5 +1,5 @@
 import { RowComponent } from '@/components/UI/row.component';
-import { Alert, Text } from 'react-native';
+import { Alert, Text, TouchableOpacity } from 'react-native';
 import tw from '@/lib/tailwind';
 import { ButtonComponent } from '@/components/buttons/button.component';
 import { TypeNavigation } from '@/types';
@@ -7,7 +7,7 @@ import { useRouter } from 'expo-router';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { getTotalSalary, getTotalSpending } from '@/helpers/balance-helper';
 import Decimal from 'decimal.js';
-import { deleteBigBusinessInList, quitFromJob } from '@/slices/game.slice';
+import { getSalary, quitFromJob } from '@/slices/game.slice';
 
 export const UserBalancesComponent = () => {
   const dispatch = useAppDispatch();
@@ -47,12 +47,31 @@ export const UserBalancesComponent = () => {
     ]);
   };
 
+  const setSalary = () => {
+    Alert.alert('Are you sure want to get salary?', '', [
+      {
+        style: 'cancel',
+        text: 'No',
+      },
+      {
+        onPress: () => dispatch(getSalary()),
+        text: 'Get',
+      },
+    ]);
+  };
+
   return (
     <>
       <RowComponent styles="mb-1 p-2 rounded-md bg-gray-200">
         <Text style={tw`text-lg font-medium`}>Salary:</Text>
         <Text style={tw`text-lg text-orange-500 font-bold`}>$ {currentUser.salary.salary}</Text>
       </RowComponent>
+      <TouchableOpacity
+        onPress={setSalary}
+        style={tw`h-14 p-1 items-center justify-center bg-orange-500 z-50`}
+      >
+        <Text style={tw`text-center text-base text-gray-900 font-bold`}>Get Salary</Text>
+      </TouchableOpacity>
       <RowComponent styles="mb-1 p-2 rounded-md bg-gray-200">
         <Text style={tw`text-lg font-medium`}>Total income:</Text>
         <Text style={tw`text-lg text-orange-500 font-bold`}>$ {totalIncome}</Text>

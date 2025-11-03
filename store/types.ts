@@ -10,6 +10,7 @@ export interface IGameState {
     total: number;
   };
   stock: Record<string, { list: IStockState[] }>;
+  assets: Record<string, { list: IAsset[] }>;
   currentUser: IUser | null;
   poorCircle: {
     smallBusiness: Record<string, { list: IBusinessState[] }>;
@@ -50,6 +51,21 @@ export interface IUser {
   spending: ISpending;
   currentCapital: string;
   isDivorced: boolean;
+}
+
+export interface IAsset {
+  id: string;
+  type: AssetType;
+  price: string;
+  count?: number;
+  name?: string;
+}
+
+export enum AssetType {
+  APARTMENT = 'apartment',
+  HOUSE = 'house',
+  CAR = 'car',
+  LAND = 'land',
 }
 
 export interface IDream {

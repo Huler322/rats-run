@@ -19,7 +19,8 @@ import { IUser } from '@/store/types';
 import { AntDesign, Entypo, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import Decimal from 'decimal.js';
 import { Alert, Text, View } from 'react-native';
-import { useRouter } from 'expo-router';
+import { useRouter, router } from 'expo-router';
+import { TypeNavigation } from '@/types';
 
 export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
   const dispatch = useAppDispatch();
@@ -88,7 +89,15 @@ export const UserSpendingComponent: FC<IProps> = ({ currentUser }) => {
     <View style={tw`mb-4`}>
       <View style={tw`bg-gray-800 rounded-lg overflow-hidden mb-4`}>
         <RowComponent styles={`px-4 py-3 border-b border-gray-600`}>
-          <AntDesign name="arrowleft" size={24} color="white" onPress={() => navigation.back()} />
+          <AntDesign
+            name="arrowleft"
+            size={24}
+            color="white"
+            onPress={() => {
+              router.dismissAll();
+              router.replace('/');
+            }}
+          />
           <Text style={tw`text-center text-lg font-medium text-white`}>Spending</Text>
           <View />
         </RowComponent>

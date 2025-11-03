@@ -26,6 +26,14 @@ export default function RootLayout() {
                 headerShown: false,
               }}
             />
+
+            <Stack.Screen
+              name={TypeNavigation.ADD_ASSET_MODAL}
+              options={{
+                presentation: 'modal',
+                headerShown: false,
+              }}
+            />
             <Stack.Screen
               name={TypeNavigation.MINUS_CAPITAL_MODAL}
               options={{
@@ -43,6 +51,14 @@ export default function RootLayout() {
 
             <Stack.Screen
               name={TypeNavigation.STOCK_ITEM_MODAL}
+              options={{
+                presentation: 'modal',
+                headerShown: false,
+              }}
+            />
+
+            <Stack.Screen
+              name={TypeNavigation.ASSET_ITEM_MODAL}
               options={{
                 presentation: 'modal',
                 headerShown: false,

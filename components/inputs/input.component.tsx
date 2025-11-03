@@ -26,7 +26,7 @@ export const InputComponent: FC<IProps> = ({
       ) : null}
       <TextInput
         autoCapitalize="none"
-        style={tw`placeholder:text-red-400 rounded-md px-4 py-3 border ${focusStyle} ${
+        style={tw`placeholder:text-red-400 rounded-md px-4 py-5 border ${focusStyle} ${
           styles ?? ''
         } text-base text-black leading-5`}
         onChangeText={onChange}

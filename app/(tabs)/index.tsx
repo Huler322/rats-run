@@ -5,9 +5,10 @@ import { UserSpendingComponent } from '@/components/user-info/user-spending.comp
 import { useAppDispatch, useAppSelector } from '@/store';
 import { UserBalancesComponent } from '@/components/user-info/user-balances.component';
 import { ButtonComponent } from '@/components/buttons/button.component';
-import { Alert } from 'react-native';
-import { setStatusOfGame } from '@/slices/game.slice';
+import { Alert, TouchableOpacity, Text } from 'react-native';
+import { getSalary, setStatusOfGame } from '@/slices/game.slice';
 import { UserStatus } from '@/types';
+import tw from '@/lib/tailwind';
 
 export default function HomeScreen() {
   const dispatch = useAppDispatch();

@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "cashflow",
-    "slug": "cashflow",
+    "name": "cashflow-helper",
+    "slug": "cashflow-helper",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "cashflow",
+    "scheme": "cashflow-helper",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {

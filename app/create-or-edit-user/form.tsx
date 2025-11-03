@@ -107,6 +107,7 @@ const Form = () => {
       },
       status: UserStatus.created,
       isDivorced: false,
+      assets: [],
     };
     dispatch(setUserInList(createdUser));
     reset();

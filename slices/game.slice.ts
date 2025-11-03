@@ -1,5 +1,12 @@
 import { getTotalSalary, getTotalSpending } from '@/helpers/balance-helper';
-import { IBusinessState, IRichBusinessState, IStockState, IStore, IUser } from '@/store/types';
+import {
+  IAsset,
+  IBusinessState,
+  IRichBusinessState,
+  IStockState,
+  IStore,
+  IUser,
+} from '@/store/types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Decimal from 'decimal.js';
 import { UserStatus } from '@/types';
@@ -11,6 +18,7 @@ const initialState = {
     list: [],
     total: 1,
   },
+  assets: {},
   poorCircle: {
     smallBusiness: {},
     bigBusiness: {},
@@ -109,16 +117,34 @@ export const gameSlice = createSlice({
       state.user.total = list.length;
     },
     plusInCapital: (state, action: PayloadAction<{ amount: string; user: IUser }>) => {
+      if (!state.currentUser) return;
       const currentCapital = new Decimal(action.payload.user.currentCapital)
         .plus(action.payload.amount)
         .toString();
       const updatedUser = {
-        ...action.payload.user,
+        ...state.currentUser,
         currentCapital,
       };
       state.currentUser = updatedUser;
       state.user.list = state.user.list.map((item) => {
         if (item.id === action.payload.user.id) {
+          return updatedUser;
+        }
+        return item;
+      });
+    },
+    sellAsset: (state, action: PayloadAction<{ asset: IAsset; totalCost: string }>) => {
+      if (!state.currentUser) return;
+      const currentCapital = new Decimal(state.currentUser.currentCapital)
+        .plus(new Decimal(action?.payload?.totalCost ?? 0))
+        .toString();
+      const updatedUser = {
+        ...state.currentUser,
+        currentCapital,
+      };
+      state.currentUser = updatedUser;
+      state.user.list = state.user.list.map((item) => {
+        if (item.id === state.currentUser?.id) {
           return updatedUser;
         }
         return item;
@@ -134,12 +160,41 @@ export const gameSlice = createSlice({
         },
       };
     },
+    removeAssetFromList: (state, action: PayloadAction<{ asset: IAsset; user: IUser }>) => {
+      state.assets = {
+        ...state.assets,
+        [action.payload.user.id]: {
+          list: state.assets[action.payload.user.id].list.filter(
+            (item) => item.id !== action.payload.asset.id,
+          ),
+        },
+      };
+    },
+    addAsset: (state, action: PayloadAction<{ asset: IAsset; user: IUser }>) => {
+      if (!state.currentUser) return;
+      if (state.assets[action.payload.user.id]?.list?.length) {
+        state.assets = {
+          ...state.assets,
+          [action.payload.user.id]: {
+            list: [...state.assets[action.payload.user.id].list, action.payload.asset],
+          },
+        };
+        return;
+      }
+      state.assets = {
+        ...state.assets,
+        [action.payload.user.id]: {
+          list: [action.payload.asset],
+        },
+      };
+    },
     minusInCapital: (state, action: PayloadAction<{ amount: string; user: IUser }>) => {
+      if (!state.currentUser) return;
       const currentCapital = new Decimal(action.payload.user.currentCapital)
         .minus(action.payload.amount)
         .toString();
       const updatedUser = {
-        ...action.payload.user,
+        ...state.currentUser,
         currentCapital,
       };
       state.currentUser = updatedUser;
@@ -587,6 +642,7 @@ export const {
   clearCurrentUser,
   deleteUserInList,
   sellStocks,
+  sellAsset,
   closeCreditApartment,
   minusChild,
   closeCreditCar,
@@ -610,5 +666,7 @@ export const {
   quitFromJob,
   setStatusOfGame,
   removeStockFromList,
+  removeAssetFromList,
   increaseStock,
+  addAsset,
 } = gameSlice.actions;

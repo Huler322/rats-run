@@ -5,31 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df448400-5184-4a49-988c-f3205425981c" name="Changes" comment="Merge remote-tracking branch 'origin/dev2'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <change afterPath="$PROJECT_DIR$/app/(tabs)/assets.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/add-asset-modal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/asset-item-modal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/asset/asset-item.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/asset/asset-list.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/asset/sell-asset-form.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/buttons/radio-button.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/form/use-buy-asset.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/use-sell-asset.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.expo/types/router.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.expo/types/router.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eas.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/create-or-edit-user/form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/create-or-edit-user/form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/inputs/input.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/inputs/input.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/user-info/user-balances.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/user-info/user-balances.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/user-info/user-spending.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/user-info/user-spending.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/icon.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slices/game.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/slices/game.slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +46,9 @@
     "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "npm.build-preview-android.executor": "Run",
+    "npm.build-prod-ios.executor": "Run",
+    "npm.build.executor": "Run",
     "npm.start.executor": "Run",
     "prettierjs.PrettierConfiguration.Package": "/Users/anatoliy/Desktop/work/self/cashflow-helper/node_modules/prettier",
     "settings.editor.selected.configurable": "settings.javascript.prettier",
@@ -82,10 +66,42 @@
       <recent name="$PROJECT_DIR$/app/(tabs)" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets" />
+      <recent name="$PROJECT_DIR$/assets/images" />
       <recent name="$PROJECT_DIR$/hooks/form" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.build-prod-ios">
+    <configuration name="build-preview-android" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build-preview-android" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build-prod-ios" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build-prod-ios" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -98,6 +114,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.build-prod-ios" />
+        <item itemvalue="npm.build-preview-android" />
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
